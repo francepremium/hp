@@ -1,0 +1,31 @@
+{% load i18n compress %}
+<html>
+<head>
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if DEBUG %}
+        <link href="{{ STATIC_URL }}bootstrap/less/bootstrap.less" charset="utf-8" type="text/less" rel="stylesheet">
+        <script type="text/javascript" src="http://lesscss.googlecode.com/files/less-1.3.0.min.js" ></script>
+    {% else %}
+        {% compress css %}
+        <link href="{{ STATIC_URL }}bootstrap/less/bootstrap.less" charset="utf-8" type="text/less" rel="stylesheet">
+        {% endcompress %}
+    {% endif %}
+</head>
+<body>
+    <h1 id="print_name">{{ SITE_NAME }}</h1>
+
+    {% include '_navbar.html' %}
+
+    {% block content %}
+    {% endblock %}
+	<footer class="navbar-fixed-bottom">
+        <div>
+             {% trans '© 2006-2012 Hellomona Inc. Software Solutions by Hellomona- Access & manage your collections  ™' %}
+        </div>
+    </footer>
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+</body>
+</html>
