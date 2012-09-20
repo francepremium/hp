@@ -2,9 +2,15 @@
 --extra-index-url=http://dist.pinaxproject.com/alpha/
 
 Django==1.4.1
+django-compressor
 pinax-theme-bootstrap==2.0.4
 pinax-theme-bootstrap-account==1.0b2
 django-user-accounts==1.0b3
 django-forms-bootstrap==2.0.3.post1
-metron==1.0
+django-crispy-forms
+-e git+https://github.com/jpic/zodb-relations.git#egg=relations
+-e git+https://github.com/jpic/zodb-admin.git#egg=admin
 pinax-utils==1.0b1.dev3
+django-debug-toolbar
+django-autocomplete-light
+-e git+git://github.com/gkuhn1/django-admin-templates-twitter-bootstrap.git#egg=admin-bootstrap

@@ -11,21 +11,25 @@
         <link href="{{ STATIC_URL }}bootstrap/less/bootstrap.less" charset="utf-8" type="text/less" rel="stylesheet">
         {% endcompress %}
     {% endif %}
+    
+    {% block extra_head %}{% endblock %}
 </head>
 <body>
-    <h1 id="print_name">{{ SITE_NAME }}</h1>
-
+   <!-- <h1 id="print_name">{{ SITE_NAME }}</h1>-->
+<div class="breadcrumb navbar-fixed-top">test</div>
     {% include '_navbar.html' %}
-
+<div class="container-fluid top-margin">
     {% block content %}
     {% endblock %}
-	<footer class="navbar-fixed-bottom">
-        <div>
-             {% trans '© 2006-2012 Hellomona Inc. Software Solutions by Hellomona- Access & manage your collections  ™' %}
-        </div>
-    </footer>
+</div>
+	{% include '_footer.html' %}
+	
 
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}bootstrap/docs/assets/js/bootstrap.min.js"></script>
+    
+    {% block extra_body %}{% endblock %}
+
 </body>
 </html>

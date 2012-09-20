@@ -46,16 +46,17 @@
   display: none; // none by default, but block on "open" of the menu
   float: left;
   min-width: 160px;
-  padding: 5px 0;
-  margin: 2px 0 0; // override default ul
+  padding: 0 0 3px 0;
+  margin: 1px 0 0; // override default ul
   list-style: none;
   background-color: @dropdownBackground;
   border: 1px solid #ccc; // Fallback for IE7-8
   border: 1px solid @dropdownBorder;
+   border-top:0;
   *border-right-width: 2px;
   *border-bottom-width: 2px;
-  .border-radius(6px);
-  .box-shadow(0 5px 10px rgba(0,0,0,.2));
+  .border-radius(0px 0px 3px 3px);
+  .box-shadow(0 3px 5px 0px #e0edf5);
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
@@ -80,6 +81,7 @@
     line-height: @baseLineHeight;
     color: @dropdownLinkColor;
     white-space: nowrap;
+	.text-shadow();
   }
 }
 
@@ -91,7 +93,7 @@
   text-decoration: none;
   color: @dropdownLinkColorHover;
   background-color: @dropdownLinkBackgroundHover;
-  #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
+  
 }
 
 // Active state

@@ -20,10 +20,11 @@
 // Hellomona Blue
 // -------------------------
 @lightblue:				#f8fafb;
+@lightblue2:			#e0edf5;
 @hmblue1:				#6b9bcb;
 @hmblue2:				#4170a1;
 @hmblue3:				#0f345b;
-
+@hmblue4:				#eff4f7;
 // Accent colors
 // -------------------------
 @blue:                  #049cdb;
@@ -55,6 +56,7 @@
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
 @baseFontSize:          11px;
+@alterFontSize:			13px;
 @baseFontFamily:        @sansFontFamily;
 @baseLineHeight:        18px;
 @altFontFamily:         @serifFontFamily;
@@ -75,9 +77,10 @@
 
 // Buttons
 // -------------------------
-@btnBackground:                     @white;
-@btnBackgroundHighlight:            darken(@white, 10%);
-@btnBorder:                         #bbb;
+
+@btnBackground:                     #f4f7f9;
+@btnBackgroundHighlight:            #ebf1f5;
+@btnBorder:                         #e3ebf0 #c7d7e1 #ccdce5 #c7d7e1;
 
 @btnPrimaryBackground:              @linkColor;
 @btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 20%);
@@ -109,16 +112,16 @@
 // Dropdowns
 // -------------------------
 @dropdownBackground:            @white;
-@dropdownBorder:                rgba(0,0,0,.2);
-@dropdownDividerTop:            #e5e5e5;
+@dropdownBorder:                @lightblue2;
+@dropdownDividerTop:            @lightblue2;
 @dropdownDividerBottom:         @white;
 
-@dropdownLinkColor:             @grayDark;
-@dropdownLinkColorHover:        @white;
+@dropdownLinkColor:             @hmblue2;
+@dropdownLinkColorHover:        @hmblue2;
 @dropdownLinkColorActive:       @dropdownLinkColor;
 
-@dropdownLinkBackgroundActive:  @linkColor;
-@dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
+@dropdownLinkBackgroundActive:  @hmblue4;
+@dropdownLinkBackgroundHover:   @hmblue4;
 
 
 
@@ -129,10 +132,10 @@
 // -------------------------
 // Used for a bird's eye view of components dependent on the z-axis
 // Try to avoid customizing these :)
-@zindexDropdown:          1000;
+@zindexDropdown:          1040;
 @zindexPopover:           1010;
 @zindexTooltip:           1030;
-@zindexFixedNavbar:       1030;
+@zindexFixedNavbar:       1000;
 @zindexModalBackdrop:     1040;
 @zindexModal:             1050;
 
@@ -169,17 +172,18 @@
 
 @navbarHeight:                    50px;
 @navbarBackgroundHighlight:       #6c9ccc;
+@navbarBackgroundHighlight2:	  #163656;
 @navbarBackground:                #3f6f9f;
 @navbarBorder:                    darken(@navbarBackground, 12%);
 
 @navbarText:                      #777;
 @navbarLinkColor:                 #c8d8e0;
 @navbarLinkColorHover:            @white;
-@navbarLinkColorActive:           @gray;
+@navbarLinkColorActive:           @white;
 @navbarLinkBackgroundHover:       transparent;
 @navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
 
-@navbarBrandColor:                @navbarLinkColor;
+@navbarBrandColor:                @white;
 
 // Inverted navbar
 @navbarInverseBackground:                #111111;
@@ -237,7 +241,7 @@
 // Tooltips and popovers
 // -------------------------
 @tooltipColor:            #fff;
-@tooltipBackground:       #000;
+@tooltipBackground:       @hmblue1;
 @tooltipArrowWidth:       5px;
 @tooltipArrowColor:       @tooltipBackground;
 

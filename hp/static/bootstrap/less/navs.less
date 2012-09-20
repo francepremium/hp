@@ -72,7 +72,7 @@
 }
 // Dividers (basically an hr) within the dropdown
 .nav-list .divider {
-  .nav-divider();
+  .nav-divider();  
 }
 
 
@@ -195,10 +195,10 @@
 // ---------
 
 .nav-tabs .dropdown-menu {
-  .border-radius(0 0 6px 6px); // remove the top rounded corners here since there is a hard edge above the menu
+  .border-radius(0 0 3px 3px); // remove the top rounded corners here since there is a hard edge above the menu
 }
 .nav-pills .dropdown-menu {
-  .border-radius(6px); // make rounded corners match the pills
+  .border-radius(3px); // make rounded corners match the pills
 }
 
 // Default dropdown links
@@ -237,12 +237,13 @@
 
 // Open dropdowns
 // -------------------------
+
 .nav-tabs .open .dropdown-toggle,
 .nav-pills .open .dropdown-toggle,
 .nav > li.dropdown.open.active > a:hover {
   color: @white;
   background-color: @grayLight;
-  border-color: @grayLight;
+  border-color: @lightblue2;
 }
 .nav li.dropdown.open .caret,
 .nav li.dropdown.open.active .caret,

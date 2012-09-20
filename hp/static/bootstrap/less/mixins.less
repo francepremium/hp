@@ -255,7 +255,10 @@
      -moz-box-shadow: @props;
           box-shadow: @props;
 }
-
+.text-shadow(@horizontal-length: 0px, @vertical-length: 1px, @blur-size: 0px, @textshadowColor: @white){
+	text-shadow: @horizontal-length @vertical-length @blur-size @textshadowColor;
+    filter: dropshadow(color=@textshadowColor, offx=@horizontal-length, offy=@vertical-length);
+}
 // Transitions
 .transition(@transition) {
   -webkit-transition: @transition;
@@ -269,7 +272,13 @@
        -o-transition-delay: @transition-delay;
           transition-delay: @transition-delay;
 }
-
+.transition (@prop: all, @time: 1s, @ease: linear) {
+	-webkit-transition: @prop @time @ease;
+	-moz-transition: @prop @time @ease;
+	-o-transition: @prop @time @ease;
+	-ms-transition: @prop @time @ease;
+	transition: @prop @time @ease;
+	}
 // Transformations
 .rotate(@degrees) {
   -webkit-transform: rotate(@degrees);
@@ -477,7 +486,7 @@
 // Horizontal dividers
 // -------------------------
 // Dividers (basically an hr) within dropdowns and nav lists
-.nav-divider(@top: #e5e5e5, @bottom: @white) {
+.nav-divider(@top: #E0EDF5, @bottom: @white) {
   // IE7 needs a set width since we gave a height. Restricting just
   // to IE7 to keep the 1px left/right space in other browsers.
   // It is unclear where IE is getting the extra space that we need
