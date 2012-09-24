@@ -86,13 +86,15 @@
   .clearfix();
 }
 .nav-tabs > li,
-.nav-pills > li {
+.nav-pills > li, 
+.tab-list > li {
   float: left;
 }
 .nav-tabs > li > a,
-.nav-pills > li > a {
-  padding-right: 12px;
-  padding-left: 12px;
+.nav-pills > li > a
+.tab-list > li > a{
+  padding-right: 15px;
+  padding-left: 15px;
   margin-right: 2px;
   line-height: 14px; // keeps the overall height an even number
 }
@@ -101,35 +103,79 @@
 // ----
 
 // Give the tabs something to sit on
-.nav-tabs {
-  border-bottom: 1px solid #ddd;
+.nav-tabs, .tab-list {
+  border-bottom: 1px solid @lightblue2;
+  margin-bottom:0;
 }
 // Make the list-items overlay the bottom border
-.nav-tabs > li {
+.nav-tabs > li, .tab-list > li {
   margin-bottom: -1px;
 }
 // Actual tabs (as links)
-.nav-tabs > li > a {
+.nav-tabs > li > a, .tab-list > li > a {
   padding-top: 8px;
   padding-bottom: 8px;
   line-height: @baseLineHeight;
   border: 1px solid transparent;
   .border-radius(4px 4px 0 0);
+  color:@hmblue5;
+  .transition(all, 0.3s, ease-in-out);
   &:hover {
-    border-color: @grayLighter @grayLighter #ddd;
+    border-color:#f1f5f7 #f1f5f7 #e0edf5;
+	color:#2e83db;
+	background:#f1f5f7;
   }
 }
 // Active state, and it's :hover to override normal :hover
 .nav-tabs > .active > a,
-.nav-tabs > .active > a:hover {
-  color: @gray;
+.nav-tabs > .active > a:hover, 
+.tab-list > .active > a,
+.tab-list > .active > a:hover,  {
+  color: @hmblue2;
   background-color: @white;
-  border: 1px solid #ddd;
+  border: 1px solid #e0edf5;
   border-bottom-color: transparent;
   cursor: default;
 }
 
+// TABS style alter floating container
+// ----
 
+.floating_container{
+	.nav-tabs{
+		background: #f8f8f8;
+	}
+	.nav-tabs > li > a, .tab-list > li > a {
+  padding: 6px 5px;
+  line-height: @baseLineHeight;
+  border: 1px solid transparent;
+  .border-radius(4px 4px 0 0);
+  color:#adc7d7;
+  text-shadow: 0 1px 0 rgba(255,255,255,1);
+  .transition(all, 0.3s, ease-in-out);
+  &:hover {
+	color:#2e83db;
+	background:#f1f5f7;
+  }
+}
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover, 
+.tab-list > .active > a,
+.tab-list > .active > a:hover,  {
+  color: @hmblue2;
+  background-color: @white;
+  border: 1px solid #e0edf5;
+  border-bottom-color: transparent;
+  border-top-color: transparent;
+  cursor: default;
+}
+.tab-content > .active {
+  padding:0;
+  display: block;
+  background:@white;
+  border:0px solid @lightblue2;
+}
+}
 // PILLS
 // -----
 
@@ -289,7 +335,11 @@
 }
 .tab-content > .active,
 .pill-content > .active {
+  padding:20px 10px;
   display: block;
+  background:@white;
+  border:1px solid @lightblue2;
+  border-top:0;
 }
 
 

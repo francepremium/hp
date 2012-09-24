@@ -7,12 +7,12 @@
 // -------------------------
 
 .alert {
-  padding: 8px 35px 8px 14px;
+  padding: 10px 35px 10px 15px;
   margin-bottom: @baseLineHeight;
-  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  text-shadow: 0 1px 0 rgba(255,255,255,1);
   background-color: @warningBackground;
-  border: 1px solid @warningBorder;
-  .border-radius(4px);
+  border: 0px solid @warningBorder;
+  .border-radius(5px);
   color: @warningText;
 }
 .alert h4 {
@@ -36,10 +36,16 @@
   border-color: @successBorder;
   color: @successText;
 }
+.alert-success .close{
+  color: @successText;
+}
 .alert-danger,
 .alert-error {
   background-color: @errorBackground;
   border-color: @errorBorder;
+  color: @errorText;
+}
+.alert-error .close, .alert-danger .close{
   color: @errorText;
 }
 .alert-info {
@@ -47,7 +53,9 @@
   border-color: @infoBorder;
   color: @infoText;
 }
-
+.alert-info .close{
+  color: @infoText;
+}
 
 // Block alerts
 // -------------------------

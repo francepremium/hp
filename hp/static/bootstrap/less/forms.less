@@ -53,7 +53,7 @@ textarea {
 
 // Identify controls by their labels
 label {
-  display: block;
+  display: inline-block;
   margin-bottom: 5px;
 }
 
@@ -79,9 +79,10 @@ input[type="tel"],
 input[type="color"],
 .uneditable-input {
   display: inline-block;
-  height: @baseLineHeight;
+ 
   padding: 4px 6px;
   margin-bottom: 9px;
+  margin-right:10px;
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
   color: @gray;
@@ -93,7 +94,7 @@ input[type="color"],
 input,
 textarea,
 .uneditable-input {
-  width: 206px; // plus 12px padding and 2px border
+  width: 220px; // plus 12px padding and 2px border
 }
 // Reset height since textareas have rows
 textarea {
@@ -179,8 +180,56 @@ input[type="radio"]:focus,
 input[type="checkbox"]:focus {
   .tab-focus();
 }
+input[type=checkbox],input[type=radio]{
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	 -o-appearance:none;
+	 padding:0;
+	 margin:3px 0;
+	 *margin-top:0;
+	 background:@white;
+	 line-height:normal;
+	 border:1px solid #a6c3e0;
+	 outline:0;
+	 width:12px;
+	 height:12px;
+	 cursor:pointer;
+	 border-radius:1px;
+	 .transition(all, 0.4s, linear);
+}
+input[type = checkbox]:checked {
+    background-image: url('../img/coche.png');
+}
+input[type = checkbox]:hover {
+    border: 1px solid @hmblue2;
+}
+input[type = checkbox]:checked:hover {
+    background-color: #b6d2ee;
+}
+.switch input[type=checkbox] {
+  text-indent:-9999px;
+  display: inline-block;
+  width: 94px;
+  height: 18px;
+  border-radius:9px;
+ border:1px solid #efefef;
+ margin-right:20px;
+  background: #f7bebe url(../img/bullet-checkbox.png) no-repeat 1px 0px;
+  -webkit-transition: background-position 0.3s ease-in-out;
+  -moz-transition: background-position 0.3s ease-in-out;
 
+        -webkit-box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+        
+        box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+        
+}
 
+.switch input[type=checkbox]:checked  {
+	background-color:#cbeed5;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  background-position: 75px 0px;
+}
 // Uneditable inputs
 // -------------------------
 
@@ -602,7 +651,24 @@ legend + .control-group {
   margin-top: @baseLineHeight;
   -webkit-margin-top-collapse: separate;
 }
-
+.controls {
+    // Super jank IE7 fix to ensure the inputs in .input-append and input-prepend
+    // don't inherit the margin of the parent, in this case .controls
+    *display: inline-block;
+    *padding-left: 20px;
+    margin-left: @horizontalComponentOffset;
+    *margin-left: 0;
+    &:first-child {
+      *padding-left: @horizontalComponentOffset;
+    }
+  }
+.control-label {
+    float: left;
+	color:@graydark2;
+    width: @horizontalComponentOffset - 20;
+    padding-top: 5px;
+    text-align: right;
+  }
 // Horizontal-specific styles
 // --------------------------
 
@@ -623,10 +689,12 @@ legend + .control-group {
   .controls {
     // Super jank IE7 fix to ensure the inputs in .input-append and input-prepend
     // don't inherit the margin of the parent, in this case .controls
+	display: inline-block;
     *display: inline-block;
     *padding-left: 20px;
     margin-left: @horizontalComponentOffset;
     *margin-left: 0;
+	width:240px;
     &:first-child {
       *padding-left: @horizontalComponentOffset;
     }

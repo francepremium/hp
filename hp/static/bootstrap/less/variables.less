@@ -12,6 +12,7 @@
 @black:                 #000;
 @grayDarker:            #222;
 @grayDark:              #040404;
+@graydark2:				#383D41;
 @gray:                  #bfbfbf;
 @grayLight:             #999;
 @grayLighter:           #eee;
@@ -25,6 +26,8 @@
 @hmblue2:				#4170a1;
 @hmblue3:				#0f345b;
 @hmblue4:				#eff4f7;
+@hmblue5:				#6B9BCB;
+
 // Accent colors
 // -------------------------
 @blue:                  #049cdb;
@@ -55,8 +58,8 @@
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
-@baseFontSize:          11px;
-@alterFontSize:			13px;
+@baseFontSize:          13px;
+@alterFontSize:			11px;
 @baseFontFamily:        @sansFontFamily;
 @baseLineHeight:        18px;
 @altFontFamily:         @serifFontFamily;
@@ -71,9 +74,9 @@
 // Tables
 // -------------------------
 @tableBackground:                   transparent; // overall background-color
-@tableBackgroundAccent:             #f9f9f9; // for striping
+@tableBackgroundAccent:             #F3F8FA; // for striping
 @tableBackgroundHover:              #f5f5f5; // for hover
-@tableBorder:                       #ddd; // table and cell border
+@tableBorder:                       @lightblue2; // table and cell border
 
 // Buttons
 // -------------------------
@@ -104,7 +107,7 @@
 // Forms
 // -------------------------
 @inputBackground:               @white;
-@inputBorder:                   #ccc;
+@inputBorder:                   #97aec4;
 @inputBorderRadius:             3px;
 @inputDisabledBackground:       @grayLighter;
 @formActionsBackground:         #f5f5f5;
@@ -207,9 +210,9 @@
 
 // Pagination
 // -------------------------
-@paginationBackground:                #fff;
-@paginationBorder:                    #ddd;
-@paginationActiveBackground:          #f5f5f5;
+@paginationBackground:                transparent;
+@paginationBorder:                    transparent;
+@paginationActiveBackground:          @white;
 
 
 // Hero unit
@@ -225,18 +228,20 @@
 @warningBackground:       #fcf8e3;
 @warningBorder:           darken(spin(@warningBackground, -10), 3%);
 
-@errorText:               #b94a48;
-@errorBackground:         #f2dede;
+@errorText:               #b35d59;
+@errorBackground:         #f7e6e3;
 @errorBorder:             darken(spin(@errorBackground, -10), 3%);
 
-@successText:             #468847;
-@successBackground:       #dff0d8;
+@successText:             #7aae84;
+@successBackground:       #d1eed1;
 @successBorder:           darken(spin(@successBackground, -10), 5%);
 
-@infoText:                #3a87ad;
-@infoBackground:          #d9edf7;
+@infoText:                #f4b800;
+@infoBackground:          #fffbbf;
 @infoBorder:              darken(spin(@infoBackground, -10), 7%);
 
+@aboutText:                #6b9bcb;
+@aboutBackground:          #eff4f7;
 
 // Tooltips and popovers
 // -------------------------

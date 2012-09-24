@@ -10,7 +10,7 @@
 .btn {
   display: inline-block;
   .ie7-inline-block();
-  padding: 4px 15px;
+  padding: 5px 15px 4px 15px;
   margin-bottom: 0; // For input.btn
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
@@ -46,26 +46,128 @@
   // Active state
   &.active,
   &:active {
-    background-color: darken(@white, 10%);
-    background-color: darken(@white, 15%) e("\9");
-    background-image: none;
+   .buttonBackground(@hmblue2, #6a9aca, @gray, 0 1px 1px #235487);   
     outline: 0;
     .box-shadow(inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05));
   }
-
+  &.active{
+  	font-weight:bold;
+  }
   // Disabled state
   &.disabled,
   &[disabled] {
     cursor: default;
-    background-color: darken(@white, 10%);
-    background-image: none;
-    .opacity(65);
+	.opacity(65);
+    .buttonBackground(@grayLighter, #efefef, @gray, 0 1px 1px @white);    
     .box-shadow(none);
   }
 
 }
 
+border-color:
+#6b9bcb #4676a6 #3f5d7c #4676a6;
+color:
+#e0edf5;
+text-shadow:
+0px 1px 1px #235487;
+filter:
+dropshadow(color = #235487, offx = 0, offy = 1);
+background:
+#4170a1;
+background: -moz-linear-gradient(top,  #4170a1 0%, #6a9aca 100%);background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4170a1), color-stop(100%,#6a9aca));background: -webkit-linear-gradient(top,  #4170a1 0%,#6a9aca 100%);background: -o-linear-gradient(top,  #4170a1 0%,#6a9aca 100%);background: -ms-linear-gradient(top,  #4170a1 0%,#6a9aca 100%);background: linear-gradient(top,  #4170a1 0%,#6a9aca 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4170a1', endColorstr='#6a9aca',GradientType=0 );-webkit-box-shadow: inset 0px 1px 3px 0px #235487;-moz-box-shadow: inset 0px 1px 3px 0px #235487;box-shadow: inset 0px 1px 3px 0px #235487;
+// Button image en background: object toolbar
 
+.btn_img{
+	display: inline-block;
+	width:74px;
+	height:29px;
+	vertical-align: middle; 
+	border:0;
+	padding:0;
+	text-indent:-5000px;
+	margin-right:5px;
+	background-image:url('../img/sprite.png');
+	background-repeat:no-repeat;
+	background-clip: content-box;
+}
+.history-tb{
+	background-position: -450px 0px;
+	&:hover {
+		background-position: -450px -31px;		
+	}
+	&:active {
+		background-position: -450px -61px;
+	}
+}
+.edit-tb{
+	background-position: -225px 0px;
+	&:hover {
+		background-position: -225px -31px;		
+	}
+	&:active {
+		background-position: -225px -61px;
+	}
+}
+.print-tb{
+	background-position: -600px 0px;
+	&:hover {
+		background-position: -600px -31px;		
+	}
+	&:active {
+		background-position: -600px -61px;
+	}
+}
+.object-tools li a.addlink{background-position: -75px 0px;}
+.object-tools li a.addlink:hover {background-position: -75px -31px;}
+.object-tools li a.addlink:active {background-position: -75px -61px;}
+.object-tools li a.deletelink, .object-tools li a.value_delete_selected {background-position: -150px 0px;}
+.object-tools li a.deletelink:hover, .object-tools li a.value_delete_selected:hover {background-position: -150px -31px;}
+.object-tools li a.deletelink:active, .object-tools li a.value_delete_selected:active {background-position: -150px -61px;}
+.object-tools li a.viewsitelink{background-position: -300px 0px;}
+.object-tools li a.viewsitelink:hover {background-position: -300px -31px;}
+.object-tools li a.viewsitelink:active {background-position: -300px -61px;}
+.object-tools li a.permissionslink{background-position: -375px 0px;}
+.object-tools li a.permissionslink:hover {background-position: -375px -31px;}
+.object-tools li a.permissionslink:active {background-position: -375px -61px;}
+
+.small-btn, .display{
+	height:21px;
+	width:21px;
+	line-height:20px;
+	text-indent:-5000px;
+	display:inline-block;
+	border-radius:2px;
+	background-color:#6b9bcb;
+	.box-shadow(inset 0px 1px 1px 0px #336190);			
+	text-shadow: 0px 1px 1px #336190;
+	filter: dropshadow(color=#336190, offx=0, offy=1);	
+	&:hover {
+		color:@white;
+		text-decoration:none;
+		background-color:@hmblue2;
+		.box-shadow(inset 0px 1px 1px 0px @hmblue3);		
+	}
+	&:active {
+		background-color:@hmblue3;
+	}
+}
+.small-btn{
+	background-image:url('../img/sprite.png');
+	background-repeat:no-repeat;
+}
+.display{
+	width:auto;
+	text-indent:0;
+	color:@white;
+	padding:0 10px;
+	cursor:pointer;
+	.caret{
+		border-top-color:@white;
+		margin-top:8px;
+	}
+}
+.add{background-position:-328px -183px;}
+.edit{}
 
 // Button Sizes
 // --------------------------------------------------
@@ -143,8 +245,7 @@ input[type="button"] {
 // -------------------------
 .btn {
   // reset here as of 2.0.3 due to Recess property order
-  border-color: #c5c5c5;
-  border-color: rgba(0,0,0,.15) rgba(0,0,0,.15) rgba(0,0,0,.25);
+  border-color:#e3ebf0 #c7d7e1 #ccdce5 #c7d7e1;
 }
 .btn-primary {
   .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);

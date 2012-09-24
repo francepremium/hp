@@ -36,4 +36,392 @@
         {% url account_signup as signup_url %}
         <p>{% blocktrans %}You can <a href="{{ login_url }}" class="btn">Log In</a> or <a href="{{ signup_url }}" class="btn primary">Sign Up</a> to try out the site.{% endblocktrans %}</p>
     {% endif %}
+	<h2>Table</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col" class="action-checkbox-column">
+                    <div class="text">
+                        <span><input type="checkbox" id="action-toggle" /></span>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </th>
+                <th scope="col" class="image">
+                    <div class="text">
+                        <span>Image</span>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </th>
+                <th scope="col" class="sortable name sorted ascending">
+                    <div class="sortoptions">
+                        <a class="sortremove" href="?o=" title="Remove from sorting"></a>
+                        <a href="?o=-2" class="toggle ascending" title="Toggle sorting"></a>
+                    </div>
+                    <div class="text">
+                        <a href="?o=-2">Name</a>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </th>
+                <th scope="col" class="artists">
+                    <div class="text">
+                        <span>Artists</span>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </th>
+                <th scope="col" class="sortable absolute-dating">
+                    <div class="text">
+                        <a href="?o=4.2">Absolute dating</a>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </th>
+                <th scope="col" class="sortable modification-datetime">
+                    <div class="text">
+                        <a href="?o=5.2">Modification datetime</a>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="row1">
+                <td class="action-checkbox">
+                    <input type="checkbox" class="action-select" value="796" name="_selected_action" />
+                </td>
+                <td class="artwork_image">
+                    <a href="/art/796/"><img height="50px" src="/upload/artwork_image/1_1.jpg" /></a>
+                </td>
+                <td class="name charfield">
+                    <a href="/art/796/">Abrégé de la vie de Tres-Auguste &amp; tres-vertueuse princesse Marie Terese d&#39;Austriche... Et son oraison funèbre...</a>
+                </td>
+                <td class="cached_artists">
+                <ul>
+                    <li>
+                        <a href="/art/artist/3062/">François-Paul ALIBERT</a>
+                    </li>
+                    <li>
+                        <a href="/art/artist/2924/">Jacques Bénigne BOSSUET</a>
+                    </li>
+                </ul>
+            
+                </td>
+                <td class="absolute_dating charfield">
+                    &nbsp;
+                </td>
+                <td class="modification_datetime datetimefield nowrap">
+                    July 17, 2012, 12:24 p.m.
+                </td>
+                <td class="controls">
+                    <a href="/art/796/" title="View" class="view_control"></a>
+                    <a href="/admin/art/artwork/796/" title="Edit" class="edit_control"></a>
+                </td>
+            </tr>
+            <tr class="row2">
+                <td class="action-checkbox">
+                    <input type="checkbox" class="action-select" value="286" name="_selected_action" />
+                </td>
+                <td class="artwork_image">
+                    <a href="/art/286/"><img height="50px" src="/site_media/static/img/img_none.png" /></a>
+                </td>
+                <td class="name charfield">
+                    <a href="/art/286/">Accompagnés de la flûte. Poêmes précédés d&#39;un frontispice gravé au canif par Lucien Jacques.</a>
+                </td>
+                <td class="cached_artists">
+                <ul>
+                    <li>
+                        <a href="/art/artist/2807/">Jean GIONO</a>
+                    </li>
+                </ul>
+                </td>
+                <td class="absolute_dating charfield">
+                    (None)
+                </td>
+                <td class="modification_datetime datetimefield nowrap">
+                    April 23, 2012, 12:38 p.m.
+                </td>
+                <td class="controls">
+                    <a href="/art/286/" title="View" class="view_control"></a>
+                    <a href="/admin/art/artwork/286/" title="Edit" class="edit_control"></a>
+                </td>
+            </tr>
+            <tr class="row1">
+                <td class="action-checkbox">
+                    <input type="checkbox" class="action-select" value="747" name="_selected_action" />
+                </td>
+                <td class="artwork_image">
+                    <a href="/art/747/"><img height="50px" src="/site_media/static/img/img_none.png" /></a>
+                </td>
+                <td class="name charfield">
+                    <a href="/art/747/">Advis pour dresser une bibliothèque.</a>
+                </td>
+                <td class="cached_artists"> <ul>
+                    <li>
+                       <a href="/art/artist/3027/">Gabriel NAUDÉ</a>
+                    </li>
+                </ul>
+                    
+                </td>
+                <td class="absolute_dating charfield">
+                    (None)
+                </td>
+                <td class="modification_datetime datetimefield nowrap">
+                    April 23, 2012, 12:40 p.m.
+                </td>
+                <td class="controls">
+                    <a href="/art/747/" title="View" class="view_control"></a>
+                    <a href="/admin/art/artwork/747/" title="Edit" class="edit_control"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+	<h2>Alert</h2>
+		 <div class="alert alert-success">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Well done!</strong> You successfully read this important alert message.
+            </div>
+			 <div class="alert alert-error">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Oh snap!</strong> Change a few things up and try submitting again.
+            </div>
+			 <div class="alert alert-info">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+            </div>
+            <h2>Navigation</h2>
+            <h3>pagination: 1 (actuelle)</h3>
+            <div class="pagination">
+                <ul>
+                    <li>
+                        <a href="#">Prev</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">Next</a>
+                    </li>
+                </ul>
+            </div>
+            <h3>pagination: 2 (proposition Pavel)</h3>
+            <div class="btn-toolbar">
+                <div class="display-btn-group">
+                    <a href="" class="small-btn add">Float</a>
+                    <a href="" class="small-btn add">Table</a>
+                </div>
+                <div class="btn-group">
+                    <span class="btn disabled">Prev</span>
+                    <a href="#" class="btn active">1</a>
+                    <a href="#" class="btn">2</a>
+                    <a href="#" class="btn">3</a>
+                    <a href="#" class="btn">4</a>
+                    <a href="#" class="btn">Next</a>
+                </div>
+            </div>
+            <div class="btn-toolbar">
+                <div class="btn-group transversal">
+                    <a href="/art/271/" title="Vew: Haute surveillance." class="below btn" data-orig="/art/271/" rel="tooltip">Previous</a>
+                    <a href="/art/273/" data-orig="/art/273/" title="Vew: Le Soulier de satin, ou le pire n&#39;est pas toujours sûr. Action espagnole en quatre journées." class="below btn" rel="tooltip">Next</a>
+                </div>
+            </div>
+            <h3>Object toolbar</h3>
+            <div class="btn-toolbar">
+                <a href="/admin/art/artwork/272/history/" title="History" class="btn_img history-tb below" rel="twipsy">History</a>
+                <a href="/admin/art/artwork/272/" title="Edit in admin" class="btn_img edit-tb below" rel="twipsy">Edit</a>
+                <a href="/art/272/?style=print" title="Print" class="btn_img print-tb below" rel="twipsy" target="_blank">print</a>
+                <div class="btn-group">
+                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Ajouter à<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">Collection</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+			<h3>alternatif bouton toolbar (save)</h3>
+            <div class="btn-toolbar">
+                <a href="/admin/art/artwork/272/history/" title="History" class="btn below" rel="twipsy">History</a>
+                <a href="/admin/art/artwork/272/" title="Edit in admin" class="editlink below" rel="twipsy">Edit</a>
+                <a href="/art/272/?style=print" title="Print" class="printlink below" rel="twipsy" target="_blank">print</a>
+			</div>
+            <h3>apparence toolbar (float droite)</h3>
+            <div class="btn-toolbar">
+                <div class="display-btn-group">
+                    <a class="display dropdown-toggle" data-toggle="dropdown" href="#">Trier par<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">test</a>
+                        </li>
+                    </ul>
+                    <span class="mode_dashboard display" style="display:none;">Dashboard</span>
+                    <span class="mode_exhibition display">Exhibition</span>
+                    <a href="" class="small-btn add">Float</a>
+                    <a href="" class="small-btn add">Table</a>
+                </div>
+            </div>
+ <h2>Tabs & form</h2>
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#home">Home</a></li>
+  <li><a href="#profile">Profile</a></li>
+  <li><a href="#messages">Messages</a></li>
+  <li><a href="#settings">Settings</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="home">
+        <form>
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">
+                    Email
+                </label>
+                <div class="controls">
+                    <input type="text" id="inputEmail" placeholder="Email">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">
+                    Email
+                </label>
+                <div class="controls">
+                    <input type="text" id="test-pop" placeholder="Email" title="Email field" data-trigger="hover" rel="popover" data-content="Le titre de la popover pourrait etre le type du champs, au lieu de repeter son nom. Cela apporterai une info en plus a l'utilisateur.">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">
+                    Email
+                </label>
+                <div class="controls">
+                    <input type="text" id="inputEmail" placeholder="Email" data-provide="typeahead"><a href="" class="small-btn add" id="add_id_groups" onclick="return showAddAnotherPopup(this);">Add another</a>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input type="checkbox">Check me out
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label for="id_user_permissions_86" class="checkbox switch">
+                        <input checked="checked" type="checkbox" id="id_user_permissions_86" />art | period | Can delete period
+                    </label>
+                </div>
+            </div>
+            <div class="control-group error">
+                <label class="control-label" for="inputError">
+                    Input with error
+                </label>
+                <div class="controls">
+                    <input type="text" id="inputError"><span class="help-inline">Please correct the error</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputError">
+                    Description
+                </label>
+                <div class="controls">
+                    <textarea rows="3">
+                    </textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputError">
+                    Select
+                </label>
+                <div class="controls">
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>		
+        </form>
+    </div>
+    <div class="tab-pane" id="profile">
+        ...
+    </div>
+    <div class="tab-pane" id="messages">
+        ...
+    </div>
+    <div class="tab-pane" id="settings">
+        ...
+    </div>
+</div>
+<h2>Détail</h2>
+ <div class="floating_container block detail">
+     <h3>Détail</h3>
+     <p class="detail_list">
+         <span class="label_detail">Artists</span>
+         <span class="value"><a href="/art/artist/2786/">APOLLINAIRE, Guillaume</a></span>
+     </p>
+     <p class="detail_list">
+         <span class="label_detail">Inventory Number</span>
+         <span class="value">316</span>
+     </p>
+     <p class="detail_list">
+         <span class="label_detail">Owner</span>
+         <span class="value">Hellomona</span>
+     </p>
+ </div>
+ <div class="floating_container block detail">
+     <h3>Détail</h3>
+     <ul class="nav nav-tabs" id="myTab">
+         <li class="active">
+             <a href="#home">Home</a>
+         </li>
+         <li>
+             <a href="#profile">Profile</a>
+         </li>
+         <li>
+             <a href="#messages">Messages</a>
+         </li>
+         <li>
+             <a href="#settings">Settings</a>
+         </li>
+     </ul>
+     <div class="tab-content">
+         <div class="tab-pane active" id="home">
+             <p class="detail_list">
+                 <span class="label_detail">Artists</span>
+                 <span class="value"><a href="/art/artist/2786/">APOLLINAIRE, Guillaume</a></span>
+             </p>
+             <p class="detail_list">
+                 <span class="label_detail">Inventory Number</span>
+                 <span class="value">316</span>
+             </p>
+             <p class="detail_list">
+                 <span class="label_detail">Owner</span>
+                 <span class="value">Hellomona</span>
+             </p>
+         </div>
+         <div class="tab-pane" id="profile">
+             ...
+         </div>
+         <div class="tab-pane" id="messages">
+             ...
+         </div>
+         <div class="tab-pane" id="settings">
+             ...
+         </div>
+     </div>
+ </div>
+	<script type="text/javascript">$('#element').popover('show')
+		</script>
+
 {% endblock %}
