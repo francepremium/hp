@@ -139,6 +139,7 @@ INSTALLED_APPS = [
     'compressor',
     'zodb_admin',
     'crispy_forms',
+    'autocomplete_light',
 ]
 
 # A sample logging configuration. The only tangible logging
