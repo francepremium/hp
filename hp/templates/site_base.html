@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% load i18n compress %}
 <html>
 <head>
@@ -19,14 +20,19 @@
 </head>
 <body>
    <!-- <h1 id="print_name">{{ SITE_NAME }}</h1>-->
-<div class="breadcrumb navbar-fixed-top">test</div>
     {% include '_navbar.html' %}
-<div class="container-fluid top-margin">
-    {% block content %}
-    {% endblock %}
-</div>
+        
+    <div class="container-fluid top-margin">
+        {% block content %}
+            {% block body %}
+            {% endblock %}
+        {% endblock %}
+    </div>
 	{% include '_footer.html' %}
 	
+    <script type="text/javascript" src="{{ STATIC_URL }}jquery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}bootstrap/docs/assets/js/bootstrap.min.js"></script>
+    {% include 'session_security/all.html' %}
 
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -37,6 +43,16 @@
             $('[rel=popover]').popover();
         });
     </script>
+    {% if not request.user.is_authenticated %}
+        {% include '_login_or_signup_modal.html' %}
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $(this).bind('appstore.app.require_env', function(e) {
+                $('#login_or_signup').modal('show').find('input[name=next]').val($(e.target).data('appstoreAppUrl'));
+            });
+        });
+        </script>
+    {% endif %}
     
     {% block extra_body %}{% endblock %}
 

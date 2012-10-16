@@ -1,0 +1,36 @@
+{% load i18n %}
+{% load url from future %}
+{% load bootstrap_tags %}
+
+<style type="text/css">
+    .signup_block, .login_block {
+        display: inline-block;
+    }
+</style>
+
+<div class="modal hidden" id="login_or_signup" tabindex="-1" role="dialog" aria-labelledby="{% trans 'Login or signup' %}" aria-hidden="true" style="display: none">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>{% trans 'Login or signup' %}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="login_block">
+            <form method="POST" action="{% url 'account_login' %}" autocapitalize="off" class="form-horizontal">
+                {% csrf_token %}
+                {{ login_form|as_bootstrap }}
+                <input type="hidden" name="next" value="{{ request.path }}" />
+                <button class="btn btn-primary">{% trans 'Login' %}</button>
+            </form>
+        </div>
+        <div class="signup_block">
+            <form id="signup_form" method="post" action="{% url 'account_signup' %}" autocapitalize="off" class="form-horizontal">
+                {% csrf_token %}
+                {{ signup_form|as_bootstrap }}
+                <button class="btn btn-danger">{% trans 'Signup' %}</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans 'Cancel' %}</button>
+    </div>
+</div>
