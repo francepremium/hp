@@ -8,8 +8,11 @@ pinax-theme-bootstrap-account==1.0b2
 django-user-accounts==1.0b3
 django-forms-bootstrap==2.0.3.post1
 django-crispy-forms
--e git+https://github.com/jpic/zodb-relations.git#egg=relations
+-e git+https://github.com/yourlabs/django-zodb-light.git#egg=zlight
 -e git+https://github.com/jpic/zodb-admin.git#egg=admin
+-e git+https://github.com/yourlabs/django-appstore.git#egg=admin
+django-annoying
+django-session-security
 pinax-utils==1.0b1.dev3
 django-debug-toolbar
 django-autocomplete-light

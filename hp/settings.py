@@ -74,6 +74,9 @@ STATICFILES_DIRS = [
     os.path.join(PACKAGE_ROOT, "static"),
 ]
 
+ACCOUNT_USER_DISPLAY = lambda user: u'%s %s %s' % (user.first_name, user.last_name, user.email)
+ACCOUNT_EMAIL_CONFIRMATION_REQUIRED = True
+
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = [
@@ -103,6 +106,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "pinax_utils.context_processors.settings",
     "account.context_processors.account",
     "hp.context_processors.hp_settings",
+    "hp_saas.context_processors.login_or_signup_forms",
 ]
 
 
@@ -113,12 +117,20 @@ MIDDLEWARE_CLASSES = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'session_security.middleware.SessionSecurityMiddleware',
+    'appstore.middleware.EnvironmentMiddleware',
 ]
+
+INTERNAL_IPS = ('127.0.0.1',)
 
 ROOT_URLCONF = "hp.urls"
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = "hp.wsgi.application"
+
+LOGIN_URL = '/account/login/'
+LOGOUT_URL = '/account/logout/'
 
 TEMPLATE_DIRS = [
     os.path.join(PACKAGE_ROOT, "templates"),
@@ -139,12 +151,19 @@ INSTALLED_APPS = [
 
     # external
     "account",
+    'debug_toolbar',
 
     # project
     'compressor',
     'zodb_light',
     'zodb_admin',
     'crispy_forms',
+    'annoying',
+    'hp_saas',
+    'taggit',
+    'appstore',
+    'session_security',
+    'debug_toolbar',
 ]
 
 # A sample logging configuration. The only tangible logging
