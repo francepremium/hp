@@ -14,7 +14,6 @@
         {% endcompress %}
     {% endif %}
     
-    {% include 'autocomplete_light/static.html' %}
     {% block extra_head %}{% endblock %}
 </head>
 <body>
@@ -27,15 +26,15 @@
             {% endblock %}
         {% endblock %}
     </div>
-	{% include '_footer.html' %}
+    
+    {% include '_footer.html' %}
 	
     <script type="text/javascript" src="{{ STATIC_URL }}jquery.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}bootstrap/docs/assets/js/bootstrap.min.js"></script>
+
+    {% include 'autocomplete_light/static.html' %}
     {% include 'session_security/all.html' %}
 
-
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}bootstrap/docs/assets/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('[rel=tooltip]').tooltip();
