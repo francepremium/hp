@@ -156,15 +156,16 @@ INSTALLED_APPS = [
     # project
     'compressor',
     'zodb_light',
-    'zodb_admin',
     'crispy_forms',
     'autocomplete_light',
     'annoying',
     'hp_saas',
+    'hp_appstore',
     'taggit',
     'appstore',
     'session_security',
     'debug_toolbar',
+    'form_designer',
 ]
 
 # A sample logging configuration. The only tangible logging

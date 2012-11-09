@@ -1,0 +1,12 @@
+{% extends 'hp_appstore/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block body %}
+<ul>
+    <li class="app_edit">
+        <a href="{% url 'hp_appstore_app_edit' object.pk %}">{% trans 'App' %}</a>
+    </li>
+<ul>
+{% endblock %}
