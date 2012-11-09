@@ -3,22 +3,27 @@
 // --------------------------------------------------
 
 
-.breadcrumb {
-  padding:0 20px;
+.breadcrumb { 
   margin: 50px 0 0 0;
   height:20px;
   list-style: none;
   background-color: @white;
   border-bottom:1px solid @lightblue2;
+  font-size:@alterFontSize;
+  line-height:20px;
   li {
     display: inline-block;
     .ie7-inline-block();
+	color:##64819c;
   }
   .divider {
-    padding: 0 5px;
-    color: #ccc;
+    padding: 0 8px;
+    color: #bbc8d1;
   }
   .active {
     color: @grayLight;
   }
+  .active a{
+  	color:#bbc8d1;
+	}
 }

@@ -1,0 +1,31 @@
+{% extends 'appstore/base.html' %}
+
+{% load i18n %}
+
+{% block body %}
+<h1>{{ object }}</h1>
+<div class="bloc-content">
+	<div class="span2"><img src="{{ object.image.url }}" /></div>
+	
+	<div class="span10">
+	<p>
+{% trans 'Category' %} :
+<a href="{{ object.category.get_absolute_url }}" title="{% trans 'View apps for' %} {{ object.category }}">{{ object.category }}</a>
+</p>
+
+{% if object.tags.count %}
+   <p> {% trans 'Tags' %} :
+    {% for tag in object.tags.all %}
+        {{ tag }} {% if not forloop.last %}, {% endif %}
+    {% endfor %}</p>
+{% endif %}
+<p>{% trans 'Description' %} : {{ object.description }}</p>
+</div>
+</div>
+{% with app=object %}
+<div class="submit-row">
+    {% include 'appstore/_app_install_button.html' %}
+</div>
+{% endwith %}
+
+{% endblock %}

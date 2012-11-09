@@ -78,8 +78,7 @@ input[type="search"],
 input[type="tel"],
 input[type="color"],
 .uneditable-input {
-  display: inline-block;
- 
+  display: inline-block; 
   padding: 4px 6px;
   margin-bottom: 9px;
   margin-right:10px;
@@ -180,6 +179,9 @@ input[type="radio"]:focus,
 input[type="checkbox"]:focus {
   .tab-focus();
 }
+
+// Checkbox 2 styles
+
 input[type=checkbox],input[type=radio]{
 	-moz-appearance:none;
 	-webkit-appearance:none;
@@ -552,34 +554,55 @@ select:focus:required:invalid {
 // SEARCH FORM
 // -----------
 
-input.search-query {
-  padding-right: 14px;
-  padding-right: 4px \9;
-  padding-left: 14px;
-  padding-left: 4px \9; /* IE7-8 doesn't have border-radius, so don't indent the padding */
-  margin-bottom: 0; // Remove the default margin on all inputs
-  .border-radius(15px);
+.search_container{
+	position:relative;
+	margin:0 auto;
+	top:7px;
+	float:center;	
+	width:20%;
+	max-width:400px;
+	color:#b2d0e3;
+	input[type="search"] {
+	height:26px;
+	line-height:15px;
+  	padding:4px 8px 4px 34px;
+  	margin-bottom: 0; // Remove the default margin on all inputs
+	color:#b2d0e3;
+	background-image:url(../img/sprite.png);
+    background-repeat:no-repeat;
+    background-position:-670px -89px;
+	background-color:transparent;
+  	border:1px solid #345a81;
+  	outline:0;
+  	text-shadow: 0px 1px 1px #274d75;  	  
+  	.border-radius(3px);
+	.box-shadow(0px 1px 1px 0px #5e86b0, inset 0px 1px 1px 0px #5e86b0);
+  	.transition(all, 0.3s, linear);
+  		&:hover{
+  			border:1px solid #49739d;
+			-webkit-box-shadow: 0px 1px 1px 0px #83a7cc, inset 0px 1px 1px 0px #83a7cc;
+  		}
+		&:active{
+  			background-color:@white;
+  		}
+		&:focus{
+  			color:@white;
+			background-color:#8cb7e1;
+			background-position:-670px -89px;
+			text-shadow: 0px 0px 0px #ffffff;
+			
+  		}
+	}
+	 
 }
-
-/* Allow for input prepend/append in search forms */
-.form-search .input-append .search-query,
-.form-search .input-prepend .search-query {
-  .border-radius(0); // Override due to specificity
-}
-.form-search .input-append .search-query {
-  .border-radius(14px 0 0 14px);
-}
-.form-search .input-append .btn {
-  .border-radius(0 14px 14px 0);
-}
-.form-search .input-prepend .search-query {
-  .border-radius(0 14px 14px 0);
-}
-.form-search .input-prepend .btn {
-  .border-radius(14px 0 0 14px);
-}
-
-
+/*Search*/
+#search_container{margin:0 auto;float:center;width:20%;max-width:400px;padding: 6px 0;position:relative;}
+#search_bloc{height:36px;position:relative;width:100%;}
+#search_bloc form{float:none;margin:0;position:relative;}
+#search_bloc input[type=text]{color:#b2d0e3;background:transparent;-moz-border-radius-topleft: 3px;outline:none;font-size:13px;margin:0;height:36px;width:430px;border:0;text-shadow: 0px 1px 1px #274d75;-moz-border-radius-topright: 3px;-moz-border-radius-bottomright: 0px;-moz-border-radius-bottomleft: 0px;-webkit-border-radius:3px 3px 0px 0px;border-radius: 3px 3px 0px 0px;-webkit-transition:all 0.3s linear;-moz-transition:all 0.3s linear;-o-transition:all 0.3s linear;transition:all 0.3s linear;padding:0;}
+#search_bloc input#id_q{width:100%;padding-left:40px;background-image:url(../img/sprite.png);background-repeat:no-repeat;background-position:-670px -89px;border:1px solid #345a81;border-radius:3px;-webkit-box-shadow: 0px 1px 1px 0px #5e86b0, inset 0px 1px 1px 0px #5e86b0;-moz-box-shadow: 0px 1px 1px 0px #5e86b0, inset 0px 1px 1px 0px #5e86b0;box-shadow: 0px 1px 1px 0px #5e86b0, inset 0px 1px 1px 0px #5e86b0; overflow: hidden; -webkit-transition:all 0.5s linear;-moz-transition:all 0.5s linear;-o-transition:all 0.5s linear;transition:all 0.5s linear;}
+#search_bloc input#id_q:hover{cursor:pointer;border:1px solid #49739d;-webkit-box-shadow: 0px 1px 1px 0px #83a7cc, inset 0px 1px 1px 0px #83a7cc;-moz-box-shadow: 0px 1px 1px 0px #83a7cc, inset 0px 1px 1px 0px #83a7cc;box-shadow: 0px 1px 1px 0px #83a7cc, inset 0px 1px 1px 0px #83a7cc;text-shadow: 0px 0px 0px #ffffff;filter: dropshadow(color=#ffffff, offx=0, offy=0);}
+#search_bloc input#id_q:focus{color:#fff;background-color:#8cb7e1;background-position:-670px -89px;text-shadow: 0px 0px 0px #ffffff;filter: dropshadow(color=#ffffff, offx=0, offy=0);}
 
 
 // HORIZONTAL & VERTICAL FORMS

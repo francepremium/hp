@@ -126,11 +126,11 @@
 	background:#f1f5f7;
   }
 }
-// Active state, and it's :hover to override normal :hover
+// Active state, and it's :hover to override normal :hover  ui-tabs-selected
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover, 
-.tab-list > .active > a,
-.tab-list > .active > a:hover,  {
+.nav-tabs > .ui-tabs-selected > a,
+.nav-tabs > .ui-tabs-selected > a:hover,  {
   color: @hmblue2;
   background-color: @white;
   border: 1px solid #e0edf5;
@@ -138,10 +138,10 @@
   cursor: default;
 }
 
-// TABS style alter floating container
+// TABS style alter box container
 // ----
 
-.floating_container{
+.box{
 	.nav-tabs{
 		background: #f8f8f8;
 	}
@@ -159,9 +159,7 @@
   }
 }
 .nav-tabs > .active > a,
-.nav-tabs > .active > a:hover, 
-.tab-list > .active > a,
-.tab-list > .active > a:hover,  {
+.nav-tabs > .active > a:hover {
   color: @hmblue2;
   background-color: @white;
   border: 1px solid #e0edf5;
@@ -169,7 +167,7 @@
   border-top-color: transparent;
   cursor: default;
 }
-.tab-content > .active {
+.tab-content > .active, .ui-tabs-panel {
   padding:0;
   display: block;
   background:@white;
@@ -334,7 +332,8 @@
   display: none;
 }
 .tab-content > .active,
-.pill-content > .active {
+.pill-content > .active, 
+.ui-tabs-panel {
   padding:20px 10px;
   display: block;
   background:@white;

@@ -46,9 +46,10 @@
   // Active state
   &.active,
   &:active {
-   .buttonBackground(@hmblue2, #6a9aca, @gray, 0 1px 1px #235487);   
+   .buttonBackground(#bed2de, #d5e1e9, @white, 0px 1px 1px #96adbb);
+   border-color:#a5b7c3 #b3c5d1 #bbc8d1 #b3c5d1;   
     outline: 0;
-    .box-shadow(inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05));
+    .box-shadow(inset 0px 1px 3px 0px #b0becc);
   }
   &.active{
   	font-weight:bold;
@@ -61,20 +62,7 @@
     .buttonBackground(@grayLighter, #efefef, @gray, 0 1px 1px @white);    
     .box-shadow(none);
   }
-
 }
-
-border-color:
-#6b9bcb #4676a6 #3f5d7c #4676a6;
-color:
-#e0edf5;
-text-shadow:
-0px 1px 1px #235487;
-filter:
-dropshadow(color = #235487, offx = 0, offy = 1);
-background:
-#4170a1;
-background: -moz-linear-gradient(top,  #4170a1 0%, #6a9aca 100%);background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4170a1), color-stop(100%,#6a9aca));background: -webkit-linear-gradient(top,  #4170a1 0%,#6a9aca 100%);background: -o-linear-gradient(top,  #4170a1 0%,#6a9aca 100%);background: -ms-linear-gradient(top,  #4170a1 0%,#6a9aca 100%);background: linear-gradient(top,  #4170a1 0%,#6a9aca 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4170a1', endColorstr='#6a9aca',GradientType=0 );-webkit-box-shadow: inset 0px 1px 3px 0px #235487;-moz-box-shadow: inset 0px 1px 3px 0px #235487;box-shadow: inset 0px 1px 3px 0px #235487;
 // Button image en background: object toolbar
 
 .btn_img{
@@ -166,8 +154,12 @@ background: -moz-linear-gradient(top,  #4170a1 0%, #6a9aca 100%);background: -we
 		margin-top:8px;
 	}
 }
+.float-display{background-position:-500px -182px;}
+.table-display{background-position:-473px -182px;}
 .add{background-position:-328px -183px;}
-.edit{}
+.edit{background-position:-4px -182px;}
+.view{background-position:-33px -182px;}
+
 
 // Button Sizes
 // --------------------------------------------------
@@ -240,13 +232,25 @@ input[type="button"] {
 .btn-inverse.active {
   color: rgba(255,255,255,.75);
 }
+.alt{
+	.buttonBackground(#b6def6, #91bdea, @hmblue2, 0 1px 1px #e2eef7);
+	.box-shadow(inset 0px 1px 1px 0px #e2eef7);
+	border-color: #a7c7e7 #8db6de #678db4 #8db6de; 
+	&:hover{
+	.buttonBackground(#9bc4ed, #7cabdb, #1b4a7b, 0 1px 1px #e0edf5);   
+    .box-shadow(inset 0px 1px 1px 0px #e0edf5);
+	border-color: #90b4d7 #7da6d1 #5d81a7 #7da6d1;
+	}
+	&:active{
+	.buttonBackground(#4170a1, #6a9aca, #e0edf5, 0 1px 1px #235487);   
+    .box-shadow(inset 0px 1px 3px 0px #235487);
+	border-color: #6b9bcb #4676a6 #3f5d7c #4676a6;
+	}
+}
 
 // Set the backgrounds
 // -------------------------
-.btn {
-  // reset here as of 2.0.3 due to Recess property order
-  border-color:#e3ebf0 #c7d7e1 #ccdce5 #c7d7e1;
-}
+
 .btn-primary {
   .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
 }

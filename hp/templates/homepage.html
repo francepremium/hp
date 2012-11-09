@@ -100,7 +100,7 @@
                     <a href="/art/796/">Abrégé de la vie de Tres-Auguste &amp; tres-vertueuse princesse Marie Terese d&#39;Austriche... Et son oraison funèbre...</a>
                 </td>
                 <td class="cached_artists">
-                <ul>
+                <ul class="unstyled">
                     <li>
                         <a href="/art/artist/3062/">François-Paul ALIBERT</a>
                     </li>
@@ -132,7 +132,7 @@
                     <a href="/art/286/">Accompagnés de la flûte. Poêmes précédés d&#39;un frontispice gravé au canif par Lucien Jacques.</a>
                 </td>
                 <td class="cached_artists">
-                <ul>
+                <ul class="unstyled">
                     <li>
                         <a href="/art/artist/2807/">Jean GIONO</a>
                     </li>
@@ -159,7 +159,7 @@
                 <td class="name charfield">
                     <a href="/art/747/">Advis pour dresser une bibliothèque.</a>
                 </td>
-                <td class="cached_artists"> <ul>
+                <td class="cached_artists"> <ul class="unstyled">
                     <li>
                        <a href="/art/artist/3027/">Gabriel NAUDÉ</a>
                     </li>
@@ -219,8 +219,8 @@
             <h3>pagination: 2 (proposition Pavel)</h3>
             <div class="btn-toolbar">
                 <div class="display-btn-group">
-                    <a href="" class="small-btn add">Float</a>
-                    <a href="" class="small-btn add">Table</a>
+                    <a href="" class="small-btn edit">Edit</a>
+                    <a href="" class="small-btn view">View</a>
                 </div>
                 <div class="btn-group">
                     <span class="btn disabled">Prev</span>
@@ -239,9 +239,9 @@
             </div>
             <h3>Object toolbar</h3>
             <div class="btn-toolbar">
-                <a href="/admin/art/artwork/272/history/" title="History" class="btn_img history-tb below" rel="twipsy">History</a>
-                <a href="/admin/art/artwork/272/" title="Edit in admin" class="btn_img edit-tb below" rel="twipsy">Edit</a>
-                <a href="/art/272/?style=print" title="Print" class="btn_img print-tb below" rel="twipsy" target="_blank">print</a>
+                <a href="/admin/art/artwork/272/history/" title="History" class="btn_img history-tb below" rel="tooltip">History</a>
+                <a href="/admin/art/artwork/272/" title="Edit in admin" class="btn_img edit-tb below" rel="tooltip">Edit</a>
+                <a href="/art/272/?style=print" title="Print" class="btn_img print-tb below" rel="tooltip" target="_blank">print</a>
                 <div class="btn-group">
                     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Ajouter à<span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -253,10 +253,10 @@
             </div>
 			<h3>alternatif bouton toolbar (save)</h3>
             <div class="btn-toolbar">
-                <a href="/admin/art/artwork/272/history/" title="History" class="btn below" rel="twipsy">History</a>
-                <a href="/admin/art/artwork/272/" title="Edit in admin" class="editlink below" rel="twipsy">Edit</a>
-                <a href="/art/272/?style=print" title="Print" class="printlink below" rel="twipsy" target="_blank">print</a>
-			</div>
+                <input type="submit" value="Save" class="btn alt" name="_save" />
+				<input type="submit" class="btn alt" value="Save and add another" name="_addanother" />
+				<input type="submit" class="btn alt" value="Save and continue editing" name="_continue" />
+            </div>
             <h3>apparence toolbar (float droite)</h3>
             <div class="btn-toolbar">
                 <div class="display-btn-group">
@@ -268,8 +268,8 @@
                     </ul>
                     <span class="mode_dashboard display" style="display:none;">Dashboard</span>
                     <span class="mode_exhibition display">Exhibition</span>
-                    <a href="" class="small-btn add">Float</a>
-                    <a href="" class="small-btn add">Table</a>
+                    <a href="" class="small-btn float-display" rel="tooltip" title="Display float like" data-placement="bottom">Float</a>
+                    <a href="" class="small-btn table-display" rel="tooltip" title="Display table like" data-placement="bottom">Table</a>
                 </div>
             </div>
  <h2>Tabs & form</h2>
@@ -364,22 +364,38 @@
     </div>
 </div>
 <h2>Détail</h2>
- <div class="floating_container block detail">
-     <h3>Détail</h3>
-     <p class="detail_list">
-         <span class="label_detail">Artists</span>
-         <span class="value"><a href="/art/artist/2786/">APOLLINAIRE, Guillaume</a></span>
-     </p>
-     <p class="detail_list">
-         <span class="label_detail">Inventory Number</span>
-         <span class="value">316</span>
-     </p>
-     <p class="detail_list">
-         <span class="label_detail">Owner</span>
-         <span class="value">Hellomona</span>
-     </p>
- </div>
- <div class="floating_container block detail">
+<div class="box block detail">
+    <h3>Détail</h3>
+    <div class="detail-group">
+        <div class="detail-label">
+            Artists
+        </div>
+        <div class="details">
+            <ul class="unstyled">
+                <li>
+                    <a href="/art/artist/2786/">APOLLINAIRE, Guillaume</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="detail-group">
+        <div class="detail-label">
+            Inventory Number
+        </div>
+        <div class="details">
+            316
+        </div>
+    </div>
+    <div class="detail-group">
+        <div class="detail-label">
+            Owner
+        </div>
+        <div class="details">
+            Hellomona
+        </div>
+    </div>
+</div>
+ <div class="box block detail">
      <h3>Détail</h3>
      <ul class="nav nav-tabs" id="myTab">
          <li class="active">
@@ -397,18 +413,34 @@
      </ul>
      <div class="tab-content">
          <div class="tab-pane active" id="home">
-             <p class="detail_list">
-                 <span class="label_detail">Artists</span>
-                 <span class="value"><a href="/art/artist/2786/">APOLLINAIRE, Guillaume</a></span>
-             </p>
-             <p class="detail_list">
-                 <span class="label_detail">Inventory Number</span>
-                 <span class="value">316</span>
-             </p>
-             <p class="detail_list">
-                 <span class="label_detail">Owner</span>
-                 <span class="value">Hellomona</span>
-             </p>
+             <div class="detail-group">
+        <div class="detail-label">
+            Artists
+        </div>
+        <div class="details">
+            <ul class="unstyled">
+                <li>
+                    <a href="/art/artist/2786/">APOLLINAIRE, Guillaume</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="detail-group">
+        <div class="detail-label">
+            Inventory Number
+        </div>
+        <div class="details">
+            316
+        </div>
+    </div>
+    <div class="detail-group">
+        <div class="detail-label">
+            Owner
+        </div>
+        <div class="details">
+            Hellomona
+        </div>
+    </div>
          </div>
          <div class="tab-pane" id="profile">
              ...
@@ -421,6 +453,96 @@
          </div>
      </div>
  </div>
+ <div class="box block">
+     <h3>Description</h3>
+     <div class="kind-group">
+         <div>Kind</div>
+         <div>Value</div>
+     </div>
+     <div class="detail-group">
+         <div class="detail-label">
+             Description
+         </div>
+         <div class="details">
+             In-8 de 1 f. blanc, 3 ff.n.ch., p. [3] à 188, 2 ff.n.ch. ; demi-chagrin bleu nuit, dos ...<a data-toggle="modal" href="#modal-description" class="btn">Read full description</a>
+             <div id="modal-description" class="modal hide">
+                 <div class="modal-header">
+                     <button class="close" data-dismiss="modal">
+                         &times;
+                     </button>
+                     <h3>Description</h3>
+                 </div>
+                 <div class="modal-body">
+                     In-8 de 1 f. blanc, 3 ff.n.ch., p. [3] à 188, 2 ff.n.ch. ; demi-chagrin bleu nuit, dos à nerfs, titre or, couvertures conservées, plat supérieur illustré en couleurs, non rogné. (Reliure de l&#39;époque).  Carteret, I, p. 291.  Edition originale.  Ouvrage illustré par Mucha de 12 compositions tirées en couleurs, dont 5 vignettes en tête et 7 figures à pleine page, comprises dans la pagination.  La belle composition de couverture, réalisée par le même artiste, a été réinterprétée en réduction et en noir sur la page de titre.  L&#39;un des ouvrages représentatifs du style Art Nouveau.
+                 </div>
+                 <div class="modal-footer">
+                     <a href="#" class="btn" data-dismiss="modal">Close</a>
+                 </div>
+             </div>
+             <div class="modal-print">
+                 In-8 de 1 f. blanc, 3 ff.n.ch., p. [3] à 188, 2 ff.n.ch. ; demi-chagrin bleu nuit, dos à nerfs, titre or, couvertures conservées, plat supérieur illustré en couleurs, non rogné. (Reliure de l&#39;époque).  Carteret, I, p. 291.  Edition originale.  Ouvrage illustré par Mucha de 12 compositions tirées en couleurs, dont 5 vignettes en tête et 7 figures à pleine page, comprises dans la pagination.  La belle composition de couverture, réalisée par le même artiste, a été réinterprétée en réduction et en noir sur la page de titre.  L&#39;un des ouvrages représentatifs du style Art Nouveau.
+             </div>
+         </div>
+     </div>
+ </div>
+ <h2>Filter</h2>
+ <span class="show-filter">Filter</span>
+ <div class="filter-box">
+     <h3>By families <span class="caret"></span></h3>
+     <ul class="unstyled">
+         <li class="selected">
+             <a href="?">All</a>
+         </li>
+         <li>
+             <a href="?families__id__exact=1">moi</a>
+         </li>
+         <li>
+             <a href="?families__isnull=True">(None)</a>
+         </li>
+     </ul>
+ </div>
+ <div class="filter-box">
+     <h3>By creation datetime <span class="caret"></span></h3>
+     <ul class="unstyled">
+         <li class="selected">
+             <a href="?">Any date</a>
+         </li>
+         <li>
+             <a href="?creation_datetime__lt=2012-09-26+00%3A00%3A00%2B02%3A00&amp;creation_datetime__gte=2012-09-25+00%3A00%3A00%2B02%3A00">Today</a>
+         </li>
+         <li>
+             <a href="?creation_datetime__lt=2012-09-26+00%3A00%3A00%2B02%3A00&amp;creation_datetime__gte=2012-09-18+00%3A00%3A00%2B02%3A00">Past 7 days</a>
+         </li>
+         <li>
+             <a href="?creation_datetime__lt=2012-09-26+00%3A00%3A00%2B02%3A00&amp;creation_datetime__gte=2012-09-01+00%3A00%3A00%2B02%3A00">This month</a>
+         </li>
+         <li>
+             <a href="?creation_datetime__lt=2012-09-26+00%3A00%3A00%2B02%3A00&amp;creation_datetime__gte=2012-01-01+00%3A00%3A00%2B02%3A00">This year</a>
+         </li>
+     </ul>
+ </div>
+ <div class="filter-box">
+     <h3>By modification datetime <span class="caret"></span></h3>
+     <ul class="unstyled">
+         <li class="selected">
+             <a href="?">Any date</a>
+         </li>
+         <li>
+             <a href="?modification_datetime__gte=2012-09-25+00%3A00%3A00%2B02%3A00&amp;modification_datetime__lt=2012-09-26+00%3A00%3A00%2B02%3A00">Today</a>
+         </li>
+         <li>
+             <a href="?modification_datetime__gte=2012-09-18+00%3A00%3A00%2B02%3A00&amp;modification_datetime__lt=2012-09-26+00%3A00%3A00%2B02%3A00">Past 7 days</a>
+         </li>
+         <li>
+             <a href="?modification_datetime__gte=2012-09-01+00%3A00%3A00%2B02%3A00&amp;modification_datetime__lt=2012-09-26+00%3A00%3A00%2B02%3A00">This month</a>
+         </li>
+         <li>
+             <a href="?modification_datetime__gte=2012-01-01+00%3A00%3A00%2B02%3A00&amp;modification_datetime__lt=2012-09-26+00%3A00%3A00%2B02%3A00">This year</a>
+         </li>
+     </ul>
+ </div>
+
+
 	<script type="text/javascript">$('#element').popover('show')
 		</script>
 

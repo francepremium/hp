@@ -1,0 +1,56 @@
+{% extends 'appstore/base.html' %}
+
+{% load i18n %}
+
+{% block body %}
+<style type="text/css">.active { background-color: lightgreen; }</style>
+
+<h1>{{ object }}</h1>
+
+<div style="display: inline-block; vertical-align: top">
+    <h3>{% trans 'Categories' %}</h3>
+    <ul>
+        {% for appcategory in appcategory_list %}
+        <li class="{% if appcategory == object %}active{% endif %}">
+            <a href="{{ appcategory.get_absolute_url }}">{{ appcategory }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% if tag_list|length or request.GET.tag %}
+    <h3>{% trans 'Tags' %}</h3>
+    <ul>
+        {% for tag in tag_list %}
+        <li class="{% if request.GET.tag == tag.name %}active{% endif %}">
+            <a href="?tag={% if request.GET.tag != tag.name %}{{ tag }}{% endif %}">{{ tag.name }}</a>
+        </li>
+        {% empty %}
+        <li class="active">
+            <a href="?tag=">{{ request.GET.tag }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+
+<table style="display: inline-block">
+    {% for app in app_list %}
+    <tr>
+        <td>
+            <img src="{{ app.image.url }}" />
+        </td>
+        <th>
+            <a href="{{ app.get_absolute_url }}" 
+                title="{% trans 'View' %} {{ app }}"
+                >{{ app }}</a>
+        </th>
+        <td>
+            {{ app.description }}
+        </td>
+        <td>
+            {% include 'appstore/_app_install_button.html' %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -201,7 +201,7 @@ FIXTURE_DIRS = [
     os.path.join(PROJECT_ROOT, "fixtures"),
 ]
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+#EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 ACCOUNT_OPEN_SIGNUP = True
 ACCOUNT_USE_OPENID = False
@@ -221,3 +221,4 @@ COMPRESS_PRECOMPILERS = (
 COMPRESS_DEBUG_TOGGLE = 'debug'
 
 ZODB_FILENAME='Data.fs'
+ 

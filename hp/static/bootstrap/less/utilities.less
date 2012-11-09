@@ -29,6 +29,8 @@
   position: fixed;
 }
 
+//footer
+
 footer.navbar-fixed-bottom div{
 	height:25px;
 	text-align:center;
@@ -42,24 +44,37 @@ footer.navbar-fixed-bottom div{
 	color:@hmblue1;
 	}
 }
-.floating_container, #image_detail, .disabled-form.outer {
-    background: #fff;
-    width: 300px;
+// Vue détail
+// --------------------------------------------------
+
+//Design box details
+
+.box {
+    background: @white;
+    width: 320px;
     border: 1px solid #e0edf5;
     border-radius: 4px;
     margin: 0 10px 10px 0;
     vertical-align: top;
-}
-.floating_container h3{
+    h3{
     background: #eff4f7;
     padding: 0px 30px 0 10px;
     position: relative;
     border-radius: 4px 4px 0 0;
+	line-height:34px;
     margin: 0 ;
+	font-weight:bold;
     border-bottom: 1px solid #e0edf5;
-    text-shadow: 0px 1px 1px #ffffff;
-    filter: dropshadow(color = #ffffff, offx = 0, offy = 1);
+	.text-shadow();
+	}
+	.modal-header h3{
+		padding:10px 15px;
+	}
 }
+.sidebar .box{
+	width:100%;
+}
+//Updated upstream
 h3.filter_title{
 	font-size: 12px;
 	line-height:28px;
@@ -96,3 +111,117 @@ h3.filter_title{
 	
 }
 h1#print_name{display:none;}
+
+// Design details line
+
+.detail-group {
+	clear: both;
+    display: block;
+    padding: 8px 0;
+    margin: 0 10px;
+    overflow: auto;
+    border-bottom: 1px solid #e0edf5;
+	&:hover{
+		background: #eff4f7;
+		cursor:default;
+	}
+	&:last-child{
+		border-bottom: 0px solid transparent;
+	}
+  .details{
+  	display: inline-block;
+    float: right;
+    width: 46%;
+    padding: 0 2%;
+    color: #496677;
+  }
+  .detail-label{
+    width:46%;
+	padding:0 2%;
+	float:left;	
+  	color:@hmblue1;
+	&:first-letter{
+		 text-transform: uppercase;
+	}
+  }
+}
+.kind-group{
+	border-bottom: 1px solid #496677;
+	margin: 0 10px;
+	div{
+		color: #496677;
+    	font-weight: bold;
+		width: 46%;
+    	padding: 0 2%;
+		display:inline-block;
+	}
+}
+
+// Filter
+// --------------------------------------------------
+
+.filter-box{
+	margin:  10px 0 0 0;
+	h3{
+		font-size: 12px;
+		line-height:28px;
+		margin-bottom: 0;
+		cursor:pointer;
+		border:1px solid #ecf4f7;
+		border-bottom:0;
+		background:#eff4f7;
+		padding:0px 30px 0 10px;
+		position:relative;
+		border-radius:4px 4px 0 0;
+		.text-shadow();
+	}
+	ul{
+		padding-left: 0;margin: 0 ;background:#fff;border:1px solid #ecf4f7;border-radius:0 0 4px 4px;padding:10px 0;
+	}
+	ul li{
+		font-size:12px;
+	}
+	ul li a{
+		color: #8fb8e0;border:1px solid transparent;display:block;margin: 1px 8px;     padding-left: 10px;border-radius:2px;
+		&:hover{
+			color: #4170a1;background:#f4f8fa;text-decoration:none;
+		}
+	}
+	ul li.selected a{
+		background:#f4f8fa;border:1px solid #ecf4f7;
+		&:hover{
+			background:#f4f8fa;
+		}
+		&:first-child{
+		}
+	}
+}
+
+// Form tools : handle
+// -------------------------------------------------- 
+
+.handle, td.add {
+    display: inline-block;	
+    width: 15px;    
+    height: 17px;
+    text-indent:-5000px;
+}
+.handle{
+	
+	background: url(../img/move.png) bottom left no-repeat;
+	cursor: move;
+}
+td.add{
+	 border:1px solid red;padding:0;
+	 position:relative;
+	 &:before{
+	 	content:"+";
+		position:absolute;
+		text-indent:10px;
+		font-weight:bold;
+	 }
+}
+// Print hide
+// -------------------------------------------------- 
+
+h1#print_name, .modal-print, .hide{display:none;}
