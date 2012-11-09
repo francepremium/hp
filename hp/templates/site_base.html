@@ -41,6 +41,7 @@
             $('[rel=popover]').popover();
         });
     </script>
+
     {% if not request.user.is_authenticated %}
         {% include '_login_or_signup_modal.html' %}
         <script type="text/javascript">

@@ -1,0 +1,19 @@
+{% extends 'hp_appstore/app_edit_base.html' %}
+
+{% load i18n %}
+
+{% block body %}
+    {{ block.super }}
+     
+    <form method="post" action="">
+
+        {{ form }}
+
+
+        {% trans 'Provides' %}: {{ object.provides }}
+
+        {% if request.user.is_staff %}
+            {% trans 'Default for feature' %} {{ object.default_for_feature|yesno:"Yes,No" }}
+        {% endif %}
+    </form>
+{% endblock %}

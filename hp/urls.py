@@ -2,6 +2,9 @@ from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
 
+import autocomplete_light
+autocomplete_light.autodiscover()
+
 # override pinax accounts app's signup url
 from hp_saas.views import SignupView, LoginView, ConfirmEmailView
 
@@ -20,7 +23,10 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^session_security/', include('session_security.urls')),
     url(r'^account/', include('account.urls')),
+    url(r'^autocomplete_light/', include('autocomplete_light.urls')),
     url(r'^appstore/', include('appstore.urls')),
+    url(r'^form_designer/', include('form_designer.urls')),
+    url(r'^hp/appstore/', include('hp_appstore.urls')),
     url(r'^zodb/', include('zodb_admin.urls', namespace='zodb_admin')),
 )
 
