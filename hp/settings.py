@@ -1,5 +1,7 @@
 import os
+import socket
 
+HOSTNAME = socket.gethostname()
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
@@ -201,7 +203,13 @@ FIXTURE_DIRS = [
     os.path.join(PROJECT_ROOT, "fixtures"),
 ]
 
-#EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+if HOSTNAME == 'zen':
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+}
 
 ACCOUNT_OPEN_SIGNUP = True
 ACCOUNT_USE_OPENID = False
