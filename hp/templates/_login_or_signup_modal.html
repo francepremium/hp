@@ -15,18 +15,20 @@
     </div>
     <div class="modal-body">
         <div class="login_block">
-            <form method="POST" action="{% url 'account_login' %}" autocapitalize="off" class="form-horizontal">
+            <form method="POST" action="{% url 'account_login' %}" autocapitalize="off" >
+            	<legend>{% trans 'Login' %}</legend>
                 {% csrf_token %}
                 {{ login_form|as_bootstrap }}
                 <input type="hidden" name="next" value="{{ request.path }}" />
-                <button class="btn btn-primary">{% trans 'Login' %}</button>
+                <p class="align-right"><button class="btn alt">{% trans 'Login' %}</button></p>
             </form>
         </div>
         <div class="signup_block">
-            <form id="signup_form" method="post" action="{% url 'account_signup' %}" autocapitalize="off" class="form-horizontal">
+            <form id="signup_form" method="post" action="{% url 'account_signup' %}" autocapitalize="off">
+            	<legend>{% trans 'Signup' %}</legend>
                 {% csrf_token %}
                 {{ signup_form|as_bootstrap }}
-                <button class="btn btn-danger">{% trans 'Signup' %}</button>
+                <p class="align-right"><button class="btn alt">{% trans 'Signup' %}</button></p>
             </form>
         </div>
     </div>

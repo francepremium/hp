@@ -1,0 +1,27 @@
+{% extends 'appstore/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+{% load bootstrap_tags %}
+
+{% block body %}
+<h1>{% trans 'Environment' %}</h1>
+<div class="alert alert-info">
+	???
+</div>
+<div class="row bloc-content">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form|as_bootstrap }}
+        <button type="submit" class="btn">{% trans 'Submit' %}</button>
+    </form>
+</div>
+<h2>{% trans 'My apps' %}</h2>
+<div class="alert alert-info">
+Liste des applications déjà installées, raccourci pour accéder à la configratio nde chacune d'elles.</div>
+    <table class="table">
+        {% for appversion in object.appversions.select_related %}
+            {% include 'appstore/_app_row.html' with app=appversion.app env=object %}
+        {% endfor %}
+    </table>
+{% endblock %}

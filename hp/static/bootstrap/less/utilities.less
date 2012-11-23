@@ -110,6 +110,13 @@ h3.filter_title{
 	}
 	
 }
+ .toolbox{
+ 	border: 1px solid #e0edf5;
+    border-radius: 0 0 4px 4px;
+	margin: 0 0 10px 0;
+	padding:10px ;
+	background:@white;
+ }
 h1#print_name{display:none;}
 
 // Design details line
@@ -197,30 +204,11 @@ h1#print_name{display:none;}
 	}
 }
 
-// Form tools : handle
-// -------------------------------------------------- 
-
-.handle, td.add {
-    display: inline-block;	
-    width: 15px;    
-    height: 17px;
-    text-indent:-5000px;
-}
-.handle{
-	
-	background: url(../img/move.png) bottom left no-repeat;
-	cursor: move;
-}
 td.add{
-	 border:1px solid red;padding:0;
-	 position:relative;
-	 &:before{
-	 	content:"+";
-		position:absolute;
-		text-indent:10px;
-		font-weight:bold;
-	 }
+	width:20px;
 }
+td.verbose-name{width:auto;}
+
 // Print hide
 // -------------------------------------------------- 
 

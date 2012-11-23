@@ -13,13 +13,17 @@
   body {
     padding-top: 0;
   }
+  .top-margin{
+  	margin:0;
+  }
   // Unfix the navbars
   .navbar-fixed-top,
-  .navbar-fixed-bottom {
+  .navbar-fixed-bottom, 
+  .submit-row {
     position: static;
   }
   .navbar-fixed-top {
-    margin-bottom: @baseLineHeight;
+    //margin-bottom: @baseLineHeight;
   }
   .navbar-fixed-bottom {
     margin-top: @baseLineHeight;
@@ -31,6 +35,23 @@
   .navbar .container {
     width: auto;
     padding: 0;
+  }
+  footer.navbar-fixed-bottom {
+  	margin-top:10px;
+  }
+  footer.navbar-fixed-bottom div{
+  	border:1px solid #E0EDF5;
+	margin:0 20px;
+	padding:5px;
+	border-radius:2px;
+	height:auto;
+	
+  }
+  .submit-row{
+  	border:1px solid #e0edf5;
+	margin-top:10px;
+	border-radius:2px;
+	width:auto;
   }
   // Account for brand name
   .navbar .brand {

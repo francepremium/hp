@@ -1,0 +1,81 @@
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.form div, .form table
+{ 
+    width: 100%; 
+    padding: 0; 
+    min-height: 100px; 
+}
+
+table.fieldset, .toolbox table{
+	width:100%;
+}
+
+
+
+table.fieldset td.verbose-name 
+{ 
+    width: 35%;
+	font-size:13px;
+	padding-left:10px;
+	font-weight:bold;
+}
+.toolbox table td.verbose-name{
+	font-size:12px;
+} 
+td.help-text 
+{ 
+    width: 50%;
+}
+.help-desc {
+	padding:5px ;
+ 	border:1px solid #E0EDF5;
+ 	border-radius:2px;
+ 	background-color:#EFF4F7;
+ 	color:#6B9BCB;
+ 	font-size:11px;
+	}
+	.help-desc span{margin-right:5px;}
+	div.help-desc{border:1px solid red}
+.handle 
+{ 
+    vertical-align: bottom; 
+}
+
+.form.outer 
+{ 
+    display: inline-block; 
+    width: 79%; 
+}
+
+.toolbox.outer 
+{ 
+    display: inline-block; 
+    width: 20%; 
+}
+
+.inner, 
+.outer 
+{ 
+    vertical-align: top; 
+}
+
+.tab-list li a span 
+{ 
+    display: inline-block; 
+}
+
+.toolbox .handle, 
+.toolbox .help-icon,
+.toolbox .help-text,
+.toolbox .required,
+.toolbox .remove
+{
+    display: none;
+}
