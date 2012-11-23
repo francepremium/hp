@@ -166,9 +166,15 @@ INSTALLED_APPS = [
     'taggit',
     'appstore',
     'session_security',
-    'debug_toolbar',
     'form_designer',
+    'debug_toolbar',
+    'appstore.contrib.form_designer_appeditor',
 ]
+
+APPSTORE_EDITOR_MODULES = (
+    ('appstore.contrib.form_designer_appeditor', u'Form app'),
+)
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
