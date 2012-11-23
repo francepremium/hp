@@ -26,6 +26,8 @@ urlpatterns = patterns('',
     url(r'^autocomplete_light/', include('autocomplete_light.urls')),
     url(r'^appstore/', include('appstore.urls')),
     url(r'^form_designer/', include('form_designer.urls')),
+    url(r'^form_designer_appeditor/',
+        include('appstore.contrib.form_designer_appeditor.urls')),
     url(r'^hp/appstore/', include('hp_appstore.urls')),
     url(r'^zodb/', include('zodb_admin.urls', namespace='zodb_admin')),
 )

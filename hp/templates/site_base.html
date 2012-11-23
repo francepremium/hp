@@ -36,6 +36,9 @@
     {% include '_navbar.html' %}
         
     <div class="container-fluid top-margin">
+        {% block before_body %}
+        {% endblock %}
+
         {% block content %}
             {% block body %}
             {% endblock %}
@@ -54,6 +57,15 @@
         $(document).ready(function() {
             $('[rel=tooltip]').tooltip();
             $('[rel=popover]').popover();
+            
+            $(this).bind('appstore.app.action', function(e, btn) {
+                location.reload();
+            });
+            
+            $(this).bind('appstore.app.error', function(e, jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText);
+                $('.modal:visible').modal('hide');
+            });
         });
     </script>
 
