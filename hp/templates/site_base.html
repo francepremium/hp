@@ -74,6 +74,7 @@
         <script type="text/javascript">
         $(document).ready(function() {
             $(this).bind('appstore.app.require_env', function(e) {
+                $('.modal:visible').modal('hide');
                 $('#login_or_signup').modal('show').find('input[name=next]').val($(e.target).data('appstoreAppUrl'));
             });
         });
