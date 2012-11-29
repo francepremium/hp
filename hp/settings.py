@@ -162,7 +162,6 @@ INSTALLED_APPS = [
     'autocomplete_light',
     'annoying',
     'hp_saas',
-    'hp_appstore',
     'taggit',
     'appstore',
     'session_security',
@@ -235,4 +234,4 @@ COMPRESS_PRECOMPILERS = (
 COMPRESS_DEBUG_TOGGLE = 'debug'
 
 ZODB_FILENAME='Data.fs'
- 
+
