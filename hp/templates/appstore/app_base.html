@@ -1,0 +1,36 @@
+{% extends 'appstore/base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block before_body %}
+{% if app.pk %}
+<h1>Create app</h1>
+    <ul class="nav-tabs nav app-nav">
+        <li>
+            <a href="{% url 'appstore_app_update' app.pk %}">{% trans 'App' %}</a>
+        </li>
+        {% if app.editor %}
+            {% include app.editor_module_name|add:'/links.html' %}
+        {% endif %}
+        <li>
+            <a href="{% url 'appstore_app_deploy' app.pk %}">{% trans 'Deploy' %}</a>
+        </li>
+    </ul>
+	<div class="bloc-content ui-tabs-panel">
+{% endif %}
+{% endblock %}
+
+{% block after_body %}</div>
+{% endblock %}
+{% block extra_body %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.app-nav li a').each(function() {
+            if ($(this).attr('href') == window.location.pathname) {
+                $(this).parent().addClass('active');
+            }
+        });
+    });
+</script>
+{% endblock %}

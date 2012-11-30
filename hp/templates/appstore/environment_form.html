@@ -9,17 +9,22 @@
 <div class="alert alert-info">
 	???
 </div>
-<div class="row bloc-content">
+<div class="bloc-content">
     <form action="" method="POST">
         {% csrf_token %}
         {{ form|as_bootstrap }}
+		<div class="submit-bloc">
         <button type="submit" class="btn">{% trans 'Submit' %}</button>
+		</div>
     </form>
 </div>
 <h2>{% trans 'My apps' %}</h2>
+<div class="btn-toolbar">
+	  <a href="{% url 'appstore_app_create' %}" title="Add" class="btn_img add-tb below" rel="tooltip">{% trans 'Create app' %}</a>
+	</div>
 <div class="alert alert-info">
 Liste des applications déjà installées, raccourci pour accéder à la configratio nde chacune d'elles.</div>
-    <table>
+    <table class="table">
         {% for app in object.apps.all %}
         <tr>
             <td>{{ app.name }}</td>
@@ -33,6 +38,6 @@ Liste des applications déjà installées, raccourci pour accéder à la configr
         {% endfor %}
     </table>
 
-    <a href="{% url 'appstore_app_create' %}">{% trans 'Create app' %}</a>
+  
 
 {% endblock %}
