@@ -1,6 +1,12 @@
 from django.conf import settings
 from django.contrib.sites.models import Site
 from django.contrib.auth.models import User
+from appstore.models import AppFeature
+
+
+for name in ('artist', 'artwork', 'contact'):
+    AppFeature.objects.get_or_create(name=name)
+
 
 if settings.HOSTNAME == 'maria':
     domain = 'dev.betspire.com'
