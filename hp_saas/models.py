@@ -49,3 +49,4 @@ def post_signup(sender, user, form, **kwargs):
     user.hpprofile.next_url = form.cleaned_data['next']
     user.hpprofile.save()
 user_signed_up.connect(post_signup)
+
