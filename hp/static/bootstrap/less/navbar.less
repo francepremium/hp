@@ -144,16 +144,23 @@
     margin-bottom: 0;
     padding: 4px 14px;
     #font > .sans-serif(13px, normal, 1);
-    .border-radius(15px); // redeclare because of specificity of the type attribute
+    .border-radius(4px); // redeclare because of specificity of the type attribute
+	background: transparent;
+	color: #b2d0e3;
+	height:36px;
+    padding-left:40px;-webkit-box-shadow: 0px 1px 1px 0px #5e86b0, inset 0px 1px 1px 0px #5e86b0;
+	-moz-box-shadow: 0px 1px 1px 0px #5e86b0, inset 0px 1px 1px 0px #5e86b0;
+	box-shadow: 0px 1px 1px 0px #5e86b0, inset 0px 1px 1px 0px #5e86b0; overflow: hidden; -webkit-transition:all 0.5s linear;
+	-moz-transition:all 0.5s linear;
+	-o-transition:all 0.5s linear;
+	transition:all 0.5s linear;
+   border:1px solid #345a81;
+   text-shadow: 0px 1px 1px #274d75;
+   &hover{
+   	cursor:pointer;border:1px solid #49739d;-webkit-box-shadow: 0px 1px 1px 0px #83a7cc, inset 0px 1px 1px 0px #83a7cc;-moz-box-shadow: 0px 1px 1px 0px #83a7cc, inset 0px 1px 1px 0px #83a7cc;box-shadow: 0px 1px 1px 0px #83a7cc, inset 0px 1px 1px 0px #83a7cc;text-shadow: 0px 0px 0px #ffffff;filter: dropshadow(color=#ffffff, offx=0, offy=0);
+   }
   }
 }
-#search_container{margin:0 auto;float:center;width:20%;max-width:400px;padding: 6px 0;position:relative;}
-#search_bloc{height:36px;position:relative;width:100%;}
-#search_bloc form{float:none;margin:0;position:relative;}
-#search_bloc input[type=text]{color:#b2d0e3;background:transparent;-moz-border-radius-topleft: 3px;outline:none;font-size:13px;margin:0;height:36px;width:430px;border:0;text-shadow: 0px 1px 1px #274d75;-moz-border-radius-topright: 3px;-moz-border-radius-bottomright: 0px;-moz-border-radius-bottomleft: 0px;-webkit-border-radius:3px 3px 0px 0px;border-radius: 3px 3px 0px 0px;-webkit-transition:all 0.3s linear;-moz-transition:all 0.3s linear;-o-transition:all 0.3s linear;transition:all 0.3s linear;padding:0;}
-#search_bloc input#id_q{width:100%;padding-left:40px;background-image:url(../img/sprite.png);background-repeat:no-repeat;background-position:-670px -89px;border:1px solid #345a81;border-radius:3px;-webkit-box-shadow: 0px 1px 1px 0px #5e86b0, inset 0px 1px 1px 0px #5e86b0;-moz-box-shadow: 0px 1px 1px 0px #5e86b0, inset 0px 1px 1px 0px #5e86b0;box-shadow: 0px 1px 1px 0px #5e86b0, inset 0px 1px 1px 0px #5e86b0; overflow: hidden; -webkit-transition:all 0.5s linear;-moz-transition:all 0.5s linear;-o-transition:all 0.5s linear;transition:all 0.5s linear;}
-#search_bloc input#id_q:hover{cursor:pointer;border:1px solid #49739d;-webkit-box-shadow: 0px 1px 1px 0px #83a7cc, inset 0px 1px 1px 0px #83a7cc;-moz-box-shadow: 0px 1px 1px 0px #83a7cc, inset 0px 1px 1px 0px #83a7cc;box-shadow: 0px 1px 1px 0px #83a7cc, inset 0px 1px 1px 0px #83a7cc;text-shadow: 0px 0px 0px #ffffff;filter: dropshadow(color=#ffffff, offx=0, offy=0);}
-#search_bloc input#id_q:focus{color:#fff;background-color:#8cb7e1;background-position:-670px -89px;text-shadow: 0px 0px 0px #ffffff;filter: dropshadow(color=#ffffff, offx=0, offy=0);}
 
 
 
@@ -254,6 +261,10 @@ padding: ((@navbarHeight - @baseLineHeight) / 2) 15px ((@navbarHeight - @baseLin
   text-decoration: none;
   font-size: @baseFontSize;
   .transition(all, 0.3s, ease-in-out);
+  &.btn{
+  	padding: 5px 15px 4px 15px;
+	color:@hmblue1;
+  }
 }
 .navbar .nav > li.tex{
 	padding: ((@navbarHeight - @baseLineHeight) / 2) 5px ((@navbarHeight - @baseLineHeight) / 2);
