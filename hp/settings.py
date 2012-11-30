@@ -164,6 +164,7 @@ INSTALLED_APPS = [
     'hp_saas',
     'taggit',
     'appstore',
+    'south',
     'session_security',
     'form_designer',
     'debug_toolbar',
