@@ -168,6 +168,7 @@ INSTALLED_APPS = [
     'form_designer',
     'debug_toolbar',
     'appstore.contrib.form_designer_appeditor',
+    'project_specific',
 ]
 
 APPSTORE_EDITOR_MODULES = (
