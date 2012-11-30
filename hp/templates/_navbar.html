@@ -37,15 +37,20 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.user }}<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a href="{% url 'account_logout' %}">{% trans 'Logout' %}</a>
-                                </li>
-                                <li class="divider"></li>
                                 {% for environment in request.user.environment_set.all %}
-                                <li>
+                                <li class="{% if environment == request.user.appstore_environment %}active{% endif %}">
                                     <a href="{% url 'appstore_env_activate' environment.pk %}">{{ environment }}</a>
                                 </li>
                                 {% endfor %}
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="{% url 'appstore_env_create' %}">{% trans 'Create new environment' %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="{% url 'account_logout' %}">{% trans 'Logout' %}</a>
+                                </li>
+                            </ul>
                         </li>
                         {% else %}
 						<li>
