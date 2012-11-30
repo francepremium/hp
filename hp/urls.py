@@ -16,6 +16,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', direct_to_template, {'template': 'homepage.html'}, name='home'),
+    url(r'^design/$', direct_to_template, {'template': 'design.html'}, name='design'),
     # override pinax accounts app's signup url
     url(r'^account/signup/$', SignupView.as_view()),
     url(r'^account/login/$', LoginView.as_view()),
