@@ -18,3 +18,4 @@ django-debug-toolbar
 django-autocomplete-light
 -e git+git://github.com/gkuhn1/django-admin-templates-twitter-bootstrap.git#egg=admin-bootstrap
 south
+django-rules-light
