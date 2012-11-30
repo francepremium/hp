@@ -36,9 +36,16 @@
                         {% if request.user.is_authenticated %}
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.user }}<b class="caret"></b></a>
-                            <span class="dropdown-menu">
-                                <a href="{% url 'account_logout' %}">{% trans 'Logout' %}</a>
-                            </span>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{% url 'account_logout' %}">{% trans 'Logout' %}</a>
+                                </li>
+                                <li class="divider"></li>
+                                {% for environment in request.user.environment_set.all %}
+                                <li>
+                                    <a href="{% url 'appstore_env_activate' environment.pk %}">{{ environment }}</a>
+                                </li>
+                                {% endfor %}
                         </li>
                         {% else %}
 						<li>
