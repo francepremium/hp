@@ -170,9 +170,9 @@ INSTALLED_APPS = [
     'appstore',
     'south',
     'session_security',
+    'appstore.contrib.form_designer_appeditor',
     'form_designer',
     'debug_toolbar',
-    'appstore.contrib.form_designer_appeditor',
     'project_specific',
 ]
 
