@@ -45,6 +45,8 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = True
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale.
 USE_L10N = True
