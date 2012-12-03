@@ -1,0 +1,13 @@
+{% extends 'site_base.html' %}
+
+{% load bootstrap_tags %}
+{% load i18n %}
+
+
+{% block body %}
+<form method="post" action="">
+    {{ form|as_bootstrap }}
+    {% csrf_token %}
+    <input type="submit" value="{% trans 'Save' %}" />
+</form>
+{% endblock %}
