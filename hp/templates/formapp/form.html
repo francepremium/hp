@@ -1,13 +1,48 @@
 {% extends 'site_base.html' %}
 
+{% load formapp_tags %}
 {% load bootstrap_tags %}
 {% load i18n %}
 
-
 {% block body %}
-<form method="post" action="">
-    {{ form|as_bootstrap }}
+<ul class="nav-tabs nav form-nav">
+    {% for tab in appform.form.tab_set.all %}
+    <li>
+        <a href="#tab-{{ tab.pk }}" data-toggle="tab">{{ tab.verbose_name }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<form class="form-horizontal" enctype="multipart/form-data" method="post" action="">
+    {% if form.non_field_errors %}
+        <div class="alert alert-error">
+            {% if form_error_title %}
+                <strong>{{ form_error_title }}</strong>
+            {% endif %}
+            {% for error in form.non_field_errors %}
+                {{ error }}<br />
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="tab-content">
+    {% for tab in appform.form.tab_set.all %}
+        <div class="tab-pane active" id="tab-{{ tab.pk }}">
+            {% for widget in tab.widget_set.all %}
+                {% include 'bootstrap/field.html' with field=form|get_field:widget.name %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+    </div>
     {% csrf_token %}
     <input type="submit" value="{% trans 'Save' %}" />
 </form>
+{% endblock %}
+
+{% block extra_body %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.form-nav a:first').click();
+    });
+</script>
 {% endblock %}

@@ -5,13 +5,18 @@ from appstore.contrib.form_designer_appeditor.models import AppForm
 
 class AppPkFormClassMixin(object):
     def get_form_class(self):
-        appform = AppForm.objects.get(app__pk=self.kwargs['app_pk'])
-        form_class = appform.form.get_form_class()
-        return form_class
+        self.appform = AppForm.objects.get(app__pk=self.kwargs['app_pk'],
+                                           app__deployed=True)
+        return self.appform.form.get_form_class()
 
 
 class Create(AppPkFormClassMixin, generic.FormView):
     template_name = 'formapp/form.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(Create, self).get_context_data(**kwargs)
+        context['appform'] = self.appform
+        return context
 
 
 class Update(AppPkFormClassMixin, generic.FormView):

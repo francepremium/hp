@@ -167,6 +167,7 @@ INSTALLED_APPS = [
     'annoying',
     'hp_saas',
     'taggit',
+    'formapp',
     'appstore',
     'south',
     'session_security',
