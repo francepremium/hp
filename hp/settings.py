@@ -22,10 +22,6 @@ DATABASES = {
     }
 }
 
-ZODB = {
-    'default': ['file://' + os.path.join(PROJECT_ROOT, 'Data.fs')],
-}
-
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -116,7 +112,6 @@ TEMPLATE_CONTEXT_PROCESSORS = [
 
 MIDDLEWARE_CLASSES = [
     "django.middleware.common.CommonMiddleware",
-    "zodb_light.middleware.TransactionMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -160,7 +155,6 @@ INSTALLED_APPS = [
 
     # project
     'compressor',
-    'zodb_light',
     'crispy_forms',
     'autocomplete_light',
     'rules_light',
@@ -249,5 +243,4 @@ COMPRESS_PRECOMPILERS = (
 
 COMPRESS_DEBUG_TOGGLE = 'debug'
 
-ZODB_FILENAME='Data.fs'
-
+from settings_local import *
