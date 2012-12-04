@@ -22,6 +22,12 @@ DATABASES = {
     }
 }
 
+FORM_DESIGNER_WIDGET_CLASSES = (
+    'form_designer.models.InputWidget',
+    'form_designer.models.TextareaWidget',
+    'formapp.models.RelationWidget',
+)
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -113,6 +119,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
 MIDDLEWARE_CLASSES = [
     "django.middleware.common.CommonMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.transaction.TransactionMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     'rules_light.middleware.Middleware',
@@ -202,8 +209,8 @@ LOGGING = {
     },
     "loggers": {
         "django.request": {
-            "handlers": ["mail_admins"],
-            "level": "ERROR",
+            "handlers": ["console"],
+            "level": "DEBUG",
             "propagate": True,
         },
         'rules_light': {

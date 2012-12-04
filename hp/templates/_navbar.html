@@ -40,8 +40,8 @@
                     </ul>
                     {% endif %}
 					<div class="search_container">
-                        <form class="navbar-search pull-left" action="">
-                            <input type="text" class="search-query" placeholder="Search">
+                        <form class="navbar-search pull-left" action="{% url 'formapp_record_list' %}">
+                            <input type="text" class="search-query" placeholder="Search" name="q">
                         </form>
 					</div>
                     <ul class="nav pull-right">
