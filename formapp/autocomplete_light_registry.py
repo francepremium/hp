@@ -6,6 +6,16 @@ from models import Record
 class AutocompleteRecord(autocomplete_light.AutocompleteModelBase):
     search_fields = ['..']
 
+    def choices_for_values(self):
+        for ctype, pk in self.values:
+            if ctype != [u'formapp', u'record']:
+                raise Exception('Not implemented: multiple ctype')
+
+        # TODO: secure here
+        choices = Record.objects.filter(pk__in=[pk for c, pk in self.values])
+
+        return choices
+
     def choices_for_request(self):
         q = self.request.GET.get('q', '')
         exclude = self.request.GET.getlist('exclude', [])
