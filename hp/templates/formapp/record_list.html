@@ -1,0 +1,16 @@
+{% extends 'site_base.html' %}
+{% load url from future %}
+
+
+{% block body %}
+<table>
+    {% for object in object_list %}
+    <tr>
+        <td>{{ object }}</td>
+        <td class="edit">
+            <a href="{% url 'formapp_record_update' object.pk %}">edit (mettre une icone)</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,30 +1,69 @@
 from django.views import generic
+from django import http
 
 from appstore.contrib.form_designer_appeditor.models import AppForm
 
+from forms import RecordForm
+from models import Record
 
-class AppPkFormClassMixin(object):
+
+class Create(generic.CreateView):
+    template_name = 'formapp/record_form.html'
+
     def get_form_class(self):
         self.appform = AppForm.objects.get(app__pk=self.kwargs['app_pk'],
                                            app__deployed=True)
-        return self.appform.form.get_form_class()
-
-
-class Create(AppPkFormClassMixin, generic.FormView):
-    template_name = 'formapp/form.html'
+        return self.appform.form.get_form_class(bases=(RecordForm,))
 
     def get_context_data(self, **kwargs):
         context = super(Create, self).get_context_data(**kwargs)
         context['appform'] = self.appform
         return context
 
+    def form_valid(self, form):
+        record = form.save(commit=False)
+        record.form = self.appform.form
+        record.environment = self.request.session['appstore_environment']
+        record.save()
+        return http.HttpResponseRedirect(self.request.path)
 
-class Update(AppPkFormClassMixin, generic.FormView):
-    template_name = 'formapp/form.html'
+
+class Update(generic.UpdateView):
+    model = Record
+
+    def get_queryset(self):
+        # basic, annoying security for now.
+        return Record.objects.filter(
+            environment=self.request.session['appstore_environment'])
+
+    def get_context_data(self, **kwargs):
+        context = super(Update, self).get_context_data(**kwargs)
+        context['appform'] = self.object.form.appform
+        return context
+
+    def get_form_class(self):
+        return self.object.form.get_form_class(bases=(RecordForm,))
+
+    def form_valid(self, form):
+        form.save()
+        return http.HttpResponseRedirect(self.request.path)
 
 
-class List(generic.TemplateView):
-    template_name = 'formapp/list.html'
+class List(generic.ListView):
+    def get_queryset(self):
+        q = self.request.GET.get('q', None)
+
+        if q:
+            records = Record.objects.search(q)
+        else:
+            records = Record.objects.all()
+
+        return records.filter(
+            environment=self.request.session['appstore_environment'])
+
+    def get_context_data(self, **kwargs):
+        context = super(List, self).get_context_data(**kwargs)
+        return context
 
 
 class Detail(generic.TemplateView):
