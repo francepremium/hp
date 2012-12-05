@@ -10,9 +10,12 @@ from models import Record
 class Create(generic.CreateView):
     template_name = 'formapp/record_form.html'
 
-    def get_form_class(self):
-        self.appform = AppForm.objects.get(app__pk=self.kwargs['app_pk'],
+    @property
+    def appform(self):
+         AppForm.objects.get(app__pk=self.kwargs['app_pk'],
                                            app__deployed=True)
+
+    def get_form_class(self):
         return self.appform.form.get_form_class(bases=(RecordForm,))
 
     def get_context_data(self, **kwargs):
@@ -21,7 +24,7 @@ class Create(generic.CreateView):
         return context
 
     def form_valid(self, form):
-        record = form.save(commit=False)
+        record = form.save(self, commit=False)
         record.form = self.appform.form
         record.environment = self.request.session['appstore_environment']
         record.save()
@@ -31,6 +34,10 @@ class Create(generic.CreateView):
 class Update(generic.UpdateView):
     model = Record
 
+    @property
+    def appform(self):
+        return self.object.form.appform
+
     def get_queryset(self):
         # basic, annoying security for now.
         return Record.objects.filter(
@@ -38,18 +45,18 @@ class Update(generic.UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(Update, self).get_context_data(**kwargs)
-        context['appform'] = self.object.form.appform
+        context['appform'] = self.appform
         return context
 
     def get_form_class(self):
         return self.object.form.get_form_class(bases=(RecordForm,))
 
     def form_valid(self, form):
-        form.save()
+        form.save(self)
         return http.HttpResponseRedirect(self.request.path)
 
 
-class List(generic.ListView):
+class Search(generic.ListView):
     def get_queryset(self):
         q = self.request.GET.get('q', None)
 
@@ -59,6 +66,13 @@ class List(generic.ListView):
             records = Record.objects.all()
 
         return records.filter(
+            environment=self.request.session['appstore_environment'])
+
+
+class List(generic.ListView):
+    def get_queryset(self):
+        return Record.objects.filter(
+            form__appform__app__provides__pk=self.kwargs['feature_pk'],
             environment=self.request.session['appstore_environment'])
 
     def get_context_data(self, **kwargs):

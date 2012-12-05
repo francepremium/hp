@@ -4,7 +4,10 @@ import views
 
 
 urlpatterns = patterns('',
-    url(r'list/$',
+    url(r'search/$',
+        views.Search.as_view(),
+        name='formapp_record_search'),
+    url(r'(?P<feature_pk>\d+)/list/$',
         views.List.as_view(),
         name='formapp_record_list'),
     url(r'(?P<app_pk>\d+)/create/$',

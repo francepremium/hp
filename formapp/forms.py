@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.contenttypes.models import ContentType
 
-from models import Record
+from models import Record, RecordsWidget, Widget
 
 
 class RecordForm(forms.Form):
@@ -14,13 +14,20 @@ class RecordForm(forms.Form):
 
         super(RecordForm, self).__init__(*args, **kwargs)
 
-    def save(self, commit=True):
+    def save(self, view, commit=True):
         data = {}
 
+        widgets = Widget.objects.filter(tab__form=view.appform.form
+                ).select_subclasses()
+        widgets = {w.name: w for w in widgets}
+
         for key, value in self.cleaned_data.items():
-            if value and hasattr(value, '__iter__'):
-                ct = ContentType.objects.get_for_model(value.model)
-                value = [(ct.natural_key(), v.pk) for v in value]
+            if isinstance(widgets[key], RecordsWidget):
+                value = [v.pk for v in value]
+
+            #if value and hasattr(value, '__iter__'):
+            #    ct = ContentType.objects.get_for_model(value.model)
+            #    value = [(ct.natural_key(), v.pk) for v in value]
 
             data[key] = value
 

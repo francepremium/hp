@@ -25,7 +25,7 @@ DATABASES = {
 FORM_DESIGNER_WIDGET_CLASSES = (
     'form_designer.models.InputWidget',
     'form_designer.models.TextareaWidget',
-    'formapp.models.RelationWidget',
+    'formapp.models.RecordsWidget',
 )
 
 # Local time zone for this installation. Choices can be found here:
