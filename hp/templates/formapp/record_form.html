@@ -5,6 +5,11 @@
 {% load i18n %}
 
 {% block body %}
+<h1>Title</h1>
+<!--<div class="btn-toolbar">
+	<a href="/" title="History" class="btn_img history-tb below" rel="tooltip">History</a>
+	<a href="/" title="View" class="btn_img view-tb below" rel="tooltip">View</a>
+</div>-->
 <ul class="nav-tabs nav form-nav">
     {% for tab in appform.form.tab_set.all %}
     <li>
@@ -35,7 +40,9 @@
     {% endfor %}
     </div>
     {% csrf_token %}
-    <input type="submit" value="{% trans 'Save' %}" />
+	<div class="submit-row">
+    <input type="submit" value="{% trans 'Save' %}" class="btn alt"/>
+	</div>
 </form>
 {% endblock %}
 

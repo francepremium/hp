@@ -4,8 +4,9 @@
 {% load url from future %}
 
 {% block before_body %}
-{% if app.pk %}
 <h1>Create app</h1>
+{% if app.pk %}
+
     <ul class="nav-tabs nav app-nav">
         <li>
             <a href="{% url 'appstore_app_update' app.pk %}">{% trans 'App' %}</a>
@@ -17,8 +18,9 @@
             <a href="{% url 'appstore_app_deploy' app.pk %}">{% trans 'Deploy' %}</a>
         </li>
     </ul>
-	<div class="bloc-content ui-tabs-panel">
+	
 {% endif %}
+<div class="bloc-content {% if app.pk %}ui-tabs-panel{% endif %}">
 {% endblock %}
 
 {% block after_body %}</div>

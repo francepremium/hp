@@ -6,9 +6,9 @@
 
 {% block body %}
 <h1>{% trans 'Environment' %}</h1>
-<div class="alert alert-info">
+<!--<div class="alert alert-info">
 	???
-</div>
+</div>-->
 <div class="bloc-content">
     <form action="" method="POST">
         {% csrf_token %}
@@ -21,9 +21,9 @@
 <h2>{% trans 'My apps' %}</h2>
 <div class="btn-toolbar">
 	  <a href="{% url 'appstore_app_create' %}" title="Add" class="btn_img add-tb below" rel="tooltip">{% trans 'Create app' %}</a>
-	</div>
+	</div><!--
 <div class="alert alert-info">
-Liste des applications déjà installées, raccourci pour accéder à la configratio nde chacune d'elles.</div>
+Liste des applications déjà installées, raccourci pour accéder à la configratio nde chacune d'elles.</div>-->
     <table class="table">
         {% for app in object.apps.all %}
         <tr>
