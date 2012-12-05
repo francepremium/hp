@@ -77,6 +77,8 @@
                 alert(jqXHR.responseText);
                 $('.modal:visible').modal('hide');
             });
+
+            $('a[href="' + window.location.pathname +'"]').parent().addClass('active');
         });
     </script>
 
