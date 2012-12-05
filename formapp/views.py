@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.views import generic
 from django import http
 
@@ -7,7 +8,15 @@ from forms import RecordForm
 from models import Record
 
 
-class Create(generic.CreateView):
+class FormRedirectMixin(object):
+    def get_success_url(self, record):
+        if '_continue' in self.request.POST.keys():
+            return reverse('formapp_record_update', args=(record.pk,))
+        elif '_another' in self.request.POST.keys():
+            return reverse('formapp_record_create',
+                    args=(record.form.appform.app.pk,))
+
+class Create(FormRedirectMixin, generic.CreateView):
     template_name = 'formapp/record_form.html'
 
     @property
@@ -28,10 +37,10 @@ class Create(generic.CreateView):
         record.form = self.appform.form
         record.environment = self.request.session['appstore_environment']
         record.save()
-        return http.HttpResponseRedirect(self.request.path)
+        return http.HttpResponseRedirect(self.get_success_url(record))
 
 
-class Update(generic.UpdateView):
+class Update(FormRedirectMixin, generic.UpdateView):
     model = Record
 
     @property
@@ -52,8 +61,8 @@ class Update(generic.UpdateView):
         return self.object.form.get_form_class(bases=(RecordForm,))
 
     def form_valid(self, form):
-        form.save(self)
-        return http.HttpResponseRedirect(self.request.path)
+        record = form.save(self)
+        return http.HttpResponseRedirect(self.get_success_url(record))
 
 
 class Search(generic.ListView):

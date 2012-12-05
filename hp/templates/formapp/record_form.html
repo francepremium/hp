@@ -41,7 +41,8 @@
     </div>
     {% csrf_token %}
 	<div class="submit-row">
-    <input type="submit" value="{% trans 'Save' %}" class="btn alt"/>
+        <input type="submit" value="{% trans 'Save and add another' %}" name="_another" class="btn alt"/>
+        <input type="submit" value="{% trans 'Save and continue editing' %}" name="_continue" class="btn alt"/>
 	</div>
 </form>
 {% endblock %}
