@@ -14,6 +14,12 @@
         {% endcompress %}
     {% endif %}
     
+    {% if request.GET.is_popup %}
+    <style type="text/css">
+        .top-margin { margin-top: 0; margin-bottom: 0; }
+    </style>
+    {% endif %}
+
     {% block extra_head %}{% endblock %}
 </head>
 <body>
@@ -33,7 +39,9 @@
            </li>
        </ul>
    </div>-->
-    {% include '_navbar.html' %}
+    {% if not request.GET.is_popup %}
+        {% include '_navbar.html' %}
+    {% endif %}
         
     <div class="container-fluid top-margin">
         {% block before_body %}
