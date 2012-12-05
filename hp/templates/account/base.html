@@ -10,3 +10,9 @@
     <li><a href="{% url "account_delete" %}">{% trans "Delete account" %}</a></li>
 </ul>
 {% endblock %}
+
+{% block extra_head %}
+<style type="text/css">
+    form legend { display: none; }
+</style>
+{% endblock %}
