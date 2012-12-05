@@ -3,6 +3,14 @@
 {% load i18n %}
 {% load url from future %}
 
+{% block extra_head %}
+<style type="text/css">
+    #div_id_editor {
+        display: none;
+    }
+</style>
+{% endblock %}
+
 {% block before_body %}
 <h1>Create app</h1>
 {% if app.pk %}
