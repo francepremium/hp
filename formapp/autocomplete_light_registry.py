@@ -11,7 +11,7 @@ class AutocompleteRecord(autocomplete_light.AutocompleteModelBase):
         exclude = self.request.GET.getlist('exclude', [])
 
         if q:
-            choices = Record.objects.search(q)
+            choices = Record.objects.filter(text_data__icontains=q)
         else:
             choices = Record.objects.all()
 
