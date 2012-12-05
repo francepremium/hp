@@ -12,8 +12,8 @@ class Create(generic.CreateView):
 
     @property
     def appform(self):
-         AppForm.objects.get(app__pk=self.kwargs['app_pk'],
-                                           app__deployed=True)
+         return AppForm.objects.get(app__pk=self.kwargs['app_pk'],
+                 app__deployed=True)
 
     def get_form_class(self):
         return self.appform.form.get_form_class(bases=(RecordForm,))
