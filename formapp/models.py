@@ -62,7 +62,6 @@ class RecordsWidget(Widget):
     widget_class_path = 'autocomplete_light.widgets.MultipleChoiceWidget'
 
     provides = models.ForeignKey('appstore.AppFeature', null=True)
-    maximum_values = models.IntegerField()
 
     class Meta:
         verbose_name = _(u'Relation to other record')
