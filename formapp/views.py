@@ -2,10 +2,17 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 from django import http
 
+from appstore.views import AppCreateView
 from appstore.contrib.form_designer_appeditor.models import AppForm
 
 from forms import RecordForm
 from models import Record
+
+
+class AppCreateOverride(AppCreateView):
+    def get_success_url(self):
+        return reverse('form_designer_appeditor_appform_update',
+                args=(self.object.pk,))
 
 
 class FormRedirectMixin(object):

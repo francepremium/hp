@@ -11,6 +11,8 @@ autocomplete_light.autodiscover()
 # override pinax accounts app's signup url
 from hp_saas.views import SignupView, LoginView, ConfirmEmailView
 
+from formapp.views import AppCreateOverride
+
 from django.views.generic.simple import direct_to_template
 
 from django.contrib import admin
@@ -28,6 +30,7 @@ urlpatterns = patterns('',
     url(r'^session_security/', include('session_security.urls')),
     url(r'^account/', include('account.urls')),
     url(r'^autocomplete_light/', include('autocomplete_light.urls')),
+    url(r'^appstore/app/create/', AppCreateOverride.as_view(), name='appstore_app_create'),
     url(r'^appstore/', include('appstore.urls')),
     url(r'^formapp/', include('formapp.urls')),
     url(r'^form_designer/', include('form_designer.urls')),
