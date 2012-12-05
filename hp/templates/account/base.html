@@ -1,0 +1,12 @@
+{% extends 'site_base.html' %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block before_body %}
+<ul class="nav nav-tabs">
+    <li><a href="{% url "account_settings" %}">{% trans "Settings" %}</a></li>
+    <li><a href="{% url "account_password" %}">{% trans "Change password" %}</a></li>
+    <li><a href="{% url "account_delete" %}">{% trans "Delete account" %}</a></li>
+</ul>
+{% endblock %}
