@@ -123,10 +123,11 @@ class List(generic.ListView):
 
 
 @rules_light.class_decorator
-class Detail(generic.TemplateView):
-    template_name = 'formapp/detail.html'
+class Detail(generic.DetailView):
+    model = Record
 
 
 @rules_light.class_decorator
-class Delete(generic.TemplateView):
+class Delete(generic.DeleteView):
     template_name = 'formapp/detele.html'
+    model = Record
