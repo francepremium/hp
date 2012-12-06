@@ -70,6 +70,10 @@ class RecordsWidget(Widget):
     def widget_kwargs(self):
         return {
             'autocomplete': 'AutocompleteRecord',
+            'widget_js_attributes': {
+                'feature': self.provides.pk,
+                'bootstrap': 'record-autocomplete',
+            }
         }
 
     def field_kwargs(self):

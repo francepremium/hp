@@ -88,6 +88,15 @@
 
             $('a[href="' + window.location.pathname +'"]').parent().addClass('active');
         });
+
+        $(document).bind('yourlabsWidgetReady', function() {
+            // Instanciate decks with RemoteAutocompleteWidget as override for all widgets with
+            // autocomplete 'remote'.
+            $('.autocomplete-light-widget[data-bootstrap=record-autocomplete]').live('initialize', function() {
+                console.log('hello')
+                $(this).yourlabsWidget().autocomplete.data = {feature: $(this).attr('data-feature')};
+            });
+        });
     </script>
 
     {% if not request.user.is_authenticated %}

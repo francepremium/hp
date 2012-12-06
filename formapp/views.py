@@ -6,9 +6,10 @@ import rules_light
 
 from appstore.views import AppCreateView
 from appstore.contrib.form_designer_appeditor.models import AppForm
+from form_designer.models import Widget
 
 from forms import RecordForm
-from models import Record
+from models import Record, RecordsWidget
 
 
 class AppCreateOverride(AppCreateView):
