@@ -79,9 +79,13 @@ class RecordsWidget(Widget):
     def field_kwargs(self):
         kwargs = super(RecordsWidget, self).field_kwargs()
 
-        # TODO: Secure this based on session[appstore_environment]
         # IMPORTANT: this security vulnerability might be used to steal data !
-        kwargs['queryset'] = Record.objects.all()
+        # Set a self.secure_queryset to avoid this.
+        secure_queryset = getattr(self, 'secure_queryset', None)
+        if secure_queryset is None:
+            raise Exception('Queryset was not secured !')
+
+        kwargs['queryset'] = self.secure_queryset
 
         if self.provides:
             kwargs['queryset'] = kwargs['queryset'].filter(

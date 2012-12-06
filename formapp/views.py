@@ -26,6 +26,22 @@ class FormRedirectMixin(object):
             return reverse('formapp_record_create',
                     args=(record.form.appform.app.pk,))
 
+    def get_form_class(self, form_model):
+        q = Record.objects.filter(
+                environment=self.request.session['appstore_environment'])
+
+        widgets = Widget.objects.filter(tab__form=form_model
+                ).select_subclasses()
+
+        for widget in widgets:
+            if isinstance(widget, RecordsWidget):
+                widget.secure_queryset = q
+
+        attributes = {w.name: w.field_instance() for w in widgets}
+
+        return type('Form', (RecordForm,), attributes)
+
+
 class Create(FormRedirectMixin, generic.CreateView):
     template_name = 'formapp/record_form.html'
 
@@ -35,10 +51,11 @@ class Create(FormRedirectMixin, generic.CreateView):
                  app__deployed=True)
 
     def get_form_class(self):
-        return self.appform.form.get_form_class(bases=(RecordForm,))
+        return super(Create, self).get_form_class(self.appform.form)
 
     def get_context_data(self, **kwargs):
-        rules_light.require(self.request.user, 'formapp.record.create')
+        rules_light.require(self.request.user, 'formapp.record.create',
+                self.request.session['appstore_environment'])
 
         context = super(Create, self).get_context_data(**kwargs)
         context['appform'] = self.appform
@@ -70,7 +87,7 @@ class Update(FormRedirectMixin, generic.UpdateView):
         return context
 
     def get_form_class(self):
-        return self.object.form.get_form_class(bases=(RecordForm,))
+        return super(Update, self).get_form_class(self.object.form)
 
     def form_valid(self, form):
         record = form.save(self)
