@@ -2,6 +2,8 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 from django import http
 
+import rules_light
+
 from appstore.views import AppCreateView
 from appstore.contrib.form_designer_appeditor.models import AppForm
 
@@ -35,6 +37,8 @@ class Create(FormRedirectMixin, generic.CreateView):
         return self.appform.form.get_form_class(bases=(RecordForm,))
 
     def get_context_data(self, **kwargs):
+        rules_light.require(self.request.user, 'formapp.record.create')
+
         context = super(Create, self).get_context_data(**kwargs)
         context['appform'] = self.appform
         return context
@@ -74,6 +78,8 @@ class Update(FormRedirectMixin, generic.UpdateView):
 
 class Search(generic.ListView):
     def get_queryset(self):
+        rules_light.require(self.request.user, 'formapp.record.list')
+
         q = self.request.GET.get('q', None)
 
         if q:
@@ -87,6 +93,8 @@ class Search(generic.ListView):
 
 class List(generic.ListView):
     def get_queryset(self):
+        rules_light.require(self.request.user, 'formapp.record.list')
+
         return Record.objects.filter(
             form__appform__app__provides__pk=self.kwargs['feature_pk'],
             environment=self.request.session['appstore_environment'])
@@ -96,9 +104,11 @@ class List(generic.ListView):
         return context
 
 
+@rules_light.class_decorator
 class Detail(generic.TemplateView):
     template_name = 'formapp/detail.html'
 
 
+@rules_light.class_decorator
 class Delete(generic.TemplateView):
     template_name = 'formapp/detele.html'
