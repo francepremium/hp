@@ -6,6 +6,12 @@
 
 {% block head_title %}{% trans "Log in" %}{% endblock %}
 
+{% block extra_head %}
+<style type="text/css">
+    #div_id_remember { display: none }
+</style>
+{% endblock %}
+
 {% block body %}
 <h1>{% trans "Log in to an existing account" %}</h1>
     <div class="bloc-content">
