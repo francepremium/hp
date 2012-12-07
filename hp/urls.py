@@ -8,6 +8,11 @@ rules_light.autodiscover()
 import autocomplete_light
 autocomplete_light.autodiscover()
 
+js_info_dict = {
+    'packages': ('form_designer',),
+}
+
+
 # override pinax accounts app's signup url
 from hp_saas.views import SignupView, LoginView, ConfirmEmailView
 from views import CreateGateway
@@ -22,6 +27,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', direct_to_template, {'template': 'homepage.html'}, name='home'),
     url(r'^design/$', direct_to_template, {'template': 'design.html'}, name='design'),
+    (r'^jsi18n/$', 'django.views.i18n.javascript_catalog',
+        {'packages': ('form_designer',)}),
     # override pinax accounts app's signup url
     url(r'^add/$', CreateGateway.as_view(), name='create_gateway'),
     url(r'^account/signup/$', SignupView.as_view()),
