@@ -32,10 +32,8 @@ class Record(models.Model):
             if not value:
                 continue
 
-            if isinstance(value, list):
-                continue
-
-            bits.append(value)
+            if isinstance(value, basestring):
+                bits.append(value)
 
         return u', '.join(bits)
 

@@ -25,6 +25,10 @@ DATABASES = {
 FORM_DESIGNER_WIDGET_CLASSES = (
     'form_designer.models.InputWidget',
     'form_designer.models.TextareaWidget',
+    'form_designer.models.IntegerWidget',
+    'form_designer.models.DecimalWidget',
+    'form_designer.models.EmailWidget',
+    'form_designer.models.BooleanWidget',
     'formapp.models.RecordsWidget',
 )
 
