@@ -70,6 +70,7 @@ class RecordsWidget(Widget):
             'autocomplete': 'AutocompleteRecord',
             'widget_js_attributes': {
                 'bootstrap': 'record-autocomplete',
+                'feature': self.provides.pk,
             },
             'extra_context': {
                 'feature': self.provides.pk,
