@@ -4,3 +4,6 @@
 [submodule "hp/static/coffee-script"]
 	path = hp/static/coffee-script
 	url = https://github.com/jashkenas/coffee-script
+[submodule "hp/static/bootstrap-datepicker"]
+	path = hp/static/bootstrap-datepicker
+	url = https://github.com/eternicode/bootstrap-datepicker.git

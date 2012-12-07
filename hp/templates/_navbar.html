@@ -18,7 +18,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Add' %} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 {% for app in request.session.appstore_environment.deployed_apps %}
-                                <li><a href="{% url 'formapp_record_create' app.pk %}">{{ app.name }}</a></li>
+                                <li><a href="{% url 'formapp_record_create' app.pk %}">{{ app.appform.form.verbose_name }}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
