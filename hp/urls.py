@@ -10,7 +10,7 @@ autocomplete_light.autodiscover()
 
 # override pinax accounts app's signup url
 from hp_saas.views import SignupView, LoginView, ConfirmEmailView
-
+from views import CreateGateway
 from formapp.views import AppCreateOverride
 
 from django.views.generic.simple import direct_to_template
@@ -23,6 +23,7 @@ urlpatterns = patterns('',
     url(r'^$', direct_to_template, {'template': 'homepage.html'}, name='home'),
     url(r'^design/$', direct_to_template, {'template': 'design.html'}, name='design'),
     # override pinax accounts app's signup url
+    url(r'^add/$', CreateGateway.as_view(), name='create_gateway'),
     url(r'^account/signup/$', SignupView.as_view()),
     url(r'^account/login/$', LoginView.as_view()),
     url(r'^account/confirm_email/(?P<key>\w+)/$', ConfirmEmailView.as_view()),

@@ -1,0 +1,5 @@
+{% extends 'autocomplete_light/widget.html' %}
+
+{% load url from future %}
+
+{% block add_another_href %}{% url 'create_gateway' %}?feature={{ feature }}&is_popup=1{% endblock %}

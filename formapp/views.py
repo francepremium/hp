@@ -2,6 +2,7 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 from django import http
 
+import autocomplete_light
 import rules_light
 
 from appstore.views import AppCreateView
@@ -42,7 +43,7 @@ class FormRedirectMixin(object):
         return type('Form', (RecordForm,), attributes)
 
 
-class Create(FormRedirectMixin, generic.CreateView):
+class Create(FormRedirectMixin, autocomplete_light.CreateView):
     template_name = 'formapp/record_form.html'
 
     @property
@@ -66,7 +67,11 @@ class Create(FormRedirectMixin, generic.CreateView):
         record.form = self.appform.form
         record.environment = self.request.session['appstore_environment']
         record.save()
-        return http.HttpResponseRedirect(self.get_success_url(record))
+
+        if not self.request.GET.get('is_popup', False):
+            return http.HttpResponseRedirect(self.get_success_url(record))
+
+        return self.respond_script(record)
 
 
 class Update(FormRedirectMixin, generic.UpdateView):
