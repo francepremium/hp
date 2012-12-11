@@ -33,7 +33,7 @@ class HpProfile(models.Model):
 
 def post_signup(sender, user, form, **kwargs):
     user.first_name = form.cleaned_data['first_name']
-    user.last_name = form.cleaned_data['first_name']
+    user.last_name = form.cleaned_data['last_name']
     user.save()
 
     use_name = form.cleaned_data.get('company_name', u'%s %s' % (
