@@ -71,6 +71,9 @@ class RecordsWidget(Widget):
     def widget_kwargs(self):
         return {
             'autocomplete': 'AutocompleteRecord',
+            'autocomplete_js_attributes': {
+                'minimum-characters': 0,
+            },
             'widget_js_attributes': {
                 'bootstrap': 'record-autocomplete',
                 'feature': self.provides.pk,
