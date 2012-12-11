@@ -53,8 +53,9 @@
         $('.form-nav a:first').click();
         $('.error').each(function() { 
             var tab = $(this).parents('.tab-pane').attr('id'); 
-            $('[href="#'+tab+'"]').addClass('error');
+            $('[href="#'+tab+'"]').parents('li').addClass('error');
         });
+        $('li.error a:first').click();
     });
 </script>
 {% endblock %}
