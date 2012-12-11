@@ -122,10 +122,6 @@ class List(generic.ListView):
             form__appform__app__provides__pk=self.kwargs['feature_pk'],
             environment=self.request.session['appstore_environment'])
 
-    def get_context_data(self, **kwargs):
-        context = super(List, self).get_context_data(**kwargs)
-        return context
-
 
 @rules_light.class_decorator
 class Detail(generic.DetailView):
