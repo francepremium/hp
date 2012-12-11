@@ -51,6 +51,10 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('.form-nav a:first').click();
+        $('.error').each(function() { 
+            var tab = $(this).parents('.tab-pane').attr('id'); 
+            $('[href="#'+tab+'"]').addClass('error');
+        });
     });
 </script>
 {% endblock %}
