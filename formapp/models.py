@@ -35,6 +35,9 @@ class Record(models.Model):
             if isinstance(value, basestring):
                 bits.append(value)
 
+        if not bits:
+            return u'%s #%s' % (self.form.verbose_name, self.pk)
+
         return u', '.join(bits)
 
     @property
