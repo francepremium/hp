@@ -5,41 +5,58 @@
 {% load bootstrap_tags %}
 
 {% block body %}
-<h1>{% trans 'Environment' %}</h1>
-<!--<div class="alert alert-info">
-	???
-</div>-->
-<div class="bloc-content">
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form|as_bootstrap }}
-		<div class="submit-bloc">
-        <button type="submit" class="btn">{% trans 'Submit' %}</button>
-		</div>
-    </form>
+<h1>{% trans 'Configure environment' %}</h1>
+
+<div class="row-fluid">
+
+    <div class="span4">
+        <!--<div class="alert alert-info">
+            ???
+        </div>-->
+        <h2>{% trans 'Change name' %}</h2>
+        <div class="bloc-content">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form|as_bootstrap }}
+                <div class="submit-bloc">
+                <button type="submit" class="btn">{% trans 'Submit' %}</button>
+                </div>
+            </form>
+        </div>
+
+        <!--
+        {% if form.instance.pk %}
+        <h2>{% trans 'Delete environment' %}</h2>
+        <div class="alert alert-error">
+            <strong>{% trans 'Danger zone' %}</strong>
+            {% trans 'There will be no going back' %}
+        </div>
+
+        <a href="{% url 'appstore_env_delete' form.instance.pk %}" class="btn btn-danger">{% trans 'I understand, delete my environment' %}</a>
+        {% endif %}
+        -->
+    </div>
+
+    <div class="span8">
+        {% if form.instance.pk %}
+        <h2>{% trans 'Installed apps' %} <a href="{% url 'appstore_app_create' %}" title="Add" class="btn_img add-tb below" rel="tooltip">{% trans 'Create app' %}</a></h2>
+        <!--
+        <div class="alert alert-info">
+        Liste des applications déjà installées, raccourci pour accéder à la configratio nde chacune d'elles.</div>-->
+            <table class="table">
+                {% for app in object.apps.all %}
+                <tr>
+                    <td>{{ app.name }}</td>
+                    <td>{{ app.description }}</td>
+                    <td>{% if app.deployed %}{% trans 'Deployed' %}{% else %}{% trans 'Not deployed' %}{% endif %}</td>
+                    <td>{% if app.superseeds and not app.deployed %}{% trans 'Superseeds' %}{% endif %}</td>
+                    <td>
+                        {% include 'appstore/_app_install_button.html' with env=object %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    </div>
 </div>
-
-{% if form.instance.pk %}
-<h2>{% trans 'My apps' %}</h2>
-<div class="btn-toolbar">
-	  <a href="{% url 'appstore_app_create' %}" title="Add" class="btn_img add-tb below" rel="tooltip">{% trans 'Create app' %}</a>
-</div><!--
-<div class="alert alert-info">
-Liste des applications déjà installées, raccourci pour accéder à la configratio nde chacune d'elles.</div>-->
-    <table class="table">
-        {% for app in object.apps.all %}
-        <tr>
-            <td>{{ app.name }}</td>
-            <td>{{ app.description }}</td>
-            <td>{% if app.deployed %}{% trans 'Deployed' %}{% else %}{% trans 'Not deployed' %}{% endif %}</td>
-            <td>{% if app.superseeds and not app.deployed %}{% trans 'Superseeds' %}{% endif %}</td>
-            <td>
-                {% include 'appstore/_app_install_button.html' with env=object %}
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-{% endif %}
-  
-
 {% endblock %}
