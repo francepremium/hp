@@ -698,7 +698,7 @@ legend + .control-group {
 .form-horizontal {
   // Increase spacing between groups
   .control-group {
-    margin-bottom: @baseLineHeight;
+  // margin-bottom: @baseLineHeight;
     .clearfix();
   }
   // Float the labels left
@@ -717,7 +717,7 @@ legend + .control-group {
     *padding-left: 20px;
     margin-left: @horizontalComponentOffset;
     *margin-left: 0;
-	width:240px;
+	//width:240px;
     &:first-child {
       *padding-left: @horizontalComponentOffset;
     }
@@ -725,13 +725,23 @@ legend + .control-group {
   // Remove bottom margin on block level help text since that's accounted for on .control-group
   .help-block {
     margin-bottom: 0;
+	margin-left:30px;
+	display:inline-block;
+	vertical-align:top;
+	padding:5px ;
+ 	border:1px solid #E0EDF5;
+ 	border-radius:2px;
+ 	background-color:#EFF4F7;
+ 	color:#6B9BCB;
+ 	font-size:11px;
   }
   // And apply it only to .help-block instances that follow a form control
   input,
   select,
   textarea {
+  	margin-bottom:9px;
     + .help-block {
-      margin-top: @baseLineHeight / 2;
+     // margin-top: @baseLineHeight / 2;
     }
   }
   // Move over buttons in .form-actions to align with .controls

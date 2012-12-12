@@ -136,7 +136,7 @@
 .object-tools li a.permissionslink:hover {background-position: -375px -31px;}
 .object-tools li a.permissionslink:active {background-position: -375px -61px;}
 
-.small-btn, .display{
+.small-btn, .display, .autocomplete-add-another{
 	height:21px;
 	width:21px;
 	line-height:20px;
@@ -144,6 +144,8 @@
 	display:inline-block;
 	border-radius:2px;
 	background-color:#6b9bcb;
+	background-image:url('../img/sprite.png');
+	background-repeat:no-repeat;
 	.box-shadow(inset 0px 1px 1px 0px #336190);			
 	text-shadow: 0px 1px 1px #336190;
 	filter: dropshadow(color=#336190, offx=0, offy=1);	
@@ -157,10 +159,8 @@
 		background-color:@hmblue3;
 	}
 }
-.small-btn{
-	background-image:url('../img/sprite.png');
-	background-repeat:no-repeat;
-}
+
+	
 .display{
 	width:auto;
 	text-indent:0;
@@ -174,10 +174,10 @@
 }
 .float-display{background-position:-500px -182px;}
 .table-display{background-position:-473px -182px;}
-.add{background-position:-328px -183px;}
+.add, .autocomplete-add-another{background-position:-328px -183px;}
 .edit{background-position:-4px -182px;}
 .view{background-position:-33px -182px;}
-
+ .autocomplete-add-another{vertical-align:middle}
 
 // Button Sizes
 // --------------------------------------------------
