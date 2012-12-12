@@ -121,6 +121,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
 
 
 MIDDLEWARE_CLASSES = [
+    'project_specific.middleware.DisableClientSideCachingMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.transaction.TransactionMiddleware",
