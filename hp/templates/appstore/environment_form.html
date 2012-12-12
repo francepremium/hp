@@ -18,10 +18,12 @@
 		</div>
     </form>
 </div>
+
+{% if form.instance.pk %}
 <h2>{% trans 'My apps' %}</h2>
 <div class="btn-toolbar">
 	  <a href="{% url 'appstore_app_create' %}" title="Add" class="btn_img add-tb below" rel="tooltip">{% trans 'Create app' %}</a>
-	</div><!--
+</div><!--
 <div class="alert alert-info">
 Liste des applications déjà installées, raccourci pour accéder à la configratio nde chacune d'elles.</div>-->
     <table class="table">
@@ -37,7 +39,7 @@ Liste des applications déjà installées, raccourci pour accéder à la configr
         </tr>
         {% endfor %}
     </table>
-
+{% endif %}
   
 
 {% endblock %}
