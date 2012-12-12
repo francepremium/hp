@@ -9,8 +9,7 @@
     {% csrf_token %}
     {{ form|as_bootstrap }}
 	<div class="submit-bloc">
-    <button type="submit" class="btn">{% trans 'Save' %}</button>
+    <button onclick="javascript:this.disabled=1; this.form.submit();" type="submit" class="btn">{% trans 'Save' %}</button>
 	</div>
 </form>
 {% endblock %}
-
