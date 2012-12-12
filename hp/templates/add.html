@@ -1,0 +1,7 @@
+{% extends 'site_base.html' %}
+
+{% block body %}
+{% for form in forms %}
+    <a href="{% url formapp_record_create form.formapp.app.pk %}">{{ form }}</a>
+{% endfor %}
+{% endblock %}
