@@ -189,6 +189,8 @@ INSTALLED_APPS = [
     'appstore',
     'appstore.contrib.form_designer_appeditor',
     'formapp',
+    'fusion',
+    'django_tables2',
     'debug_toolbar',
     'project_specific',
 ]

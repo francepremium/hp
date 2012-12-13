@@ -26,7 +26,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Browse' %} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 {% for feature in request.session.appstore_environment.features.distinct %}
-                                <li><a href="{% url 'formapp_record_list' feature.pk %}">{{ feature }}</a></li>
+                                <li><a href="{% url 'fusion_list_detail' feature.pk %}">{{ feature }}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
