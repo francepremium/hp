@@ -22,3 +22,4 @@ class ListForm(forms.ModelForm):
     class Meta:
         model = List
         fields = ('columns',)
+        widgets = {'columns': forms.CheckboxSelectMultiple}
