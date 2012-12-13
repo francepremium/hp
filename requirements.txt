@@ -20,3 +20,4 @@ south
 django-rules-light
 https://jpic@bitbucket.org/jpic/django-jsonfield
 -e git+https://github.com/niwibe/djorm-ext-pgfulltext.git#egg=pgfulltext
+django-rosetta

@@ -45,6 +45,14 @@ TIME_ZONE = "UTC"
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = "en-us"
 
+LANGUAGES = (
+    ('en', 'English'),
+    ('fr', 'French'),
+)
+
+ROSETTA_ENABLE_TRANSLATION_SUGGESTIONS = True
+BING_APP_ID = '7VM6y1cTAmFKLgBWgPYe+O8xgM7MnQ7younIhhwrxKo='
+
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
@@ -156,6 +164,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rosetta",
 
     # theme
     "pinax_theme_bootstrap_account",

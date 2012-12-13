@@ -29,6 +29,7 @@ urlpatterns = patterns('',
     url(r'^design/$', direct_to_template, {'template': 'design.html'}, name='design'),
     (r'^jsi18n/$', 'django.views.i18n.javascript_catalog',
         {'packages': ('form_designer',)}),
+    url(r'^rosetta/', include('rosetta.urls')),
     # override pinax accounts app's signup url
     url(r'^add/$', CreateGateway.as_view(), name='create_gateway'),
     url(r'^account/signup/$', SignupView.as_view()),
