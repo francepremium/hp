@@ -16,7 +16,7 @@ table {
 // BASELINE STYLES
 // ---------------
 
-.table {
+.table{
   width: 100%;
   margin-bottom: @baseLineHeight;
   // Cells
@@ -67,11 +67,21 @@ table {
 // CONDENSED TABLE W/ HALF PADDING
 // -------------------------------
 
-.table-condensed {
+.table-condensed, .ui-sortable  {
   th,
   td {
     padding: 4px 5px;
   }
+  td.help-text{
+ 	
+ 	color:#6B9BCB;
+ 	font-size:11px;
+  }
+  
+td.add{
+	width:20px;
+}
+td.verbose-name{width:auto;}
 }
 
 
