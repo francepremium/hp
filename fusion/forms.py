@@ -18,6 +18,7 @@ class ListForm(forms.ModelForm):
 
         self.fields['columns'].queryset = Widget.objects.filter(pk__in=
             [w.pk for w in widgets.values()])
+        self.fields['columns'].help_text = u''
 
     class Meta:
         model = List
