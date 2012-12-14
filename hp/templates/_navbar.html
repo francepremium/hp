@@ -10,6 +10,7 @@
                 <span class="icon-bar"></span>
             </a>
             <a class="brand" href="/">{{ request.session.appstore_environment|default:'Hello Publish' }}</a>
+            <a class="print" href="{{ request.printlink }}">{% trans 'Print' %}</a>
                 <div class="nav-collapse">
                     {% if request.user.is_authenticated %}
                     <ul class="nav">

@@ -136,6 +136,7 @@ MIDDLEWARE_CLASSES = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     'rules_light.middleware.Middleware',
+    'project_specific.middleware.PrintGet',
     "django.contrib.messages.middleware.MessageMiddleware",
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'session_security.middleware.SessionSecurityMiddleware',

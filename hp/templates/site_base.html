@@ -4,14 +4,25 @@
     <title>Layout</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if DEBUG %}
+        {% if request.style == 'print' %}
+        <link href="{{ STATIC_URL }}bootstrap/less/print.less" charset="utf-8" type="text/less" rel="stylesheet">
+        {% else %}
         <link href="{{ STATIC_URL }}bootstrap/less/bootstrap.less" charset="utf-8" type="text/less" rel="stylesheet">
         <link href="{{ STATIC_URL }}bootstrap/less/responsive.less" rel="stylesheet">
+        {% endif %}
         <script type="text/javascript">less = {}; less.env = 'development';</script>
         <script type="text/javascript" src="{{ STATIC_URL }}less.js" ></script>
     {% else %}
-        {% compress css %}
-        <link href="{{ STATIC_URL }}bootstrap/less/bootstrap.less" charset="utf-8" type="text/less" rel="stylesheet">
-        {% endcompress %}
+        {% if request.style == 'print' %}
+            {% compress css %}
+            <link href="{{ STATIC_URL }}bootstrap/less/print.less" charset="utf-8" type="text/less" rel="stylesheet">
+            {% endcompress %}
+        {% else %}
+            {% compress css %}
+            <link href="{{ STATIC_URL }}bootstrap/less/bootstrap.less" charset="utf-8" type="text/less" rel="stylesheet">
+            <link href="{{ STATIC_URL }}bootstrap/less/responsive.less" rel="stylesheet">
+            {% endcompress %}
+        {% endif %}
     {% endif %}
     
     {% if request.GET.is_popup %}
