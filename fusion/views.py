@@ -39,7 +39,8 @@ class ListDetailView(generic.UpdateView):
 
         columns = {}
         for widget in self.object.columns.all():
-            columns[widget.name] = tables.Column()
+            columns[widget.name] = tables.Column(
+                verbose_name=widget.verbose_name)
 
         for name in columns.keys():
             for data in table_data:
