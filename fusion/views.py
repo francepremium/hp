@@ -1,4 +1,6 @@
+from django.template.loader import render_to_string
 from django.views import generic
+from django.utils.translation import ugettext as _
 
 import django_tables2 as tables
 
@@ -6,6 +8,12 @@ from formapp.models import Record
 
 from forms import ListForm
 from models import List
+
+
+class RecordColumn(tables.Column):
+    def render(self, value):
+        return render_to_string('fusion/_record_column.html',
+            {'record': value})
 
 
 class RecordTable(tables.Table):
@@ -35,9 +43,17 @@ class ListDetailView(generic.UpdateView):
             environment=self.request.session['appstore_environment'],
             form__appform__app__provides_id=self.kwargs['feature_pk'])
 
-        table_data = [record.data for record in records]
+        table_data = []
+        for record in records:
+            data = {
+                '_record_': record,
+            }
+            data.update(record.data)
+            table_data.append(data)
 
-        columns = {}
+        columns = {
+            '_record_': RecordColumn(),
+        }
         for widget in self.object.columns.all():
             columns[widget.name] = tables.Column(
                 verbose_name=widget.verbose_name)

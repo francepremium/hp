@@ -127,6 +127,24 @@ class List(generic.ListView):
 class Detail(generic.DetailView):
     model = Record
 
+    def get_context_data(self, *args, **kwargs):
+        context = super(Detail, self).get_context_data(*args, **kwargs)
+
+        data = []
+        for tab in self.object.form.tab_set.all():
+            tab_data = {'model': tab, 'widgets': []}
+
+            for widget in tab.widget_set.all():
+                tab_data['widgets'].append({
+                    'model': widget,
+                    'value': self.object.data[widget.name],
+                })
+
+            data.append(tab_data)
+
+        context['data'] = data
+        return context
+
 
 @rules_light.class_decorator
 class Delete(generic.DeleteView):

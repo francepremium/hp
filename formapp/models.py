@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.forms.models import ModelMultipleChoiceField
 from django.db.models import signals
@@ -23,6 +24,9 @@ class Record(models.Model):
         fields=('text_data',),
         auto_update_search_field=True
     )
+
+    def get_absolute_url(self):
+        return reverse('formapp_record_detail', args=(self.pk,))
 
     def __unicode__(self):
         bits = []
