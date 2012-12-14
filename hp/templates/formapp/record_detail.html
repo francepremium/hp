@@ -1,0 +1,13 @@
+{% extends 'site_base.html' %}
+
+{% block body %}
+{% for tab in data %}
+    {% if tab.widgets %}
+    <h2>{{ tab.model.verbose_name }}</h2>
+    {% for widget in tab.widgets %}
+        {{ widget.model.verbose_name }}: {{ widget.value }}
+        <br />
+    {% endfor %}
+    {% endif %}
+{% endfor %}
+{% endblock %}
