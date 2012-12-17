@@ -6,6 +6,14 @@
 
 {% block head_title %}{% trans "Sign up" %}{% endblock %}
 
+{% block extra_body %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('input[name=first_name]').focus();
+    });
+</script>
+{% endblock %}
+
 {% block body %}
 <h1>{% trans "Sign up" %}</h1>
     <div class="bloc-content">
@@ -21,8 +29,8 @@
                     
                 </fieldset>
 				<div class="submit-bloc">
-                        <button type="submit" class="btn">{% trans "Sign up" %}</button>
-                    </div>
+                    <button onclick="javascript:this.disabled=1; this.form.submit();" type="submit" class="btn">{% trans "Sign up" %}</button>
+                </div>
             </form>
         </div>
         <div class="span4">
