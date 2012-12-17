@@ -33,7 +33,7 @@
                 {% endif %}
                 <div class="submit-bloc">
                     
-                    <button type="submit" class="btn">{% trans "Log in" %}</button>   
+                    <button onclick="javascript:this.disabled=1; this.form.submit();" type="submit" class="btn">{% trans "Log in" %}</button>   
 					<a href="{% url "account_password_reset" %}">{% trans "Forgot your password?" %}</a>
                 </div>
             </form>
