@@ -6,6 +6,14 @@
 
 {% block head_title %}{% trans "Log in" %}{% endblock %}
 
+{% block extra_body %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input[name=email]').focus();
+    });
+</script>
+{% endblock %}
+
 {% block extra_head %}
 <style type="text/css">
     #div_id_remember { display: none }
