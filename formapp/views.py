@@ -23,11 +23,11 @@ class AppCreateOverride(AppCreateView):
 
 class FormRedirectMixin(object):
     def get_success_url(self, record):
-        if '_continue' in self.request.POST.keys():
-            return reverse('formapp_record_update', args=(record.pk,))
-        elif '_another' in self.request.POST.keys():
+        if '_another' in self.request.POST.keys():
             return reverse('formapp_record_create',
                     args=(record.form.appform.app.pk,))
+        else:
+            return reverse('formapp_record_update', args=(record.pk,))
 
     def get_form_class(self, form_model):
         q = Record.objects.filter(
