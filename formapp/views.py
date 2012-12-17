@@ -1,6 +1,8 @@
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
 from django.views import generic
 from django import http
+from django.contrib import messages
 
 import autocomplete_light
 import rules_light
@@ -29,10 +31,10 @@ class FormRedirectMixin(object):
 
     def get_form_class(self, form_model):
         q = Record.objects.filter(
-                environment=self.request.session['appstore_environment'])
+            environment=self.request.session['appstore_environment'])
 
         widgets = Widget.objects.filter(tab__form=form_model
-                ).select_subclasses()
+            ).select_subclasses()
 
         for widget in widgets:
             if isinstance(widget, RecordsWidget):
@@ -41,6 +43,11 @@ class FormRedirectMixin(object):
         attributes = {w.name: w.field_instance() for w in widgets}
 
         return type('Form', (RecordForm,), attributes)
+
+    def form_invalid(self, form):
+        messages.error(self.request, _(
+            u'Please fix the errors in the form to save your changes.'))
+        return super(FormRedirectMixin, self).form_invalid(form)
 
 
 class Create(FormRedirectMixin, autocomplete_light.CreateView):
@@ -69,6 +76,7 @@ class Create(FormRedirectMixin, autocomplete_light.CreateView):
         record.save()
 
         if not self.request.GET.get('is_popup', False):
+            messages.success(self.request, _(u'Changes saved.'))
             return http.HttpResponseRedirect(self.get_success_url(record))
 
         return self.respond_script(record)
@@ -96,6 +104,7 @@ class Update(FormRedirectMixin, generic.UpdateView):
 
     def form_valid(self, form):
         record = form.save(self)
+        messages.success(self.request, _(u'Changes saved.'))
         return http.HttpResponseRedirect(self.get_success_url(record))
 
 
