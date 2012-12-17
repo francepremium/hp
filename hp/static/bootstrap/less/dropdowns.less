@@ -85,6 +85,57 @@
   }
 }
 
+// Dropdown Box
+// ------------
+
+.dropdown-menu.dropdown-box{
+	width:340px;
+	overflow:hidden;
+	padding:0;
+	ul{
+		list-style:none;
+		width:189px;
+		float:left;
+		vertical-align:top;
+		border-right:0px solid @lightblue2;
+		margin:0;
+		padding:0;
+		li{
+			color:red;			
+			a{
+				
+			}
+			
+		}
+		li.subtitle{
+			color:@hmblue3;
+			font-weight:bold;
+			padding:3px 20px; 
+		}
+		li.active {
+			a{
+				background:@white;
+				color:@hmblue2;
+				font-weight:bold;
+				&:before{
+					background-image: url('../img/coche.png');
+					margin-left:-15px;border:0px solid red;
+					margin-top:5px;
+					width:10px;
+					height:10px;
+					content:"current";
+					text-indent:-2000px;
+					float:left;
+				}
+			}
+		}	
+	}
+	ul.settings{
+		width:150px;
+		border:0;
+	}
+}
+
 // Hover state
 // -----------
 .dropdown-menu li > a:hover,
@@ -210,3 +261,4 @@
   margin-top: 2px; // give it some space to breathe
   .border-radius(4px);
 }
+

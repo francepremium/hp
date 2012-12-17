@@ -559,11 +559,11 @@ select:focus:required:invalid {
 	margin:0 auto;
 	top:7px;
 	float:center;	
-	width:20%;
-	max-width:400px;
+	/*width:20%;
+	max-width:400px;*/
 	color:#b2d0e3;
-	input[type="search"] {
-	height:26px;
+	input.search-query {
+	
 	line-height:15px;
   	padding:4px 8px 4px 34px;
   	margin-bottom: 0; // Remove the default margin on all inputs
@@ -581,6 +581,7 @@ select:focus:required:invalid {
   		&:hover{
   			border:1px solid #49739d;
 			-webkit-box-shadow: 0px 1px 1px 0px #83a7cc, inset 0px 1px 1px 0px #83a7cc;
+			
   		}
 		&:active{
   			background-color:@white;
@@ -595,6 +596,9 @@ select:focus:required:invalid {
 	}
 	 
 }
+
+
+
 /*Search*/
 #search_container{margin:0 auto;float:center;width:20%;max-width:400px;padding: 6px 0;position:relative;}
 #search_bloc{height:36px;position:relative;width:100%;}
@@ -604,6 +608,36 @@ select:focus:required:invalid {
 #search_bloc input#id_q:hover{cursor:pointer;border:1px solid #49739d;-webkit-box-shadow: 0px 1px 1px 0px #83a7cc, inset 0px 1px 1px 0px #83a7cc;-moz-box-shadow: 0px 1px 1px 0px #83a7cc, inset 0px 1px 1px 0px #83a7cc;box-shadow: 0px 1px 1px 0px #83a7cc, inset 0px 1px 1px 0px #83a7cc;text-shadow: 0px 0px 0px #ffffff;filter: dropshadow(color=#ffffff, offx=0, offy=0);}
 #search_bloc input#id_q:focus{color:#fff;background-color:#8cb7e1;background-position:-670px -89px;text-shadow: 0px 0px 0px #ffffff;filter: dropshadow(color=#ffffff, offx=0, offy=0);}
 
+
+// SEARCH FORM IN CONTEXT
+// -----------
+
+.context-search{
+	padding:4px 10px;
+	border:1px solid #e0edf5;
+	border-bottom:0;
+	background:#eff4f7;
+	border-radius:2px 2px 0 0;
+	form{
+		margin:0;
+		padding:0;
+		position:relative;
+	}
+	input{
+		width:100%;
+		margin:0;
+	}
+	input.fixed-button{
+		position:absolute;
+		top:0px;
+		bottom:0px;
+		right:0px;
+		width:60px;
+		padding-left:0;
+		padding-right:0;
+		text-align:center;
+	}
+}
 
 // HORIZONTAL & VERTICAL FORMS
 // ---------------------------
@@ -749,3 +783,8 @@ legend + .control-group {
     padding-left: @horizontalComponentOffset;
   }
 }
+.required-field:after{
+	color:red;
+	content:"*";
+}
+.control-group.error .help-block{color:#6B9BCB;} 
