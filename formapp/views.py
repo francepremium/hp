@@ -115,7 +115,7 @@ class Search(generic.ListView):
         q = self.request.GET.get('q', None)
 
         if q:
-            records = Record.objects.search(q)
+            records = Record.objects.filter(text_data__icontains=q)
         else:
             records = Record.objects.all()
 
