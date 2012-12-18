@@ -1,13 +1,23 @@
+from django.utils.safestring import mark_safe
 from django.template.loader import render_to_string
 from django.views import generic
 from django.utils.translation import ugettext as _
 
 import django_tables2 as tables
 
-from formapp.models import Record
+from formapp.models import Record, RecordsWidget
 
 from forms import ListForm
 from models import List
+
+
+class LinkedColumn(tables.Column):
+    def render(self, value):
+        links = []
+        for record in Record.objects.filter(pk__in=value):
+            links.append(u'<a href="%s">%s</a>' % (
+                record.get_absolute_url(), unicode(record)))
+        return mark_safe(u', '.join(links))
 
 
 class RecordColumn(tables.Column):
@@ -54,9 +64,13 @@ class ListDetailView(generic.UpdateView):
         columns = {
             '_record_': RecordColumn(),
         }
-        for widget in self.object.columns.all():
-            columns[widget.name] = tables.Column(
-                verbose_name=widget.verbose_name)
+        for widget in self.object.columns.select_subclasses():
+            if isinstance(widget, RecordsWidget):
+                columns[widget.name] = LinkedColumn(
+                    verbose_name=widget.verbose_name)
+            else:
+                columns[widget.name] = tables.Column(
+                    verbose_name=widget.verbose_name)
 
         for name in columns.keys():
             for data in table_data:
