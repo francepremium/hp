@@ -67,8 +67,6 @@
     window.onbeforeunload = function() {
         if ($('.form-horizontal').data('changed') == true)
             return '{% trans 'You have unsaved changes.' %}';
-        else
-            return true;
     }
 </script>
 {% endblock %}
