@@ -1,23 +1,26 @@
 {% extends 'site_base.html' %}
+
 {% load i18n %}
+{% load formapp_tags %}
+
 {% block body %}
 <h1>{{ object }}</h1>
 <div class="btn-toolbar">
-	<a title="{% trans 'Print' %}" class="btn_img print-tb below" rel="tooltip" href="{{ request.printlink }}">{% trans 'Print' %}</a>
-	<!--<a href="/" title="History" class="btn_img history-tb below" rel="tooltip">History</a>
-	<a href="/" title="View" class="btn_img view-tb below" rel="tooltip">View</a>-->
+    <a title="{% trans 'Print' %}" class="btn_img print-tb below" rel="tooltip" href="{{ request.printlink }}">{% trans 'Print' %}</a>
+    <!--<a href="/" title="History" class="btn_img history-tb below" rel="tooltip">History</a>
+    <a href="/" title="View" class="btn_img view-tb below" rel="tooltip">View</a>-->
 </div>
+
 {% for tab in data %}
     {% if tab.widgets %}
-	<div class="detail-wrapper">
-    <h2>{{ tab.model.verbose_name }}</h2>
-	<div class="bloc-content">
-		
-    {% for widget in tab.widgets %}
-	        <p><span class="detail-label">{{ widget.model.verbose_name }}:</span> {{ widget.value }}</p>
-    {% endfor %}
-	</div>
-	</div>
+    <div class="detail-wrapper">
+        <h2>{{ tab.model.verbose_name }}</h2>
+        <div class="bloc-content">
+        {% for widget in tab.widgets %}
+            <p><span class="detail-label">{{ widget.model.verbose_name }}:</span> {{ widget.value|render_value }}</p>
+        {% endfor %}
+        </div>
+    </div>
     {% endif %}
 {% endfor %}
 {% endblock %}
