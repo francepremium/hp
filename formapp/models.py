@@ -50,8 +50,22 @@ class Record(models.Model):
 
 
 def text_data(sender, instance, **kwargs):
-    instance.text_data = u'%s %s' % (unicode(instance), u' '.join(
-        [unicode(x) for x in instance.data.values() if x]))
+    data = []
+
+    for value in instance.data.values():
+        if not value:
+            continue
+        elif isinstance(value, list):
+            # We are avoiding recursion on purpose
+            for pk in value:
+                related = Record.objects.get(pk=pk)
+                for related_value in related.data.values():
+                    if not related_value:
+                        continue
+                    data.append(unicode(related_value))
+        else:
+            data.append(unicode(value))
+    instance.text_data = u' '.join(data)
 pre_save.connect(text_data, sender=Record)
 
 
