@@ -24,6 +24,9 @@
     <div class="span8">
         <div class="context-search">
             <form method="get" action="">
+                {% if request.GET.q %}
+                <span class="clear-q">&times;</span>
+                {% endif %}
                 <input type="text" name="q" value="{{ request.GET.q }}" />
                 <input type="submit" value="{% trans 'Search' %}" class="btn alt fixed-button" />
             </form>
@@ -33,4 +36,16 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_body %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.clear-q').click(function() {
+            $(this).next().val('');
+            $(this).parent().submit();
+            $(this).remove();
+        });
+    });
+</script>
 {% endblock %}
