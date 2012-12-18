@@ -7,29 +7,31 @@
 
 {% block body %}
 <h1>{{ object.feature|capfirst }}</h1>
-    <div class="row-fluid">
-        <div class="span4">
-        	
-            <h2>{% trans 'Filter' %}</h2>
-			<div class="filter-box">
-            <form method="post" action="">
-                {% csrf_token %}
-                {{ form|as_bootstrap }}
-                <input type="submit" value="{% trans 'Save' %}" />
-            </form>
-			</div>
-        </div>
 
-        <div class="span8">
-          
-			<div class="context-search">
-            <form method="get" action="">
-                <input type="text" name="q" />
-                <input type="submit" value="{% trans 'Search' %}" class="btn alt fixed-button" />
-            </form>
-			</div>
-			<div class="bloc-content">
-            {% render_table table %}</div>
+<div class="row-fluid">
+    <div class="span4">
+        
+        <h2>{% trans 'Filter' %}</h2>
+        <div class="filter-box">
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form|as_bootstrap }}
+            <input type="submit" value="{% trans 'Save' %}" />
+        </form>
         </div>
     </div>
+
+    <div class="span8">
+      
+        <div class="context-search">
+        <form method="get" action="">
+            <input type="text" name="q" />
+            <input type="submit" value="{% trans 'Search' %}" class="btn alt fixed-button" />
+        </form>
+        </div>
+        <div class="bloc-content">
+            {% render_table table %}
+        </div>
+    </div>
+</div>
 {% endblock %}
