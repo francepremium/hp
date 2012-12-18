@@ -59,8 +59,12 @@
 
         $('li.error a:first').click();
 
-        $(".form-horizontal :input").change(function() {
+        $('.form-horizontal :input').change(function() {
             $(this).closest('form').data('changed', true);
+        });
+
+        $('.form-horizontal').submit(function() {
+            $(this).data('changed', false);
         });
     });
 
