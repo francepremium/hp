@@ -14,9 +14,5 @@ post_syncdb.connect(appfeature, sender=appstore.models)
 
 
 def site(sender, **kwargs):
-    if settings.HOSTNAME == 'maria':
-        domain = 'dev.betspire.com'
-    else:
-        domain = 'localhost:8000'
-    Site.objects.update(domain=domain)
+    Site.objects.update(domain=settings.SITE_DOMAIN, name=settings.SITE_NAME)
 post_syncdb.connect(site, sender=django.contrib.sites.models)
