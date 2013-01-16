@@ -157,5 +157,4 @@ class Detail(generic.DetailView):
 
 @rules_light.class_decorator
 class Delete(generic.DeleteView):
-    template_name = 'formapp/detele.html'
     model = Record
