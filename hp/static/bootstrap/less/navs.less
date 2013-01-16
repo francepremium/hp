@@ -125,17 +125,28 @@
 	color:#2e83db;
 	background:#f1f5f7;
   }
+  &.error{
+  	color:red;
+  }
 }
 // Active state, and it's :hover to override normal :hover  ui-tabs-selected
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover, 
 .nav-tabs > .ui-tabs-selected > a,
-.nav-tabs > .ui-tabs-selected > a:hover,  {
+.nav-tabs > .ui-tabs-selected > a:hover  {
   color: @hmblue2;
   background-color: @white;
   border: 1px solid #e0edf5;
   border-bottom-color: transparent;
   cursor: default;
+}
+.nav-tabs > .error > a,
+.nav-tabs > .error > a:hover, 
+.nav-tabs > .active.error > a,
+.nav-tabs > .active.error > a:hover, 
+.nav-tabs > .ui-tabs-selected.error > a,
+.nav-tabs > .ui-tabs-selected.error > a:hover{
+	color:@errorText;
 }
 .nav-tabs > .new-tab {
 	padding:8px;

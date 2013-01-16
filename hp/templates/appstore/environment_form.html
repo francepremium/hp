@@ -46,9 +46,9 @@
             <table class="table">
                 {% for app in object.apps.all %}
                 <tr>
-                    <td>{{ app.name }}</td>
+                    <td><strong>{{ app.name }}</strong></td>
                     <td>{{ app.description }}</td>
-                    <td>{% if app.deployed %}{% trans 'Deployed' %}{% else %}{% trans 'Not deployed' %}{% endif %}</td>
+                    <td class="deployed">{% if app.deployed %}<span>{% trans 'Deployed' %}</span>{% else %}<span class="disabled">{% trans 'Not deployed' %}</span>{% endif %}</td>
                     <td>{% if app.superseeds and not app.deployed %}{% trans 'Superseeds' %}{% endif %}</td>
                     <td>
                         {% include 'appstore/_app_install_button.html' with env=object %}

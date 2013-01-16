@@ -637,6 +637,7 @@ select:focus:required:invalid {
 		padding-right:0;
 		text-align:center;
 	}
+	.clear-q{position:absolute;top:5px;right:65px;cursor:pointer;}
 }
 
 // HORIZONTAL & VERTICAL FORMS
@@ -782,9 +783,18 @@ legend + .control-group {
   .form-actions {
     padding-left: @horizontalComponentOffset;
   }
+  .error{
+  	.controls {
+  		.help-block{
+  			background:@errorBackground;
+			color:lighten(@errorText, 10%);
+			border-color:lighten(@errorText, 30%)
+		}
+  	}
+  }
 }
 .required-field:after{
 	color:red;
 	content:"*";
 }
-.control-group.error .help-block{color:#6B9BCB;} 
+ 
