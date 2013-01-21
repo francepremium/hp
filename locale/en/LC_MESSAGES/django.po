@@ -244,6 +244,9 @@ msgstr ""
 msgid "Environment"
 msgstr "Workspace"
 
+msgid "Environment name"
+msgstr "Workspace name"
+
 #: hp/templates/_navbar.html:39
 msgid "Users"
 msgstr ""
