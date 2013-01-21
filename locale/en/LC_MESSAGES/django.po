@@ -1,0 +1,544 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-21 14:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/appstore/app_base.html:10
+msgid "App"
+msgstr "Form"
+
+#: views.py:172
+msgid "Env updated"
+msgstr "Workspace updated"
+
+#: views.py:302
+#, python-format
+msgid "App %s created"
+msgstr "Form %s created"
+
+#: views.py:328
+msgid "App updated"
+msgstr "Form updated"
+
+#: views.py:376
+#, python-format
+msgid "App %s successfully deployed."
+msgstr "Form %s successfully deployed."
+
+#: templates/appstore/_app_install_button.html:37
+msgid ""
+"You already have an update in progress for this app. Do you want to make a "
+"plain copy ?"
+msgstr "You already have an update in progress for this form. Do you want to make a "
+"plain copy ?"
+
+#: templates/appstore/_app_install_button.html:40
+msgid ""
+"This app is not deployed. Do you want to make a loose copy ? The copy will "
+"not superseed the source app."
+msgstr "This form is not deployed. Do you want to make a loose copy ? The copy will "
+"not superseed the source form."
+
+#: templates/appstore/_app_install_button.html:50
+msgid "Yes, update this app"
+msgstr "Yes, update this form"
+
+
+#: exceptions.py:16
+#, python-format
+msgid "%(app)s is already installed in environment %(env)s"
+msgstr "%(app)s is already installed in workspace %(env)s"
+
+#: forms.py:66
+msgid "This user is already in your environment"
+msgstr "This user is already in your workspace"
+
+#: views.py:31
+#, python-format
+msgid "Environment \"%s\" created and activated"
+msgstr "Workspace \"%s\" created and activated"
+
+#: views.py:46
+#, python-format
+msgid "Environment \"%s\" activated"
+msgstr "Workspace \"%s\" activated"
+
+#: templates/appstore/_app_install_button.html:16
+msgid "from environment"
+msgstr "from workspace"
+
+#: templates/appstore/_app_install_button.html:42
+msgid ""
+"Should the new version, once deployed, obsolete this one in this "
+"environment ?"
+msgstr "Should the new version, once deployed, obsolete this one in this "
+"workspace ?"
+
+#: templates/appstore/_app_install_button.html:71
+msgid "in environment"
+msgstr "in workspace"
+
+#: templates/appstore/app_deploy.html:9
+msgid "Deploying the app will make it available in the environment"
+msgstr "Deploying the form will make it available in the workspace"
+
+#: templates/appstore/app_detail.html:9
+msgid "View apps for"
+msgstr "View forms for"
+
+#: templates/appstore/appcategory_list.html:13
+msgid "View apps in"
+msgstr "View forms in"
+
+#: templates/appstore/environment_form.html:28
+msgid "Create app"
+msgstr "Create form"
+
+
+#: templates/appstore/app_deploy.html:10
+msgid ""
+"Until this version is deployed, the previous version is used in the "
+"environment"
+msgstr "Until this version is deployed, the previous version is used in the "
+"workspace"
+
+#: templates/appstore/environment_open_notification_message.txt:5
+#: templates/appstore/user_created_notification_message.txt:5
+#, python-format
+msgid ""
+"%(creator)s invited you to join his environment %(environment)s on "
+"%(site_name)s"
+msgstr "%(creator)s invited you to join his workspace %(environment)s on "
+"%(site_name)s"
+
+
+#: templates/appstore/environment_open_notification_message.txt:7
+#, python-format
+msgid ""
+"You can access this environment by clicking http://%(site_domain)s"
+"%(environment_url)s, or by clicking on your name on the top right corner of "
+"%(site_name)s."
+msgstr "You can access this workspace by clicking http://%(site_domain)s"
+"%(environment_url)s, or by clicking on your name on the top right corner of "
+"%(site_name)s."
+
+#: templates/appstore/user_created_notification_message.txt:11
+#, python-format
+msgid ""
+"Then, you can access this environment by clicking http://%(site_domain)s"
+"%(environment_url)s, or by clicking on your name on the top right corner of "
+"%(site_name)s."
+msgstr "Then, you can access this workspace by clicking http://%(site_domain)s"
+"%(environment_url)s, or by clicking on your name on the top right corner of "
+"%(site_name)s."
+
+#: templates/appstore/userenvironment_list.html:7
+msgid "Users of workspace"
+msgstr ""
+
+#: templates/appstore/userenvironment_list.html:43
+#, python-format
+msgid ""
+"Are you sure you want to promote %(user)s to administrator in environment "
+"%(environment)s"
+msgstr "Are you sure you want to promote %(user)s to administrator in workspace "
+"%(environment)s"
+
+#: templates/appstore/userenvironment_list.html:50
+#, python-format
+msgid ""
+"Are you sure you want to demote %(user)s from administrator to user in "
+"environment %(environment)s"
+msgstr "Are you sure you want to demote %(user)s from administrator to user in "
+"workspace %(environment)s"
+
+#: templates/appstore/userenvironment_list.html:56
+#, python-format
+msgid ""
+"Are you sure you want to revoke %(user)s's permission to access environment "
+"%(environment)s"
+msgstr ""
+"Are you sure you want to revoke %(user)s's permission to access workspace "
+"%(environment)s"
+
+#: templates/appstore/userenvironment_list.html:70
+msgid "Change access to environment"
+msgstr "Change access to workspace"
+
+#: templates/appstore/userenvironment_list.html:75
+msgid ""
+"After you confirm, you will not be able to administrate this environment "
+"anymore"
+msgstr ""
+"After you confirm, you will not be able to administrate this workspace "
+"anymore"
+
+#: formapp/models.py:95
+msgid "Relation to other record"
+msgstr ""
+
+#: formapp/models.py:96
+msgid "Relations to other record"
+msgstr ""
+
+#: formapp/views.py:49
+msgid "Please fix the errors in the form to save your changes."
+msgstr ""
+
+#: formapp/views.py:79 formapp/views.py:107
+msgid "Changes saved."
+msgstr ""
+
+#: hp/templates/_footer.html:4
+msgid ""
+"© 2006-2012 Hellomona Inc. Software Solutions by Hellomona- Access & manage "
+"your collections  ™"
+msgstr ""
+
+#: hp/templates/_login_or_signup_modal.html:11
+#: hp/templates/_login_or_signup_modal.html:14
+msgid "Login or signup"
+msgstr ""
+
+#: hp/templates/_login_or_signup_modal.html:19
+#: hp/templates/_login_or_signup_modal.html:23 hp/templates/_navbar.html:84
+msgid "Login"
+msgstr ""
+
+#: hp/templates/_login_or_signup_modal.html:28
+#: hp/templates/_login_or_signup_modal.html:31 hp/templates/_navbar.html:88
+msgid "Signup"
+msgstr ""
+
+#: hp/templates/_login_or_signup_modal.html:36
+msgid "Cancel"
+msgstr ""
+
+#: hp/templates/_navbar.html:19
+msgid "Add"
+msgstr ""
+
+#: hp/templates/_navbar.html:27
+msgid "Browse"
+msgstr ""
+
+#: hp/templates/_navbar.html:36
+msgid "Configure"
+msgstr ""
+
+#: hp/templates/_navbar.html:38
+msgid "Environment"
+msgstr "Workspace"
+
+#: hp/templates/_navbar.html:39
+msgid "Users"
+msgstr ""
+
+#: hp/templates/_navbar.html:60
+msgid "My environment"
+msgstr "My workspace"
+
+#: hp/templates/_navbar.html:68
+msgid "Create new environment"
+msgstr "Create new workspace"
+
+#: hp/templates/_navbar.html:72
+msgid "My account"
+msgstr ""
+
+#: hp/templates/_navbar.html:74
+msgid "Account settings"
+msgstr ""
+
+#: hp/templates/_navbar.html:78
+msgid "Logout"
+msgstr ""
+
+#: hp/templates/_navbar.html:86
+msgid "or"
+msgstr ""
+
+#: hp/templates/appcategory_detail.html:11
+#: hp/templates/appstore/appcategory_detail.html:12
+msgid "Categories"
+msgstr ""
+
+#: hp/templates/appcategory_detail.html:21
+#: hp/templates/appstore/app_detail.html:17
+#: hp/templates/appstore/appcategory_detail.html:23
+msgid "Tags"
+msgstr ""
+
+#: hp/templates/appcategory_detail.html:44
+#: hp/templates/appstore/appcategory_detail.html:47
+msgid "View"
+msgstr ""
+
+#: hp/templates/design.html:5 hp/templates/homepage.html:5
+msgid "Welcome"
+msgstr ""
+
+#: hp/templates/design.html:10
+msgid "Welcome to Pinax"
+msgstr ""
+
+#: hp/templates/design.html:12
+msgid ""
+"\n"
+"        <b>Pinax</b> is a <a href=\"http://djangoproject.com/\" rel=\"tooltip"
+"\" title=\"test\">Django</a>\n"
+"        project intended to provide a starting point for websites. By\n"
+"        integrating numerous reusable Django apps to take care of the\n"
+"        things that many sites have in common, it lets you focus on what\n"
+"        makes your site different.\n"
+"        "
+msgstr ""
+
+#: hp/templates/design.html:23
+msgid ""
+"\n"
+"        In addition to what is provided by the \"zero\" project, this "
+"project\n"
+"        provides thorough integration with django-user-accounts, adding\n"
+"        comprehensive account management functionality. It is a foundation\n"
+"        suitable for most sites that have user accounts.\n"
+"        "
+msgstr ""
+
+#: hp/templates/design.html:33
+#, python-format
+msgid ""
+"Wondering <a href=\"%(what_next_url)s\" class=\"btn primary large\">What "
+"Next</a>?"
+msgstr ""
+
+#: hp/templates/design.html:37
+#, python-format
+msgid ""
+"You can <a href=\"%(login_url)s\" class=\"btn\">Log In</a> or <a href="
+"\"%(signup_url)s\" class=\"btn primary\">Sign Up</a> to try out the site."
+msgstr ""
+
+#: hp/templates/form.html:13 hp/templates/account/password_change.html:18
+#: hp/templates/appstore/app_form.html:12
+#: hp/templates/fusion/list_detail.html:19
+msgid "Save"
+msgstr ""
+
+#: hp/templates/account/base.html:8
+msgid "Settings"
+msgstr ""
+
+#: hp/templates/account/base.html:9
+#: hp/templates/account/password_change.html:7
+#: hp/templates/account/password_change.html:13
+msgid "Change password"
+msgstr ""
+
+#: hp/templates/account/base.html:10
+msgid "Delete account"
+msgstr ""
+
+#: hp/templates/account/login.html:7 hp/templates/account/login.html.py:36
+msgid "Log in"
+msgstr ""
+
+#: hp/templates/account/login.html:24
+msgid "Log in to an existing account"
+msgstr ""
+
+#: hp/templates/account/login.html:37
+msgid "Forgot your password?"
+msgstr ""
+
+#: hp/templates/account/logout.html:6 hp/templates/account/logout.html.py:8
+#: hp/templates/account/logout.html:17
+msgid "Log out"
+msgstr ""
+
+#: hp/templates/account/logout.html:15
+msgid "Are you sure you want to log out?"
+msgstr ""
+
+#: hp/templates/account/signup.html:7 hp/templates/account/signup.html:18
+#: hp/templates/account/signup.html:32
+msgid "Sign up"
+msgstr ""
+
+#: hp/templates/appstore/app_base.html:26
+msgid "Deploy"
+msgstr ""
+
+#: hp/templates/appstore/app_detail.html:12
+msgid "Category"
+msgstr ""
+
+#: hp/templates/appstore/app_detail.html:13
+msgid "View forms for"
+msgstr ""
+
+#: hp/templates/appstore/app_detail.html:22
+msgid "Description"
+msgstr ""
+
+#: hp/templates/appstore/appcategory_list.html:14
+msgid "View forms in"
+msgstr ""
+
+#: hp/templates/appstore/environment_form.html:8
+msgid "Configure environment"
+msgstr "Configure workspace"
+
+#: hp/templates/appstore/environment_form.html:16
+msgid "Change name"
+msgstr ""
+
+#: hp/templates/appstore/environment_form.html:22
+msgid "Submit"
+msgstr ""
+
+#: hp/templates/appstore/environment_form.html:29
+msgid "Delete environment"
+msgstr "Delete workspace"
+
+#: hp/templates/appstore/environment_form.html:31
+msgid "Danger zone"
+msgstr ""
+
+#: hp/templates/appstore/environment_form.html:32
+msgid "There will be no going back"
+msgstr ""
+
+#: hp/templates/appstore/environment_form.html:35
+msgid "I understand, delete my environment"
+msgstr "I understand, delete my workspace"
+
+#: hp/templates/appstore/environment_form.html:42
+msgid "Installed forms"
+msgstr ""
+
+#: hp/templates/appstore/environment_form.html:42
+msgid "Create form"
+msgstr ""
+
+#: hp/templates/appstore/environment_form.html:51
+msgid "Deployed"
+msgstr ""
+
+#: hp/templates/appstore/environment_form.html:51
+msgid "Not deployed"
+msgstr ""
+
+#: hp/templates/appstore/environment_form.html:52
+msgid "Superseeds"
+msgstr ""
+
+#: hp/templates/appstore/userenvironment_list.html:7
+msgid "Users of environment"
+msgstr "Users of workspace"
+
+#: hp/templates/appstore/userenvironment_list.html:9
+msgid "Add user"
+msgstr ""
+
+#: hp/templates/appstore/userenvironment_list.html:16
+msgid "First name"
+msgstr ""
+
+#: hp/templates/appstore/userenvironment_list.html:17
+msgid "Last name"
+msgstr ""
+
+#: hp/templates/appstore/userenvironment_list.html:18
+msgid "Email"
+msgstr ""
+
+#: hp/templates/appstore/userenvironment_list.html:19
+msgid "Join date"
+msgstr ""
+
+#: hp/templates/appstore/userenvironment_list.html:20
+msgid "Level"
+msgstr ""
+
+#: hp/templates/appstore/userenvironment_list.html:47
+msgid "Admin"
+msgstr ""
+
+#: hp/templates/appstore/userenvironment_list.html:54
+msgid "User"
+msgstr ""
+
+#: hp/templates/appstore/userenvironment_list.html:60
+msgid "Revoke"
+msgstr ""
+
+#: hp/templates/appstore/userenvironment_list.html:77
+msgid "Warning"
+msgstr ""
+
+#: hp/templates/django_tables2/table.html:53
+#, python-format
+msgid "%(count)s of %(total)s"
+msgstr ""
+
+#: hp/templates/django_tables2/table.html:58
+#: hp/templates/django_tables2/table.html:60
+msgid "Previous"
+msgstr ""
+
+#: hp/templates/django_tables2/table.html:64
+#, python-format
+msgid "Page %(current)s of %(total)s"
+msgstr ""
+
+#: hp/templates/django_tables2/table.html:72
+#: hp/templates/django_tables2/table.html:74
+msgid "Next"
+msgstr ""
+
+#: hp/templates/formapp/record_detail.html:9
+msgid "Print"
+msgstr ""
+
+#: hp/templates/formapp/record_form.html:44
+msgid "Save and add another"
+msgstr ""
+
+#: hp/templates/formapp/record_form.html:45
+msgid "Save and continue editing"
+msgstr ""
+
+#: hp/templates/formapp/record_form.html:73
+msgid "You have unsaved changes."
+msgstr ""
+
+#: hp/templates/fusion/_record_column.html:4
+msgid "Detail"
+msgstr ""
+
+#: hp/templates/fusion/_record_column.html:5
+msgid "Modify"
+msgstr ""
+
+#: hp/templates/fusion/list_detail.html:14
+msgid "Filter"
+msgstr ""
+
+#: hp/templates/fusion/list_detail.html:31
+msgid "Search"
+msgstr ""
