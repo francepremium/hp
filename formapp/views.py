@@ -144,6 +144,9 @@ class Detail(generic.DetailView):
             tab_data = {'model': tab, 'widgets': []}
 
             for widget in tab.widget_set.all():
+                if widget.name not in self.object.data:
+                    continue
+
                 tab_data['widgets'].append({
                     'model': widget,
                     'value': self.object.data[widget.name],
