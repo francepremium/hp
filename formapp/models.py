@@ -49,7 +49,7 @@ class Record(models.Model):
         if not bits:
             return u'%s #%s' % (self.form.verbose_name, self.pk)
 
-        return u', '.join(bits)
+        return u', '.join(bits[:3])
 
     @property
     def feature(self):
