@@ -4,7 +4,7 @@
 {% load formapp_tags %}
 
 {% block body %}
-<h1>{{ object }}</h1>
+<h1>{% if object.data.titre %}{{ object.data.titre }}{% else %}{{ object }}{% endif %}</h1>
 <div class="btn-toolbar">
     <a title="{% trans 'Print' %}" class="btn_img print-tb below" rel="tooltip" href="{{ request.printlink }}">{% trans 'Print' %}</a>
     <!--<a href="/" title="History" class="btn_img history-tb below" rel="tooltip">History</a>
