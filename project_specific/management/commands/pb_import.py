@@ -73,3 +73,112 @@ class Command(BaseCommand):
             record = Record(form=form, environment=self.environment,
                     data = {'nom': last_name, 'prenom': first_name})
             record.save()
+
+    def _get_artworks_form(self):
+        return Form.objects.get(appform__app__deployed=True,
+            appform__app__provides__name='PB Livre',
+            appform__app__environment=self.environment)
+
+    def _get_artist_id_by_name(self, name):
+        if ',' in name:
+            nom, prenom = name.split(',')
+        else:
+            nom = prenom = name
+
+        form = self._get_artists_form()
+
+        records = Record.objects.filter(
+                form__appform__app__provides=form.appform.app.provides,
+                environment=self.environment,
+                text_data__icontains=nom.strip())
+        return records.get(text_data__icontains=prenom.strip()).pk
+
+    def _get_lieu_dedition_form(self):
+        return Form.objects.get(appform__app__deployed=True,
+            appform__app__provides__name='PB Lieu',
+            appform__app__environment=self.environment)
+
+    def _get_lieu_dedition_id_by_name(self, name):
+        form = self._get_lieu_dedition_form()
+
+        records = Record.objects.filter(
+                form__appform__app__provides=form.appform.app.provides,
+                environment=self.environment,
+                text_data__icontains=name.strip())
+
+        if not records.count():
+            record = Record(environment=self.environment, form=form,
+                data={'lieu': name})
+            record.save()
+        else:
+            record = records[0]
+
+        return record.pk
+
+    def _get_support_form(self):
+        return Form.objects.get(appform__app__deployed=True,
+            appform__app__provides__name='PB Support',
+            appform__app__environment=self.environment)
+
+    def _get_support_id_by_name(self, name):
+        form = self._get_support_form()
+
+        if getattr(self, '_supports', None) is None:
+            self._supports = list(Record.objects.filter(
+                form__appform__app__provides=form.appform.app.provides,
+                environment=self.environment))
+
+        for support in self._supports:
+            if support.data['support'] == name:
+                return support.pk
+
+        support = Record(environment=self.environment, form=form)
+        support.data['support'] = {'support': name}
+        support.save()
+
+        self._supports.append(support)
+
+        return support.pk
+
+    def import_artworks(self, path):
+        source = codecs.open(path, 'r', 'utf-8')
+        reader = unicode_csv_reader(source, skipinitialspace=True,
+                delimiter=str(self.delimiter))
+
+        form = self._get_artworks_form()
+        books = Record.objects.filter(environment=self.environment,
+            form__appform__app__provides=form.appform.app.provides)
+
+        for row in reader:
+            i, inv, author, support, kind, title, editor, lieu, \
+            edit_year, volumes, description, comments = row
+
+            data = {
+                'ancien_numero_dinventaire': inv,
+                'auteur': [self._get_artist_id_by_name(author)],
+                'titre': title,
+                'editeur': editor,
+                'lieu_dedition': [self._get_lieu_dedition_id_by_name(lieu)],
+                'date_dedition': edit_year,
+                'support': [self._get_support_id_by_name(support)],
+                'commentaire': comments,
+                'identifiant_unique': i,
+                'nombre_de_volumes': volumes,
+                'commentaire__': description
+            }
+
+            found = None
+            for book in books:
+                if book.data.get('identifiant_unique', None) == i:
+                    found = book
+                    break
+
+            if found is None:
+                book = Record(form=form, environment=self.environment)
+
+            book.data = data
+            book.save()
+
+            #record = Record(form=form, environment=self.environment,
+            #        data = {'nom': last_name, 'prenom': first_name})
+            #record.save()
