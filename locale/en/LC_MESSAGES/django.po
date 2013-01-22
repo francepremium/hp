@@ -431,12 +431,8 @@ msgid "I understand, delete my environment"
 msgstr "I understand, delete my workspace"
 
 #: hp/templates/appstore/environment_form.html:42
-msgid "Installed forms"
-msgstr ""
-
-#: hp/templates/appstore/environment_form.html:42
-msgid "Create form"
-msgstr ""
+msgid "Installed apps"
+msgstr "Installed forms"
 
 #: hp/templates/appstore/environment_form.html:51
 msgid "Deployed"
