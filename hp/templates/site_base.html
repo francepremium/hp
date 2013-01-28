@@ -131,6 +131,10 @@
             });
 
             $('a[href="' + window.location.pathname +'"]').parent().addClass('active');
+
+            $('[data-toggle=next]').on('click', function(){
+                $(this).next().toggle();
+            })
         });
 
         $(document).bind('yourlabsWidgetReady', function() {
