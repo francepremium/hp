@@ -33,6 +33,6 @@ class CreateGateway(generic.TemplateView):
     def get(self, request, *args, **kwargs):
         if self.forms.count() == 1:
             return http.HttpResponseRedirect(u'%s?is_popup=%s' % (
-                reverse('formapp_record_create', args=(self.forms[0].pk,)),
+                reverse('formapp_record_create', args=(self.forms[0].appform.app.pk,)),
                 self.request.GET.get('is_popup', 0)))
         return super(CreateGateway, self).get(request, *args, **kwargs)
