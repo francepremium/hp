@@ -55,6 +55,9 @@ class Record(models.Model):
     def feature(self):
         return self.form.appform.app.provides
 
+    class Meta:
+        ordering = ('text_data',)
+
 
 def text_data(sender, instance, **kwargs):
     data = []
