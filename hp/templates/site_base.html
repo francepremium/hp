@@ -3,10 +3,11 @@
 <head>
     <title>HelloPublisher</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if DEBUG %}
+    {% if debug %}
         {% if request.style == 'print' %}
         <link href="{{ STATIC_URL }}bootstrap/less/print.less" charset="utf-8" type="text/less" rel="stylesheet">
         {% else %}
+        <link rel="stylesheet" type="text/css" href="{% static 'autocomplete_light/style.css' %}" />
         <link href="{{ STATIC_URL }}bootstrap/less/bootstrap.less" charset="utf-8" type="text/less" rel="stylesheet">
         <link href="{{ STATIC_URL }}bootstrap/less/responsive.less" rel="stylesheet">
         {% endif %}
@@ -19,9 +20,9 @@
             {% endcompress %}
         {% else %}
             {% compress css %}
+            <link rel="stylesheet" type="text/css" href="{% static 'autocomplete_light/style.css' %}" />
             <link href="{{ STATIC_URL }}bootstrap/less/bootstrap.less" charset="utf-8" type="text/less" rel="stylesheet">
             <link href="{{ STATIC_URL }}bootstrap/less/responsive.less" rel="stylesheet">
-            <link rel="stylesheet" type="text/css" href="{% static 'autocomplete_light/style.css' %}" />
             {% endcompress %}
         {% endif %}
     {% endif %}
@@ -31,6 +32,10 @@
         .top-margin { margin-top: 0; margin-bottom: 0; }
     </style>
     {% endif %}
+
+    <style type="text/css">
+        .yourlabs-autocomplete { margin-top: -6px !important; }
+    </style>
 
     {% block extra_head %}{% endblock %}
 </head>
@@ -126,6 +131,10 @@
             });
 
             $('a[href="' + window.location.pathname +'"]').parent().addClass('active');
+
+            $('[data-toggle=next]').on('click', function(){
+                $(this).next().toggle();
+            })
         });
 
         $(document).bind('yourlabsWidgetReady', function() {

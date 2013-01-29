@@ -1,3 +1,5 @@
+import sys
+
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.forms.models import ModelMultipleChoiceField
@@ -10,6 +12,11 @@ from djorm_pgfulltext.models import SearchManager
 from djorm_pgfulltext.fields import VectorField
 
 from form_designer.models import Widget, Form
+
+
+def unicode_truncate(s, length, encoding='utf-8'):
+    encoded = s.encode(encoding)[:length]
+    return encoded.decode(encoding, 'ignore')
 
 
 class Record(models.Model):
@@ -42,11 +49,14 @@ class Record(models.Model):
         if not bits:
             return u'%s #%s' % (self.form.verbose_name, self.pk)
 
-        return u', '.join(bits)
+        return u', '.join(bits[:3])
 
     @property
     def feature(self):
         return self.form.appform.app.provides
+
+    class Meta:
+        ordering = ('text_data',)
 
 
 def text_data(sender, instance, **kwargs):
@@ -65,7 +75,9 @@ def text_data(sender, instance, **kwargs):
                     data.append(unicode(related_value))
         else:
             data.append(unicode(value))
-    instance.text_data = u' '.join(data)
+
+    instance.text_data = unicode_truncate(u' '.join(data), 1000)
+    print len(instance.text_data), sys.getsizeof(instance.text_data)
 pre_save.connect(text_data, sender=Record)
 
 

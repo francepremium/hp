@@ -12,8 +12,9 @@ def render_value(value):
         value = Record.objects.filter(pk__in=value)
         value = mark_safe(u', '.join(
             ['<a href="%s">%s</a>' % (
-                r.get_absolute_url(), r) for r in value]))
+                r.get_absolute_url(), unicode(r)) for r in value]))
     return value
+
 
 @register.filter
 def get_field(form, name):
