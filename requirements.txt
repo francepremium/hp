@@ -18,7 +18,8 @@ django-autocomplete-light
 -e git+git://github.com/gkuhn1/django-admin-templates-twitter-bootstrap.git#egg=admin-bootstrap
 south
 django-rules-light
-https://jpic@bitbucket.org/jpic/django-jsonfield
+-e hg+https://jpic@bitbucket.org/jpic/django-jsonfield#egg=jsonfield
 -e git+https://github.com/niwibe/djorm-ext-pgfulltext.git#egg=pgfulltext
 django-rosetta
 longerusername
+django-tables2

@@ -1,5 +1,5 @@
 {% load url from future %}
 {% load i18n %}
 
-<a href="{{ record.get_absolute_url }}">{% trans 'Detail' %}</a>
-<a href="{% url 'formapp_record_update' record.pk %}">{% trans 'Modify' %}</a>
+<a href="{{ record.get_absolute_url }}" class="small-btn view">{% trans 'Detail' %}</a>
+<a href="{% url 'formapp_record_update' record.pk %}" class="small-btn edit">{% trans 'Modify' %}</a>

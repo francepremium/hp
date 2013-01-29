@@ -133,12 +133,37 @@ class Command(BaseCommand):
                 return support.pk
 
         support = Record(environment=self.environment, form=form)
-        support.data['support'] = {'support': name}
+        support.data = {'support': name}
         support.save()
 
         self._supports.append(support)
 
         return support.pk
+
+    def _get_editeur_id_by_name(self, name):
+        form = self._get_editeur_form()
+
+        if getattr(self, '_editeurs', None) is None:
+            self._editeurs = list(Record.objects.filter(
+                form__appform__app__provides=form.appform.app.provides,
+                environment=self.environment))
+
+        for editeur in self._editeurs:
+            if editeur.data['editeur'] == name:
+                return editeur.pk
+
+        editeur = Record(environment=self.environment, form=form)
+        editeur.data = {'editeur': name}
+        editeur.save()
+
+        self._editeurs.append(editeur)
+
+        return editeur.pk
+
+    def _get_editeur_form(self):
+        return Form.objects.get(appform__app__deployed=True,
+            appform__app__provides__name='PB Editeur',
+            appform__app__environment=self.environment)
 
     def import_artworks(self, path):
         source = codecs.open(path, 'r', 'utf-8')
@@ -157,7 +182,7 @@ class Command(BaseCommand):
                 'ancien_numero_dinventaire': inv,
                 'auteur': [self._get_artist_id_by_name(author)],
                 'titre': title,
-                'editeur': editor,
+                'editeur': [self._get_editeur_id_by_name(editor)],
                 'lieu_dedition': [self._get_lieu_dedition_id_by_name(lieu)],
                 'date_dedition': edit_year,
                 'support': [self._get_support_id_by_name(support)],
