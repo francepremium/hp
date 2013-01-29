@@ -158,6 +158,7 @@ TEMPLATE_DIRS = [
 ]
 
 INSTALLED_APPS = [
+    'raven.contrib.django',
     "longerusername",
     "django.contrib.admin",
     "django.contrib.auth",
