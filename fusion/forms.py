@@ -58,8 +58,9 @@ class ListForm(forms.ModelForm):
 
         widgets_qs = Widget.objects.filter(
             tab__form__appform__app__provides=obj.feature,
-            tab__form__appform__app__environment=obj.environment).order_by(
-                'tab__order')
+            tab__form__appform__app__environment=obj.environment).distinct()
+        widgets_qs = Widget.objects.filter(pk__in=widgets_qs.values_list('pk')
+                                           ).order_by('tab', 'tab__order')
 
         self.fields['columns'].queryset = widgets_qs
         self.fields['columns'].help_text = u''
