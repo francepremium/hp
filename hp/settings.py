@@ -10,15 +10,15 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = [
-    # ("Your Name", "your_email@example.com"),
+    # ('Your Name', 'your_email@example.com'),
 ]
 
 MANAGERS = ADMINS
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "dev.db",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'dev.db',
     }
 }
 
@@ -39,11 +39,11 @@ FORM_DESIGNER_WIDGET_CLASSES = (
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = "UTC"
+TIME_ZONE = 'UTC'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = 'fr'
 
 LANGUAGES = (
     ('en', 'English'),
@@ -69,27 +69,27 @@ USE_L10N = True
 USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "media")
+# Example: '/home/media/media.lawrence.com/media/'
+MEDIA_ROOT = os.path.join(PACKAGE_ROOT, 'site_media', 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = "/site_media/media/"
+# Examples: 'http://media.lawrence.com/media/', 'http://example.com/media/'
+MEDIA_URL = '/site_media/media/'
 
 # Absolute path to the directory static files should be collected to.
-# Don"t put anything in this directory yourself; store your static files
-# in apps" "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "static")
+# Don't put anything in this directory yourself; store your static files
+# in apps' 'static/' subdirectories and in STATICFILES_DIRS.
+# Example: '/home/media/media.lawrence.com/static/'
+STATIC_ROOT = os.path.join(PACKAGE_ROOT, 'site_media', 'static')
 
 # URL prefix for static files.
-# Example: "http://media.lawrence.com/static/"
-STATIC_URL = "/site_media/static/"
+# Example: 'http://media.lawrence.com/static/'
+STATIC_URL = '/site_media/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = [
-    os.path.join(PACKAGE_ROOT, "static"),
+    os.path.join(PACKAGE_ROOT, 'static'),
 ]
 
 ACCOUNT_USER_DISPLAY = lambda user: u'%s %s %s' % (user.first_name, user.last_name, user.email)
@@ -98,46 +98,48 @@ ACCOUNT_EMAIL_CONFIRMATION_REQUIRED = True
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = [
-    "django.contrib.staticfiles.finders.FileSystemFinder",
-    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 ]
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = "08!_!nz(ydsf9_s8j#gg)ul89car#z6ffv_t5lsz7cb49i8ea_"
+SECRET_KEY = '08!_!nz(ydsf9_s8j#gg)ul89car#z6ffv_t5lsz7cb49i8ea_'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = [
-    "django.template.loaders.filesystem.Loader",
-    "django.template.loaders.app_directories.Loader",
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
 ]
 
 TEMPLATE_CONTEXT_PROCESSORS = [
-    "django.contrib.auth.context_processors.auth",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.media",
-    "django.core.context_processors.static",
-    "django.core.context_processors.tz",
-    "django.core.context_processors.request",
-    "django.contrib.messages.context_processors.messages",
-    "pinax_utils.context_processors.settings",
-    "account.context_processors.account",
-    "hp.context_processors.hp_settings",
-    "hp_saas.context_processors.login_or_signup_forms",
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+    'pinax_utils.context_processors.settings',
+    'account.context_processors.account',
+    'hp.context_processors.hp_settings',
+    'hp_saas.context_processors.login_or_signup_forms',
 ]
 
 
 MIDDLEWARE_CLASSES = [
     'project_specific.middleware.DisableClientSideCachingMiddleware',
-    "django.middleware.common.CommonMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.transaction.TransactionMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.transaction.TransactionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'account.middleware.LocaleMiddleware',
+    #'account.middleware.TimezoneMiddleware',
     'rules_light.middleware.Middleware',
     'project_specific.middleware.PrintGet',
-    "django.contrib.messages.middleware.MessageMiddleware",
+    'django.contrib.messages.middleware.MessageMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'session_security.middleware.SessionSecurityMiddleware',
     'appstore.middleware.EnvironmentMiddleware',
@@ -145,36 +147,36 @@ MIDDLEWARE_CLASSES = [
 
 INTERNAL_IPS = ('127.0.0.1',)
 
-ROOT_URLCONF = "hp.urls"
+ROOT_URLCONF = 'hp.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = "hp.wsgi.application"
+WSGI_APPLICATION = 'hp.wsgi.application'
 
 LOGIN_URL = '/account/login/'
 LOGOUT_URL = '/account/logout/'
 
 TEMPLATE_DIRS = [
-    os.path.join(PACKAGE_ROOT, "templates"),
+    os.path.join(PACKAGE_ROOT, 'templates'),
 ]
 
 INSTALLED_APPS = [
     'raven.contrib.django',
-    "longerusername",
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.sites",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
-    "rosetta",
+    'longerusername',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rosetta',
 
     # theme
-    "pinax_theme_bootstrap_account",
-    "django_forms_bootstrap",
+    'pinax_theme_bootstrap_account',
+    'django_forms_bootstrap',
 
     # external
-    "account",
+    'account',
     'debug_toolbar',
 
     # project
@@ -208,29 +210,29 @@ APPSTORE_EDITOR_MODULES = (
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
 LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "filters": {
-        "require_debug_false": {
-            "()": "django.utils.log.RequireDebugFalse"
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
         }
     },
-    "handlers": {
-        "mail_admins": {
-            "level": "ERROR",
-            "filters": ["require_debug_false"],
-            "class": "django.utils.log.AdminEmailHandler"
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
         },
         'console':{
             'level':'DEBUG',
             'class':'logging.StreamHandler',
         },
     },
-    "loggers": {
-        "django.request": {
-            "handlers": ["console"],
-            "level": "DEBUG",
-            "propagate": True,
+    'loggers': {
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
         },
         'rules_light': {
             'handlers': ['console'],
@@ -241,12 +243,12 @@ LOGGING = {
 }
 
 FIXTURE_DIRS = [
-    os.path.join(PROJECT_ROOT, "fixtures"),
+    os.path.join(PROJECT_ROOT, 'fixtures'),
 ]
 
 
 if HOSTNAME == 'zen':
-    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
@@ -257,8 +259,8 @@ ACCOUNT_USE_OPENID = False
 ACCOUNT_REQUIRED_EMAIL = False
 ACCOUNT_EMAIL_VERIFICATION = False
 ACCOUNT_EMAIL_AUTHENTICATION = False
-ACCOUNT_LOGIN_REDIRECT_URL = "home"
-ACCOUNT_LOGOUT_REDIRECT_URL = "home"
+ACCOUNT_LOGIN_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 2
 
 COMPRESS_ENABLED = True

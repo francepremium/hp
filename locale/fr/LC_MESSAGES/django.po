@@ -16,6 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 #: formapp/models.py:98
 msgid "Relation to other record"
@@ -64,7 +65,7 @@ msgstr ""
 
 #: hp/templates/_navbar.html:27
 msgid "Browse"
-msgstr ""
+msgstr "Liste"
 
 #: hp/templates/_navbar.html:36
 msgid "Configure"
@@ -72,7 +73,7 @@ msgstr ""
 
 #: hp/templates/_navbar.html:38
 msgid "Environment"
-msgstr "Workspace"
+msgstr ""
 
 #: hp/templates/_navbar.html:39
 msgid "Users"
@@ -80,11 +81,11 @@ msgstr ""
 
 #: hp/templates/_navbar.html:60
 msgid "My environment"
-msgstr "My workspace"
+msgstr ""
 
 #: hp/templates/_navbar.html:68
 msgid "Create new environment"
-msgstr "Create new workspace"
+msgstr ""
 
 #: hp/templates/_navbar.html:72
 msgid "My account"
@@ -212,11 +213,11 @@ msgstr ""
 #: hp/templates/appstore/app_base.html:15
 #: hp/templates/appstore/environment_form.html:42
 msgid "Create app"
-msgstr "Create form"
+msgstr ""
 
 #: hp/templates/appstore/app_base.html:20
 msgid "App"
-msgstr "Form"
+msgstr ""
 
 #: hp/templates/appstore/app_base.html:26
 msgid "Deploy"
@@ -228,7 +229,7 @@ msgstr ""
 
 #: hp/templates/appstore/app_detail.html:13
 msgid "View apps for"
-msgstr "View forms for"
+msgstr ""
 
 #: hp/templates/appstore/app_detail.html:22
 msgid "Description"
@@ -236,11 +237,11 @@ msgstr ""
 
 #: hp/templates/appstore/appcategory_list.html:14
 msgid "View apps in"
-msgstr "View forms in"
+msgstr ""
 
 #: hp/templates/appstore/environment_form.html:8
 msgid "Configure environment"
-msgstr "Configure workspace"
+msgstr ""
 
 #: hp/templates/appstore/environment_form.html:16
 msgid "Change name"
@@ -252,7 +253,7 @@ msgstr ""
 
 #: hp/templates/appstore/environment_form.html:29
 msgid "Delete environment"
-msgstr "Delete workspace"
+msgstr ""
 
 #: hp/templates/appstore/environment_form.html:31
 msgid "Danger zone"
@@ -264,11 +265,11 @@ msgstr ""
 
 #: hp/templates/appstore/environment_form.html:35
 msgid "I understand, delete my environment"
-msgstr "I understand, delete my workspace"
+msgstr ""
 
 #: hp/templates/appstore/environment_form.html:42
 msgid "Installed apps"
-msgstr "Installed forms"
+msgstr ""
 
 #: hp/templates/appstore/environment_form.html:51
 msgid "Deployed"
@@ -284,7 +285,7 @@ msgstr ""
 
 #: hp/templates/appstore/userenvironment_list.html:7
 msgid "Users of environment"
-msgstr "Users of workspace"
+msgstr ""
 
 #: hp/templates/appstore/userenvironment_list.html:9
 msgid "Add user"
@@ -316,8 +317,6 @@ msgid ""
 "Are you sure you want to promote %(user)s to administrator in environment "
 "%(environment)s"
 msgstr ""
-"Are you sure you want to promote %(user)s to administrator in workspace "
-"%(environment)s"
 
 #: hp/templates/appstore/userenvironment_list.html:47
 msgid "Admin"
@@ -329,8 +328,6 @@ msgid ""
 "Are you sure you want to demote %(user)s from administrator to user in "
 "environment %(environment)s"
 msgstr ""
-"Are you sure you want to demote %(user)s from administrator to user in "
-"workspace %(environment)s"
 
 #: hp/templates/appstore/userenvironment_list.html:54
 msgid "User"
@@ -342,8 +339,6 @@ msgid ""
 "Are you sure you want to revoke %(user)s's permission to access environment "
 "%(environment)s"
 msgstr ""
-"Are you sure you want to revoke %(user)s's permission to access workspace "
-"%(environment)s"
 
 #: hp/templates/appstore/userenvironment_list.html:60
 msgid "Revoke"
@@ -351,7 +346,7 @@ msgstr ""
 
 #: hp/templates/appstore/userenvironment_list.html:72
 msgid "Change access to environment"
-msgstr "Change access to workspace"
+msgstr ""
 
 #: hp/templates/appstore/userenvironment_list.html:77
 msgid "Warning"
@@ -362,8 +357,6 @@ msgid ""
 "After you confirm, you will not be able to administrate this environment "
 "anymore"
 msgstr ""
-"After you confirm, you will not be able to administrate this workspace "
-"anymore"
 
 #: hp/templates/django_tables2/table.html:53
 #, python-format
@@ -420,95 +413,3 @@ msgstr ""
 #: hp/templates/fusion/list_detail.html:31
 msgid "Search"
 msgstr ""
-
-#~ msgid "Env updated"
-#~ msgstr "Workspace updated"
-
-#~ msgid "App %s created"
-#~ msgstr "Form %s created"
-
-#~ msgid "App updated"
-#~ msgstr "Form updated"
-
-#~ msgid "App %s successfully deployed."
-#~ msgstr "Form %s successfully deployed."
-
-#~ msgid ""
-#~ "You already have an update in progress for this app. Do you want to make "
-#~ "a plain copy ?"
-#~ msgstr ""
-#~ "You already have an update in progress for this form. Do you want to make "
-#~ "a plain copy ?"
-
-#~ msgid ""
-#~ "This app is not deployed. Do you want to make a loose copy ? The copy "
-#~ "will not superseed the source app."
-#~ msgstr ""
-#~ "This form is not deployed. Do you want to make a loose copy ? The copy "
-#~ "will not superseed the source form."
-
-#~ msgid "Yes, update this app"
-#~ msgstr "Yes, update this form"
-
-#~ msgid "%(app)s is already installed in environment %(env)s"
-#~ msgstr "%(app)s is already installed in workspace %(env)s"
-
-#~ msgid "This user is already in your environment"
-#~ msgstr "This user is already in your workspace"
-
-#~ msgid "Environment \"%s\" created and activated"
-#~ msgstr "Workspace \"%s\" created and activated"
-
-#~ msgid "Environment \"%s\" activated"
-#~ msgstr "Workspace \"%s\" activated"
-
-#~ msgid "from environment"
-#~ msgstr "from workspace"
-
-#~ msgid ""
-#~ "Should the new version, once deployed, obsolete this one in this "
-#~ "environment ?"
-#~ msgstr ""
-#~ "Should the new version, once deployed, obsolete this one in this "
-#~ "workspace ?"
-
-#~ msgid "in environment"
-#~ msgstr "in workspace"
-
-#~ msgid "Deploying the app will make it available in the environment"
-#~ msgstr "Deploying the form will make it available in the workspace"
-
-#~ msgid ""
-#~ "Until this version is deployed, the previous version is used in the "
-#~ "environment"
-#~ msgstr ""
-#~ "Until this version is deployed, the previous version is used in the "
-#~ "workspace"
-
-#~ msgid ""
-#~ "%(creator)s invited you to join his environment %(environment)s on "
-#~ "%(site_name)s"
-#~ msgstr ""
-#~ "%(creator)s invited you to join his workspace %(environment)s on "
-#~ "%(site_name)s"
-
-#~ msgid ""
-#~ "You can access this environment by clicking http://%(site_domain)s"
-#~ "%(environment_url)s, or by clicking on your name on the top right corner "
-#~ "of %(site_name)s."
-#~ msgstr ""
-#~ "You can access this workspace by clicking http://%(site_domain)s"
-#~ "%(environment_url)s, or by clicking on your name on the top right corner "
-#~ "of %(site_name)s."
-
-#~ msgid ""
-#~ "Then, you can access this environment by clicking http://%(site_domain)s"
-#~ "%(environment_url)s, or by clicking on your name on the top right corner "
-#~ "of %(site_name)s."
-#~ msgstr ""
-#~ "Then, you can access this workspace by clicking http://%(site_domain)s"
-#~ "%(environment_url)s, or by clicking on your name on the top right corner "
-#~ "of %(site_name)s."
-
-#~ msgid "Environment name"
-#~ msgstr "Workspace name"
