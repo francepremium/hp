@@ -81,6 +81,8 @@ yourlabs.Table.prototype.stopDrag = function(e, ui) {
     this.droppableIndex = null;
 
     this.table.trigger('columnMoved');
+
+    this.resetDroppable();
 }
 
 yourlabs.Table.prototype.getColumn = function(index) {
