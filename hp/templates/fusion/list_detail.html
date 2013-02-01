@@ -1,5 +1,6 @@
 {% extends 'site_base.html' %}
 
+{% load url from future %}
 {% load bootstrap_tags %}
 {% load i18n %}
 {% load render_table from django_tables2 %}
@@ -62,10 +63,18 @@
 
                 if (table.xhr) table.xhr.abort();
 
-                data = {};
+                data = {
+                    columns: [],
+                };
 
-                table.xhr = $.ajax('/foo', {
-                    'data': JSON.stringify(data),
+                table.table.find('[data-widget-pk]').each(function() {
+                    if ($(this).parents('table.helper').length) return;
+
+                    data.columns.push({widget_pk: $(this).data('widget-pk')})
+                });
+                    
+                table.xhr = $.ajax('{% url 'fusion_list_update' object.pk %}', {
+                    'data': {data: JSON.stringify(data)},
                     'type': 'POST',
                 })
             })

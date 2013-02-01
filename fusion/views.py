@@ -1,14 +1,17 @@
+import json
+
 from django.utils.safestring import mark_safe
 from django.template.loader import render_to_string
 from django.views import generic
 from django.utils.translation import ugettext as _
+from django import http
 
 import django_tables2 as tables
 
 from formapp.models import Record, RecordsWidget
 
 from forms import ListForm
-from models import List
+from models import List, ListColumn
 
 
 class LinkedColumn(tables.Column):
@@ -64,13 +67,23 @@ class ListDetailView(generic.UpdateView):
         columns = {
             '_record_': RecordColumn(),
         }
-        for widget in self.object.columns.select_subclasses():
+
+        list_columns = ListColumn.objects.filter(list=self.object)
+
+        for column in list_columns:
+            widget = column.widget.type_cast()
+            attrs = {
+                'th': {'data-widget-pk': widget.widget_ptr_id}
+            }
+
             if isinstance(widget, RecordsWidget):
                 columns[widget.name] = LinkedColumn(
-                    verbose_name=widget.verbose_name)
+                    verbose_name=widget.verbose_name,
+                    attrs=attrs)
             else:
                 columns[widget.name] = tables.Column(
-                    verbose_name=widget.verbose_name)
+                    verbose_name=widget.verbose_name,
+                    attrs=attrs)
 
         for name in columns.keys():
             for data in table_data:
@@ -86,3 +99,24 @@ class ListDetailView(generic.UpdateView):
         context['table'] = table
 
         return context
+
+
+class ListUpdateView(generic.DetailView):
+    model = List
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+
+        data = json.loads(request.POST['data'])
+
+        order = 0
+        for column_data in data['columns']:
+            lc, c = ListColumn.objects.get_or_create(
+                list=self.object, widget__pk=column_data['widget_pk'])
+
+            lc.order = order
+            lc.save()
+
+            order += 1
+
+        return http.HttpResponse('')

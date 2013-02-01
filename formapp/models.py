@@ -77,7 +77,6 @@ def text_data(sender, instance, **kwargs):
             data.append(unicode(value))
 
     instance.text_data = unicode_truncate(u' '.join(data), 1000)
-    print len(instance.text_data), sys.getsizeof(instance.text_data)
 pre_save.connect(text_data, sender=Record)
 
 
