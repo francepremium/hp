@@ -2,8 +2,8 @@ if (window.yourlabs == undefined) window.yourlabs = {};
 
 yourlabs.Table = function(table) {
     this.table = table;
-    this.draggingClass = 'dragging';
     this.draggingIndex = null;
+    this.droppableIndex = null;
 }
 
 yourlabs.Table.prototype.initialize = function() {
@@ -37,7 +37,6 @@ yourlabs.Table.prototype.resetDroppable = function() {
             greedy: true,
             tolerance: 'pointer',
             over: $.proxy(this.droppableOver, this),
-            out: $.proxy(this.droppableOut, this),
             drop: $.proxy(this.stopDrag, this),
         });
 }
@@ -62,6 +61,11 @@ yourlabs.Table.prototype.draggableStart = function(e, ui) {
 }
 
 yourlabs.Table.prototype.stopDrag = function(e, ui) {
+    if (this.draggingIndex == null) {
+        // stopDrag was already called.
+        return;
+    }
+
     this.droppableIndex = this.table.find('.placeholder.active:first').index();
     this.table.find('.placeholder.active').removeClass('active')
     this.table.find('.dragging').removeClass('dragging');
