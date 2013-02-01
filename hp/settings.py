@@ -135,6 +135,8 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.transaction.TransactionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'account.middleware.LocaleMiddleware',
+    #'account.middleware.TimezoneMiddleware',
     'rules_light.middleware.Middleware',
     'project_specific.middleware.PrintGet',
     'django.contrib.messages.middleware.MessageMiddleware',
