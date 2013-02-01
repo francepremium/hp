@@ -1,5 +1,6 @@
 if (window.yourlabs == undefined) window.yourlabs = {};
 
+// Resizing is temporarely disabled because the browser ignores it.
 yourlabs.Table = function(table) {
     // <table> element.
     this.table = table;
@@ -9,6 +10,12 @@ yourlabs.Table = function(table) {
 
     // Index of the column being hovered or drop on.
     this.dropIndex = null;
+
+    // Resize column handle which will be appended to th.
+    // this.resizeHandleHtml = '<span class="handle resize-handle"></span>';
+
+    // Selector string for resizeHandleHtml.
+    // this.resizeHandleSelector = '.resize-handle';
 
     // Drag column handle which will be prepended to th.
     this.dragHandleHtml = '<span class="handle drag-handle"></span>';
@@ -50,24 +57,52 @@ yourlabs.Table.prototype.initialize = function() {
             cursor: 'move',
             helper: $.proxy(this.dragHelper, this),
             start: $.proxy(this.dragStart, this),
-            stop: $.proxy(this.stopDrag, this),
+            stop: $.proxy(this.dragStop, this),
             handle: this.dragHandleSelector,
             tolerance: 'pointer',
             opacity: 0.65,
             axis: 'x',
         });
-
+    
+    this.createPlaceholders();
     
     this.table.find('th, td')
         .droppable({
             greedy: true,
             tolerance: 'pointer',
             over: $.proxy(this.dropOver, this),
-            drop: $.proxy(this.stopDrag, this),
+            drop: $.proxy(this.dragStop, this),
         });
+
     
-    this.createPlaceholders();
+    // this.table.find('th')
+    //     .append(this.resizeHandleHtml)
+
+    // $(this.resizeHandleSelector)
+    //     .on('mousedown', $.proxy(this.resizeStart, this))
+
+    // $(document)
+    //     .on('mousemove', $.proxy(this.resize, this))
+    //     .on('mouseup', $.proxy(this.resizeStop, this))
+
+    // this.createPlaceholders();
 }
+
+// yourlabs.Table.prototype.resizeStart = function(e) {
+//     this.resizing = $(e.currentTarget).parents('th, td');
+//     this.initialX = e.pageX;
+//     this.initialWidth = this.resizing.width();
+// }
+// yourlabs.Table.prototype.resize = function(e) {
+//     if(this.resizing !== false) {
+//         $(this.resizing).width(this.initialWidth+(e.pageX-this.initialX));
+//     }
+// }
+// yourlabs.Table.prototype.resizeStop = function(e) {
+//     if(this.resizing !== false) {
+//         this.resizing = false;
+//     }
+// }
 
 // Remove all placeholder cells.
 yourlabs.Table.prototype.removePlaceholders = function() {
@@ -102,9 +137,9 @@ yourlabs.Table.prototype.dragStart = function(e, ui) {
 
 // On drag stop, get the drop column index, move the cells, trigger columnMoved
 // and clean up.
-yourlabs.Table.prototype.stopDrag = function(e, ui) {
+yourlabs.Table.prototype.dragStop = function(e, ui) {
     if (this.dragIndex == null) {
-        // stopDrag was already called.
+        // dragStop was already called.
         return;
     }
 
