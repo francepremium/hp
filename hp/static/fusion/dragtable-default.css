@@ -16,7 +16,7 @@
 }
 
 .placeholder.active {
-    width: 100px;
+    width: 2px;
     background-color: #90EE90;
     border-color: #90EE90;
 }
