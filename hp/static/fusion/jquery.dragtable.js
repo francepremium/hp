@@ -13,13 +13,10 @@ yourlabs.Table.prototype.initialize = function() {
             cursor: 'move',
             helper: $.proxy(this.draggableHelper, this),
             start: $.proxy(this.draggableStart, this),
-            stop: $.proxy(this.draggableStop, this),
+            stop: $.proxy(this.stopDrag, this),
             handle: '.handle',
             tolerance: 'pointer',
             opacity: 0.65,
-            // snap: '.placeholder',
-            // snapMode: 'inner',
-            // snapTolerance: 50,
             axis: 'x',
         });
 
@@ -41,7 +38,7 @@ yourlabs.Table.prototype.resetDroppable = function() {
             tolerance: 'pointer',
             over: $.proxy(this.droppableOver, this),
             out: $.proxy(this.droppableOut, this),
-            drop: $.proxy(this.droppableDrop, this),
+            drop: $.proxy(this.stopDrag, this),
         });
 }
 
@@ -64,10 +61,22 @@ yourlabs.Table.prototype.draggableStart = function(e, ui) {
     this.getColumn(this.draggingIndex).addClass('dragging');
 }
 
-yourlabs.Table.prototype.draggableStop = function(e, ui) {
+yourlabs.Table.prototype.stopDrag = function(e, ui) {
+    this.droppableIndex = this.table.find('.placeholder.active:first').index();
     this.table.find('.placeholder.active').removeClass('active')
     this.table.find('.dragging').removeClass('dragging');
+
+    var draggedColumn = this.getColumn(this.draggingIndex);
+    var droppedColumn = this.getColumn(this.droppableIndex);
+
+    for (var i=0; i<draggedColumn.length; i++) {
+        $(draggedColumn.get(i)).insertAfter(droppedColumn.get(i))
+    }
+
     this.draggingIndex = null;
+    this.droppableIndex = null;
+
+    this.table.trigger('columnMoved');
 }
 
 yourlabs.Table.prototype.getColumn = function(index) {
@@ -81,25 +90,6 @@ yourlabs.Table.prototype.droppableOver = function(e, ui) {
 
     this.table.find('.placeholder').removeClass('active')
     this.getColumn(this.activePlaceholder).addClass('active')
-}
-
-yourlabs.Table.prototype.droppableOut = function(e, ui) {
-    this.getColumn(this.activePlaceholder).removeClass('active')
-}
-
-yourlabs.Table.prototype.droppableDrop = function(e, ui) {
-    this.table.find('.placeholder.active').removeClass('active')
-
-    var draggedColumn = this.getColumn(this.draggingIndex);
-    var droppedColumn = this.getColumn(this.droppableIndex);
-
-    for (var i=0; i<draggedColumn.length; i++) {
-        $(draggedColumn.get(i)).insertAfter(droppedColumn.get(i))
-    }
-    
-    this.resetDroppable();
-
-    this.table.trigger('columnMoved');
 }
 
 $.fn.yourlabsTable = function(overrides) {
