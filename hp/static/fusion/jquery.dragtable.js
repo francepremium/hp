@@ -97,6 +97,8 @@ yourlabs.Table.prototype.droppableDrop = function(e, ui) {
     for (var i=0; i<draggedColumn.length; i++) {
         $(draggedColumn.get(i)).insertAfter(droppedColumn.get(i))
     }
+    
+    this.resetDroppable();
 
     this.table.trigger('columnMoved');
 }
