@@ -34,7 +34,7 @@ yourlabs.Table.prototype.resetDroppable = function() {
     this.table.find('th, td').before(placeholder);
     this.table.find('tr').append(placeholder)
 
-    this.table.find('th')
+    this.table.find('th, td:not(.placeholder)')
         .droppable({
             hoverClass: 'active',
             greedy: true,
@@ -77,11 +77,10 @@ yourlabs.Table.prototype.getColumn = function(index) {
 yourlabs.Table.prototype.droppableOver = function(e, ui) {
     this.droppableIndex = $(e.target).index() + 1;
 
-    console.log(ui.offset)
     this.activePlaceholder = this.droppableIndex + 1;
 
+    this.table.find('.placeholder').removeClass('active')
     this.getColumn(this.activePlaceholder).addClass('active')
-    console.log(this.droppableIndex, this.draggingIndex)
 }
 
 yourlabs.Table.prototype.droppableOut = function(e, ui) {
