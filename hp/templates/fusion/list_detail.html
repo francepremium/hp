@@ -39,7 +39,7 @@
 {% endblock %}
 
 {% block extra_head %}
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fusion/dragtable.css" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fusion/dragtable-default.css" />
 {% endblock %}
 
 {% block extra_body %}
@@ -56,7 +56,21 @@
             $(this).remove();
         });
 
-        $('table').dragtable({dragHandle:'.some-handle'});
+        $('.bloc-content table')
+            .on('columnMoved', function(e) {
+                var table = $(this).yourlabsTable();
+
+                if (table.xhr) table.xhr.abort();
+
+                data = {};
+
+                table.xhr = $.ajax('/foo', {
+                    'data': JSON.stringify(data),
+                    'type': 'POST',
+                })
+            })
+            .yourlabsTable();
+
     });
 </script>
 {% endblock %}
