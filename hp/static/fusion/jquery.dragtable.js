@@ -15,6 +15,9 @@ yourlabs.Table.prototype.initialize = function() {
             start: $.proxy(this.draggableStart, this),
             stop: $.proxy(this.draggableStop, this),
             handle: '.handle',
+            tolerance: 'pointer',
+            snapTolerance: 50,
+            snapMode: 'inner',
         });
 
     this.resetDroppable();
@@ -36,6 +39,9 @@ yourlabs.Table.prototype.resetDroppable = function() {
             out: $.proxy(this.droppableOut, this),
             drop: $.proxy(this.droppableDrop, this),
         });
+    
+    this.table.find('th')
+        .droppable('option', 'snap', '.placeholder')
 }
 
 yourlabs.Table.prototype.draggableHelper = function(e) {
