@@ -16,8 +16,11 @@ yourlabs.Table.prototype.initialize = function() {
             stop: $.proxy(this.draggableStop, this),
             handle: '.handle',
             tolerance: 'pointer',
-            snapTolerance: 50,
-            snapMode: 'inner',
+            opacity: 0.65,
+            // snap: '.placeholder',
+            // snapMode: 'inner',
+            // snapTolerance: 50,
+            axis: 'x',
         });
 
     this.resetDroppable();
@@ -35,13 +38,11 @@ yourlabs.Table.prototype.resetDroppable = function() {
         .droppable({
             hoverClass: 'active',
             greedy: true,
+            tolerance: 'pointer',
             over: $.proxy(this.droppableOver, this),
             out: $.proxy(this.droppableOut, this),
             drop: $.proxy(this.droppableDrop, this),
         });
-    
-    this.table.find('th')
-        .droppable('option', 'snap', '.placeholder')
 }
 
 yourlabs.Table.prototype.draggableHelper = function(e) {

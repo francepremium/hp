@@ -3,28 +3,12 @@
     background-color: red;
 }
 
-.helper {
-    zoom: 1;
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-    
-    /* This works in IE 8 & 9 too */
-    /* ... but also 5, 6, 7 */
-    filter: alpha(opacity=50);
-    
-    /* Older than Firefox 0.9 */
-    -moz-opacity:0.5;
-    
-    /* Safari 1.x (pre WebKit!) */
-    -khtml-opacity: 0.5;
-    
-    /* Modern!
-    /* Firefox 0.9+, Safari 2?, Chrome any?
-    /* Opera 9+, IE 9+ */
-    opacity: 0.5;
-}
-
 .droppable-target {
     background-color: green;
+}
+
+.helper {
+    width: 80px;
 }
 
 .placeholder {
@@ -32,13 +16,12 @@
 }
 
 .placeholder.usable {
-    width: 20px;
+    width: 100px;
     background-color: #90EE90;
     border-color: #90EE90;
 }
 
 .placeholder.usable.active {
-    width: 100px;
     background-color: green;
     border-color: green;
 }
