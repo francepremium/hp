@@ -42,7 +42,6 @@ yourlabs.Table.prototype.resetDroppable = function() {
             over: $.proxy(this.droppableOver, this),
             out: $.proxy(this.droppableOut, this),
             drop: $.proxy(this.droppableDrop, this),
-            stop: $.proxy(this.droppableStop, this),
         });
 }
 
@@ -86,10 +85,6 @@ yourlabs.Table.prototype.droppableOver = function(e, ui) {
 
 yourlabs.Table.prototype.droppableOut = function(e, ui) {
     this.getColumn(this.activePlaceholder).removeClass('active')
-}
-
-yourlabs.Table.prototype.droppableStop = function(e, ui) {
-    this.table.find('.placeholder.active').removeClass('active')
 }
 
 yourlabs.Table.prototype.droppableDrop = function(e, ui) {

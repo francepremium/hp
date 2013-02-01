@@ -1,6 +1,5 @@
 .dragging {
-    width: 20px;
-    background-color: red;
+    display: none;
 }
 
 .droppable-target {
