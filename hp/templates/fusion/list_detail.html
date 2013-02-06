@@ -9,38 +9,37 @@
 {% block body %}
 <h1>{{ object.feature|capfirst }}</h1>
 
-<div class="row-fluid">
-    <div class="span4">
-        
-        <h2 data-toggle="next">{% trans 'Columns' %}</h2>
-        <div class="filter-box">
-            <form method="post" action="">
-                {% csrf_token %}
-                {{ form|as_bootstrap }}
-                <input type="submit" class="btn success" value="{% trans 'Save' %}" />
-            </form>
-        </div>
-    </div>
+{% if widgets %}
+<div class="dropdown">
+    <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">{% trans 'Add column' %}</a>
+    <ul class="dropdown-menu add-column" role="menu" aria-labelledby="dLabel">
+        {% for widget in widgets %}
+        <li data-widget-pk="{{ widget.pk }}">
+            <a href="#">{{ widget.verbose_name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
 
-    <div class="span8">
-        <div class="context-search">
-            <form method="get" action="">
-                {% if request.GET.q %}
-                <span class="clear-q">&times;</span>
-                {% endif %}
-                <input type="text" name="q" value="{{ request.GET.q }}" />
-                <input type="submit" value="{% trans 'Search' %}" class="btn alt fixed-button" />
-            </form>
-        </div>
-        <div class="bloc-content">
-            {% render_table table %}
-        </div>
+<div class="row-fluid">
+    <div class="context-search">
+        <form method="get" action="">
+            {% if request.GET.q %}
+            <span class="clear-q">&times;</span>
+            {% endif %}
+            <input type="text" name="q" value="{{ request.GET.q }}" />
+            <input type="submit" value="{% trans 'Search' %}" class="btn alt fixed-button" />
+        </form>
+    </div>
+    <div class="bloc-content">
+        {% render_table table %}
     </div>
 </div>
 {% endblock %}
 
 {% block extra_head %}
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fusion/dragtable-default.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fusion/dragtable-default.css" />
 {% endblock %}
 
 {% block extra_body %}
@@ -56,6 +55,30 @@
             $(this).parent().submit();
             $(this).remove();
         });
+
+        $('.add-column li')
+            .on('click', 'a', function(e){
+                e.preventDefault();
+                $.ajax('{% url 'fusion_list_update' object.pk %}', {
+                    'type': 'POST',
+                    'data': {add: $(this).parents('[data-widget-pk]').data('widget-pk')},
+                    'success': function() {
+                        window.location.reload(true); 
+                    }
+                })
+            })
+
+        $('.bloc-content table th')
+            .append('<span class="remove">&times;</span>')
+            .on('click', '.remove', function(e) {
+                $.ajax('{% url 'fusion_list_update' object.pk %}', {
+                    'type': 'POST',
+                    'data': {remove: $(this).parents('[data-widget-pk]').data('widget-pk')},
+                    'success': function() {
+                        window.location.reload(true); 
+                    }
+                });
+            });
 
         $('.bloc-content table')
             .on('columnMoved', function(e) {

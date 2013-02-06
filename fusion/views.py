@@ -8,9 +8,9 @@ from django import http
 
 import django_tables2 as tables
 
+from form_designer.models import Widget
 from formapp.models import Record, RecordsWidget
 
-from forms import ListForm
 from models import List, ListColumn
 
 
@@ -33,9 +33,8 @@ class RecordTable(tables.Table):
     pass
 
 
-class ListDetailView(generic.UpdateView):
+class ListDetailView(generic.DetailView):
     model = List
-    form_class = ListForm
     template_name = 'fusion/list_detail.html'
 
     def get_object(self):
@@ -68,12 +67,22 @@ class ListDetailView(generic.UpdateView):
             '_record_': RecordColumn(),
         }
 
+
+        widgets_qs = Widget.objects.filter(
+            tab__form__appform__app__provides=self.object.feature,
+            tab__form__appform__app__environment=self.object.environment).distinct()
+        widgets_qs = Widget.objects.filter(pk__in=widgets_qs.values_list('pk')
+                                           ).order_by('tab', 'tab__order')
+
         list_columns = ListColumn.objects.filter(list=self.object)
 
         for column in list_columns:
             widget = column.widget.type_cast()
             attrs = {
-                'th': {'data-widget-pk': widget.widget_ptr_id}
+                'th': {
+                    'data-widget-pk': widget.widget_ptr_id,
+                    'data-widget-name': widget.name,
+                }
             }
 
             if isinstance(widget, RecordsWidget):
@@ -84,6 +93,8 @@ class ListDetailView(generic.UpdateView):
                 columns[widget.name] = tables.Column(
                     verbose_name=widget.verbose_name,
                     attrs=attrs)
+
+            widgets_qs = widgets_qs.exclude(name=widget.name)
 
         for name in columns.keys():
             for data in table_data:
@@ -97,9 +108,11 @@ class ListDetailView(generic.UpdateView):
         table = table_class(table_data)
         tables.RequestConfig(self.request).configure(table)
         context['table'] = table
+        context['widgets'] = widgets_qs
 
         return context
 
+### TODO: Secure this
 
 class ListUpdateView(generic.DetailView):
     model = List
@@ -107,16 +120,25 @@ class ListUpdateView(generic.DetailView):
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
 
-        data = json.loads(request.POST['data'])
+        data = json.loads(request.POST.get('data', '[]'))
+        remove = request.POST.get('remove', None)
+        add = request.POST.get('add', None)
 
-        order = 0
-        for column_data in data['columns']:
-            lc, c = ListColumn.objects.get_or_create(
-                list=self.object, widget__pk=column_data['widget_pk'])
+        if data:
+            order = 0
+            for column_data in data['columns']:
+                lc, c = ListColumn.objects.get_or_create(
+                    list=self.object, widget__pk=column_data['widget_pk'])
 
-            lc.order = order
-            lc.save()
+                lc.order = order
+                lc.save()
 
-            order += 1
+                order += 1
+        elif remove:
+            ListColumn.objects.get(widget__pk=remove, list=self.object
+                ).delete()
+        elif add:
+            ListColumn.objects.create(widget=Widget.objects.get(pk=add),
+                list=self.object, order=100)
 
         return http.HttpResponse('')
