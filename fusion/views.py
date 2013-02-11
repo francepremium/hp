@@ -112,10 +112,17 @@ class ListDetailView(generic.DetailView):
 
         return context
 
-### TODO: Secure this
 
 class ListUpdateView(generic.DetailView):
     model = List
+
+    def get_object(self):
+        obj = super(ListUpdateView, self).get_object()
+
+        if obj != request.session['appstore_environment']:
+            return None
+
+        return obj
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
