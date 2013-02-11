@@ -57,7 +57,7 @@ class Command(BaseCommand):
 
     def _get_artists_form(self):
         return Form.objects.get(appform__app__deployed=True,
-            appform__app__provides__name='PB Auteur',
+            appform__app__provides__name='Auteurs',
             appform__app__environment=self.environment)
 
     def import_artists(self, path):
@@ -76,7 +76,7 @@ class Command(BaseCommand):
 
     def _get_artworks_form(self):
         return Form.objects.get(appform__app__deployed=True,
-            appform__app__provides__name='PB Livre',
+            appform__app__provides__name='Livres',
             appform__app__environment=self.environment)
 
     def _get_artist_id_by_name(self, name):
@@ -93,31 +93,9 @@ class Command(BaseCommand):
                 text_data__icontains=nom.strip())
         return records.get(text_data__icontains=prenom.strip()).pk
 
-    def _get_lieu_dedition_form(self):
-        return Form.objects.get(appform__app__deployed=True,
-            appform__app__provides__name='PB Lieu',
-            appform__app__environment=self.environment)
-
-    def _get_lieu_dedition_id_by_name(self, name):
-        form = self._get_lieu_dedition_form()
-
-        records = Record.objects.filter(
-                form__appform__app__provides=form.appform.app.provides,
-                environment=self.environment,
-                text_data__icontains=name.strip())
-
-        if not records.count():
-            record = Record(environment=self.environment, form=form,
-                data={'lieu': name})
-            record.save()
-        else:
-            record = records[0]
-
-        return record.pk
-
     def _get_support_form(self):
         return Form.objects.get(appform__app__deployed=True,
-            appform__app__provides__name='PB Support',
+            appform__app__provides__name='Supports',
             appform__app__environment=self.environment)
 
     def _get_support_id_by_name(self, name):
@@ -140,30 +118,6 @@ class Command(BaseCommand):
 
         return support.pk
 
-    def _get_editeur_id_by_name(self, name):
-        form = self._get_editeur_form()
-
-        if getattr(self, '_editeurs', None) is None:
-            self._editeurs = list(Record.objects.filter(
-                form__appform__app__provides=form.appform.app.provides,
-                environment=self.environment))
-
-        for editeur in self._editeurs:
-            if editeur.data['editeur'] == name:
-                return editeur.pk
-
-        editeur = Record(environment=self.environment, form=form)
-        editeur.data = {'editeur': name}
-        editeur.save()
-
-        self._editeurs.append(editeur)
-
-        return editeur.pk
-
-    def _get_editeur_form(self):
-        return Form.objects.get(appform__app__deployed=True,
-            appform__app__provides__name='PB Editeur',
-            appform__app__environment=self.environment)
 
     def import_artworks(self, path):
         source = codecs.open(path, 'r', 'utf-8')
@@ -179,15 +133,15 @@ class Command(BaseCommand):
             edit_year, volumes, description, comments = row
 
             data = {
-                'ancien_numero_dinventaire': inv,
+                'n_douvrage': inv,
                 'auteur': [self._get_artist_id_by_name(author)],
                 'titre': title,
-                'editeur': [self._get_editeur_id_by_name(editor)],
-                'lieu_dedition': [self._get_lieu_dedition_id_by_name(lieu)],
+                'editeur': editor,
+                'lieu_dedition': lieu,
                 'date_dedition': edit_year,
                 'support': [self._get_support_id_by_name(support)],
                 'commentaire': comments,
-                'identifiant_unique': i,
+                'n_dinventaire': i,
                 'nombre_de_volumes': volumes,
                 'commentaire__': description
             }
