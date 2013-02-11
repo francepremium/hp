@@ -119,13 +119,16 @@ class ListUpdateView(generic.DetailView):
     def get_object(self):
         obj = super(ListUpdateView, self).get_object()
 
-        if obj != request.session['appstore_environment']:
+        if obj.environment != self.request.session['appstore_environment']:
             return None
 
         return obj
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
+
+        if not self.object:
+            raise http.HttpResponseForbidden()
 
         data = json.loads(request.POST.get('data', '[]'))
         remove = request.POST.get('remove', None)
