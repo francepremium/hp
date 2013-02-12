@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-01 09:37+0000\n"
+"POT-Creation-Date: 2013-02-12 10:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,21 +18,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
-#: formapp/models.py:98
+#: formapp/models.py:97
 msgid "Relation to other record"
-msgstr ""
+msgstr "Relation vers un autre objet"
 
-#: formapp/models.py:99
+#: formapp/models.py:98
 msgid "Relations to other record"
-msgstr ""
+msgstr "Relations vers d'autres objets"
 
 #: formapp/views.py:49
 msgid "Please fix the errors in the form to save your changes."
-msgstr ""
+msgstr "Merci de corriger les erreurs dans le formulaire pour sauvegarder vos modifications."
 
 #: formapp/views.py:79 formapp/views.py:107
 msgid "Changes saved."
-msgstr ""
+msgstr "Modifications sauvegardées."
 
 #: hp/templates/_footer.html:4
 msgid ""
@@ -43,25 +43,25 @@ msgstr ""
 #: hp/templates/_login_or_signup_modal.html:11
 #: hp/templates/_login_or_signup_modal.html:14
 msgid "Login or signup"
-msgstr ""
+msgstr "Authentification ou inscription"
 
 #: hp/templates/_login_or_signup_modal.html:19
 #: hp/templates/_login_or_signup_modal.html:23 hp/templates/_navbar.html:84
 msgid "Login"
-msgstr ""
+msgstr "Authentification"
 
 #: hp/templates/_login_or_signup_modal.html:28
 #: hp/templates/_login_or_signup_modal.html:31 hp/templates/_navbar.html:88
 msgid "Signup"
-msgstr ""
+msgstr "Inscription"
 
 #: hp/templates/_login_or_signup_modal.html:36
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: hp/templates/_navbar.html:19
 msgid "Add"
-msgstr ""
+msgstr "Ajouter"
 
 #: hp/templates/_navbar.html:27
 msgid "Browse"
@@ -69,59 +69,59 @@ msgstr "Liste"
 
 #: hp/templates/_navbar.html:36
 msgid "Configure"
-msgstr ""
+msgstr "Configurer"
 
 #: hp/templates/_navbar.html:38
 msgid "Environment"
-msgstr ""
+msgstr "Workspace"
 
 #: hp/templates/_navbar.html:39
 msgid "Users"
-msgstr ""
+msgstr "Utilisateurs"
 
 #: hp/templates/_navbar.html:60
 msgid "My environment"
-msgstr ""
+msgstr "Mon workspace"
 
 #: hp/templates/_navbar.html:68
 msgid "Create new environment"
-msgstr ""
+msgstr "Nouveau workspace"
 
 #: hp/templates/_navbar.html:72
 msgid "My account"
-msgstr ""
+msgstr "Mon compte"
 
 #: hp/templates/_navbar.html:74
 msgid "Account settings"
-msgstr ""
+msgstr "Configuration du compte"
 
 #: hp/templates/_navbar.html:78
 msgid "Logout"
-msgstr ""
+msgstr "Déconnection"
 
 #: hp/templates/_navbar.html:86
 msgid "or"
-msgstr ""
+msgstr "ou"
 
 #: hp/templates/appcategory_detail.html:11
 #: hp/templates/appstore/appcategory_detail.html:12
 msgid "Categories"
-msgstr ""
+msgstr "Catégories"
 
 #: hp/templates/appcategory_detail.html:21
 #: hp/templates/appstore/app_detail.html:17
 #: hp/templates/appstore/appcategory_detail.html:23
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 #: hp/templates/appcategory_detail.html:44
 #: hp/templates/appstore/appcategory_detail.html:47
 msgid "View"
-msgstr ""
+msgstr "Voir"
 
 #: hp/templates/design.html:5 hp/templates/homepage.html:5
 msgid "Welcome"
-msgstr ""
+msgstr "Bienvenue"
 
 #: hp/templates/design.html:10
 msgid "Welcome to Pinax"
@@ -166,150 +166,149 @@ msgstr ""
 
 #: hp/templates/form.html:13 hp/templates/account/password_change.html:18
 #: hp/templates/appstore/app_form.html:12
-#: hp/templates/fusion/list_detail.html:19
 msgid "Save"
-msgstr ""
+msgstr "Sauvegarder"
 
 #: hp/templates/account/base.html:8
 msgid "Settings"
-msgstr ""
+msgstr "Configuration"
 
 #: hp/templates/account/base.html:9
 #: hp/templates/account/password_change.html:7
 #: hp/templates/account/password_change.html:13
 msgid "Change password"
-msgstr ""
+msgstr "Changement de mot de passe"
 
 #: hp/templates/account/base.html:10
 msgid "Delete account"
-msgstr ""
+msgstr "Effacer le compte"
 
 #: hp/templates/account/login.html:7 hp/templates/account/login.html.py:36
 msgid "Log in"
-msgstr ""
+msgstr "Authentification"
 
 #: hp/templates/account/login.html:24
 msgid "Log in to an existing account"
-msgstr ""
+msgstr "Authentification avec un compte existant"
 
 #: hp/templates/account/login.html:37
 msgid "Forgot your password?"
-msgstr ""
+msgstr "Mot de passe oublié?"
 
 #: hp/templates/account/logout.html:6 hp/templates/account/logout.html.py:8
 #: hp/templates/account/logout.html:17
 msgid "Log out"
-msgstr ""
+msgstr "Déconnection"
 
 #: hp/templates/account/logout.html:15
 msgid "Are you sure you want to log out?"
-msgstr ""
+msgstr "Etes-vous certain de vouloir vous déconnecter?"
 
 #: hp/templates/account/signup.html:7 hp/templates/account/signup.html:18
 #: hp/templates/account/signup.html:32
 msgid "Sign up"
-msgstr ""
+msgstr "Inscription"
 
 #: hp/templates/appstore/app_base.html:15
 #: hp/templates/appstore/environment_form.html:42
 msgid "Create app"
-msgstr ""
+msgstr "Nouveau formulaire"
 
 #: hp/templates/appstore/app_base.html:20
 msgid "App"
-msgstr ""
+msgstr "Formulaire"
 
 #: hp/templates/appstore/app_base.html:26
 msgid "Deploy"
-msgstr ""
+msgstr "Déployer"
 
 #: hp/templates/appstore/app_detail.html:12
 msgid "Category"
-msgstr ""
+msgstr "Catégorie"
 
 #: hp/templates/appstore/app_detail.html:13
 msgid "View apps for"
-msgstr ""
+msgstr "Voir les formulaires pour"
 
 #: hp/templates/appstore/app_detail.html:22
 msgid "Description"
-msgstr ""
+msgstr "Déscription"
 
 #: hp/templates/appstore/appcategory_list.html:14
 msgid "View apps in"
-msgstr ""
+msgstr "Voir les formulaires dans"
 
 #: hp/templates/appstore/environment_form.html:8
 msgid "Configure environment"
-msgstr ""
+msgstr "Configuration du workspace"
 
 #: hp/templates/appstore/environment_form.html:16
 msgid "Change name"
-msgstr ""
+msgstr "Changement du nom"
 
 #: hp/templates/appstore/environment_form.html:22
 msgid "Submit"
-msgstr ""
+msgstr "Valider"
 
 #: hp/templates/appstore/environment_form.html:29
 msgid "Delete environment"
-msgstr ""
+msgstr "Effacer le workspace"
 
 #: hp/templates/appstore/environment_form.html:31
 msgid "Danger zone"
-msgstr ""
+msgstr "Zone dangeureuse"
 
 #: hp/templates/appstore/environment_form.html:32
 msgid "There will be no going back"
-msgstr ""
+msgstr "Il sera impossible d'annuler cette action"
 
 #: hp/templates/appstore/environment_form.html:35
 msgid "I understand, delete my environment"
-msgstr ""
+msgstr "J'ai compris, effacer mon workspace"
 
 #: hp/templates/appstore/environment_form.html:42
 msgid "Installed apps"
-msgstr ""
+msgstr "Formulaires installés"
 
 #: hp/templates/appstore/environment_form.html:51
 msgid "Deployed"
-msgstr ""
+msgstr "Déployé"
 
 #: hp/templates/appstore/environment_form.html:51
 msgid "Not deployed"
-msgstr ""
+msgstr "Non déployé"
 
 #: hp/templates/appstore/environment_form.html:52
 msgid "Superseeds"
-msgstr ""
+msgstr "Rend obsolete"
 
 #: hp/templates/appstore/userenvironment_list.html:7
 msgid "Users of environment"
-msgstr ""
+msgstr "Utilisateurs du workspace"
 
 #: hp/templates/appstore/userenvironment_list.html:9
 msgid "Add user"
-msgstr ""
+msgstr "Ajout d'utilisateur"
 
 #: hp/templates/appstore/userenvironment_list.html:16
 msgid "First name"
-msgstr ""
+msgstr "Prénom"
 
 #: hp/templates/appstore/userenvironment_list.html:17
 msgid "Last name"
-msgstr ""
+msgstr "Nom de famille"
 
 #: hp/templates/appstore/userenvironment_list.html:18
 msgid "Email"
-msgstr ""
+msgstr "Courriel"
 
 #: hp/templates/appstore/userenvironment_list.html:19
 msgid "Join date"
-msgstr ""
+msgstr "Date d'inscription"
 
 #: hp/templates/appstore/userenvironment_list.html:20
 msgid "Level"
-msgstr ""
+msgstr "Niveau"
 
 #: hp/templates/appstore/userenvironment_list.html:45
 #, python-format
@@ -317,10 +316,11 @@ msgid ""
 "Are you sure you want to promote %(user)s to administrator in environment "
 "%(environment)s"
 msgstr ""
+"Etes-vous certain de vouloir promouvoir %(user)s au rang d'administrateur dans le workspace %(environment)s"
 
 #: hp/templates/appstore/userenvironment_list.html:47
 msgid "Admin"
-msgstr ""
+msgstr "Administrateur"
 
 #: hp/templates/appstore/userenvironment_list.html:52
 #, python-format
@@ -328,10 +328,11 @@ msgid ""
 "Are you sure you want to demote %(user)s from administrator to user in "
 "environment %(environment)s"
 msgstr ""
+"Etes-vous certain de vouloir rétrograder %(user)s du rang d'administrateur au rang d'utilisateur dans le workspace %(environment)s"
 
 #: hp/templates/appstore/userenvironment_list.html:54
 msgid "User"
-msgstr ""
+msgstr "Utilisateur"
 
 #: hp/templates/appstore/userenvironment_list.html:58
 #, python-format
@@ -339,77 +340,78 @@ msgid ""
 "Are you sure you want to revoke %(user)s's permission to access environment "
 "%(environment)s"
 msgstr ""
+"Etes-vous certain de vouloir révoquer l'acces de %(user)s au workspace %(environment)s"
 
 #: hp/templates/appstore/userenvironment_list.html:60
 msgid "Revoke"
-msgstr ""
+msgstr "Révoquer"
 
 #: hp/templates/appstore/userenvironment_list.html:72
 msgid "Change access to environment"
-msgstr ""
+msgstr "Changer l'acces au workspace"
 
 #: hp/templates/appstore/userenvironment_list.html:77
 msgid "Warning"
-msgstr ""
+msgstr "Avertissement"
 
 #: hp/templates/appstore/userenvironment_list.html:77
 msgid ""
 "After you confirm, you will not be able to administrate this environment "
 "anymore"
-msgstr ""
+msgstr "Après confirmation, vous ne pourrez plus administrer ce workspace"
 
 #: hp/templates/django_tables2/table.html:53
 #, python-format
 msgid "%(count)s of %(total)s"
-msgstr ""
+msgstr "%(count)s sur %(total)s"
 
 #: hp/templates/django_tables2/table.html:58
 #: hp/templates/django_tables2/table.html:60
 msgid "Previous"
-msgstr ""
+msgstr "Précedent"
 
 #: hp/templates/django_tables2/table.html:64
 #, python-format
 msgid "Page %(current)s of %(total)s"
-msgstr ""
+msgstr "Page %(current)s sur %(total)s"
 
 #: hp/templates/django_tables2/table.html:72
 #: hp/templates/django_tables2/table.html:74
 msgid "Next"
-msgstr ""
+msgstr "Suivant"
 
 #: hp/templates/formapp/record_detail.html:10
 msgid "Print"
-msgstr ""
+msgstr "Imprimer"
 
 #: hp/templates/formapp/record_form.html:44
 msgid "Save and add another"
-msgstr ""
+msgstr "Sauvegarder et ajouter un nouveau"
 
 #: hp/templates/formapp/record_form.html:45
 msgid "Save and continue editing"
-msgstr ""
+msgstr "Sauvegarder et continuer les modifications"
 
 #: hp/templates/formapp/record_form.html:73
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "Vous n'avez aucune nouvelle modification."
 
 #: hp/templates/formapp_import/import.html:11
 msgid "Upload"
-msgstr ""
+msgstr "Téléchargement (upload)"
 
 #: hp/templates/fusion/_record_column.html:4
 msgid "Detail"
-msgstr ""
+msgstr "Détail"
 
 #: hp/templates/fusion/_record_column.html:5
 msgid "Modify"
-msgstr ""
+msgstr "Modification"
 
 #: hp/templates/fusion/list_detail.html:14
-msgid "Columns"
-msgstr ""
+msgid "Add column"
+msgstr "Ajouter colonne"
 
-#: hp/templates/fusion/list_detail.html:31
+#: hp/templates/fusion/list_detail.html:32
 msgid "Search"
-msgstr ""
+msgstr "Recherche"
