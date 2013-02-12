@@ -61,6 +61,11 @@ class ListDetailView(generic.DetailView):
                 '_record_': record,
             }
             data.update(record.data)
+
+            for k, v in data.items():
+                if isinstance(v, basestring) and v.isdigit():
+                    data[k] = int(v)
+
             table_data.append(data)
 
         columns = {
