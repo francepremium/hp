@@ -14,9 +14,12 @@
     <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">{% trans 'Add column' %}</a>
     <ul class="dropdown-menu add-column" role="menu" aria-labelledby="dLabel">
         {% for widget in widgets %}
-        <li data-widget-pk="{{ widget.pk }}">
-            <a href="#">{{ widget.verbose_name }}</a>
-        </li>
+            {% ifchanged widget.tab %}
+                <li class="tab-name">{{ widget.tab.verbose_name }}</li>
+            {% endifchanged %}
+            <li class="column" data-widget-pk="{{ widget.pk }}">
+                <a href="#">{{ widget.verbose_name }}</a>
+            </li>
         {% endfor %}
     </ul>
 </div>
