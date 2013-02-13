@@ -412,7 +412,7 @@ msgstr "Sauvegarder et continuer les modifications"
 
 #: hp/templates/formapp/record_form.html:73
 msgid "You have unsaved changes."
-msgstr "Vous n'avez aucune nouvelle modification."
+msgstr "Vous avez des modifications non sauvegardées."
 
 #: hp/templates/formapp_import/import.html:11
 msgid "Upload"
