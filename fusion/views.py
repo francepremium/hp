@@ -47,7 +47,11 @@ class ListDetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         q = self.request.GET.get('q', None)
         if q:
-            records = Record.objects.filter(text_data__icontains=q)
+            if '*' in q:
+                q = q.replace('*', '')
+                records = Record.objects.filter(text_data__icontains=q)
+            else:
+                records = Record.objects.search(q)
         else:
             records = Record.objects.all()
 
