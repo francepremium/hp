@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-12 10:20+0000\n"
+"POT-Creation-Date: 2013-02-13 17:11+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +27,9 @@ msgstr "Relations vers d'autres objets"
 
 #: formapp/views.py:49
 msgid "Please fix the errors in the form to save your changes."
-msgstr "Merci de corriger les erreurs dans le formulaire pour sauvegarder vos modifications."
+msgstr ""
+"Merci de corriger les erreurs dans le formulaire pour sauvegarder vos "
+"modifications."
 
 #: formapp/views.py:79 formapp/views.py:107
 msgid "Changes saved."
@@ -91,7 +92,7 @@ msgstr "Nouveau workspace"
 msgid "My account"
 msgstr "Mon compte"
 
-#: hp/templates/_navbar.html:74
+#: hp/templates/_navbar.html:74 hp/templates/account/base.html:7
 msgid "Account settings"
 msgstr "Configuration du compte"
 
@@ -165,23 +166,37 @@ msgid ""
 msgstr ""
 
 #: hp/templates/form.html:13 hp/templates/account/password_change.html:18
+#: hp/templates/account/settings.html:16
 #: hp/templates/appstore/app_form.html:12
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: hp/templates/account/base.html:8
+#: hp/templates/account/base.html:10
 msgid "Settings"
 msgstr "Configuration"
 
-#: hp/templates/account/base.html:9
+#: hp/templates/account/base.html:11
 #: hp/templates/account/password_change.html:7
 #: hp/templates/account/password_change.html:13
 msgid "Change password"
 msgstr "Changement de mot de passe"
 
-#: hp/templates/account/base.html:10
+#: hp/templates/account/base.html:12 hp/templates/account/delete.html:11
 msgid "Delete account"
 msgstr "Effacer le compte"
+
+#: hp/templates/account/delete.html:12
+#, python-format
+msgid ""
+"If you go ahead and delete your account, your information will be expunged "
+"within %(ACCOUNT_DELETION_EXPUNGE_HOURS)s hours"
+msgstr ""
+"Si you décidez d'effacer votre compte, vos informations seront purgées dans les "
+"%(ACCOUNT_DELETION_EXPUNGE_HOURS)s heures"
+
+#: hp/templates/account/delete.html:16
+msgid "Delete My Account"
+msgstr "Effacer mon compte"
 
 #: hp/templates/account/login.html:7 hp/templates/account/login.html.py:36
 msgid "Log in"
@@ -316,7 +331,8 @@ msgid ""
 "Are you sure you want to promote %(user)s to administrator in environment "
 "%(environment)s"
 msgstr ""
-"Etes-vous certain de vouloir promouvoir %(user)s au rang d'administrateur dans le workspace %(environment)s"
+"Etes-vous certain de vouloir promouvoir %(user)s au rang d'administrateur "
+"dans le workspace %(environment)s"
 
 #: hp/templates/appstore/userenvironment_list.html:47
 msgid "Admin"
@@ -328,7 +344,8 @@ msgid ""
 "Are you sure you want to demote %(user)s from administrator to user in "
 "environment %(environment)s"
 msgstr ""
-"Etes-vous certain de vouloir rétrograder %(user)s du rang d'administrateur au rang d'utilisateur dans le workspace %(environment)s"
+"Etes-vous certain de vouloir rétrograder %(user)s du rang d'administrateur "
+"au rang d'utilisateur dans le workspace %(environment)s"
 
 #: hp/templates/appstore/userenvironment_list.html:54
 msgid "User"
@@ -340,7 +357,8 @@ msgid ""
 "Are you sure you want to revoke %(user)s's permission to access environment "
 "%(environment)s"
 msgstr ""
-"Etes-vous certain de vouloir révoquer l'acces de %(user)s au workspace %(environment)s"
+"Etes-vous certain de vouloir révoquer l'acces de %(user)s au workspace "
+"%(environment)s"
 
 #: hp/templates/appstore/userenvironment_list.html:60
 msgid "Revoke"
@@ -412,6 +430,6 @@ msgstr "Modification"
 msgid "Add column"
 msgstr "Ajouter colonne"
 
-#: hp/templates/fusion/list_detail.html:32
+#: hp/templates/fusion/list_detail.html:35
 msgid "Search"
 msgstr "Recherche"
