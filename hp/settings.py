@@ -61,6 +61,9 @@ USE_I18N = True
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
+SESSION_SECURITY_WARN_AFTER = 3*3600
+SESSION_SECURITY_EXPIRE_AFTER = 5*3600
+
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale.
 USE_L10N = True
