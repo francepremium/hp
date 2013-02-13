@@ -143,7 +143,7 @@ class Command(BaseCommand):
                 'commentaire': comments,
                 'n_dinventaire': i,
                 'nombre_de_volumes': volumes,
-                'commentaire__': description
+                'commentaire_': description
             }
 
             found = None
