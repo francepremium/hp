@@ -7,51 +7,5 @@
 {% block body_class %}home{% endblock %}
 
 {% block content %}
-<h1>Liste des fonctionnalités a tester</h1>
-
-<h2>Utilisateurs</h2>
-<ul>
-    <li>Inscription via <a href="{% url account_signup %}">signup</a></li>
-    <li>Inscription via bouton "Install" dans l'<a href="{% url appstore_appcategory_list %}">appstore</a></li>
-    <li>Login via <a href="{% url account_login %}">login</a></li>
-    <li>Login via bouton "Install" dans l'<a href="{% url appstore_appcategory_list %}">appstore</a></li>
-    <li>"Forgot your password" dans la page de login</li>
-    <li>Que l'inscription crée un environment que l'utilisateur peut administrer</li>
-    <li>Mais auquel les autres ne peuvent ni acceder ni administrer</li>
-    <li>Que je peux inviter des utilisateurs a rejoindre mon environnement</li>
-    <li>Que je peux inviter des utilisateurs a administrer mon environnement</li>
-    <li>Que je peux creer des utilisateurs pour mon environnement</li>
-    <li>Que je peux creer des utilisateurs pour administrer mon environnement</li>
-    <li>Que je recois un mail avec mon mot de passe quand on cree mon utilisateur dans un environment</li>
-    <li>Que je recois un mail lorsqu'on invite mon compte utilisateur a rejoindre un environment</li>
-    <li>Que je peux enlever un utilisateur d'un environment</li>
-    <li>Que je ne peux pas avoir 0 admin dans un environment</li>
-    <li>Que je peux changer promouvoir un utilisateur de mon environment en tant qu'admin</li>
-    <li>Que je peux passer un admin en utilisateur</li>
-</ul>
-
-<h2>Appstore</h2>
-<ul>
-    <li>Que je peux installer une app</li>
-    <li>Que je ne peux pas modifier une app qui n'est pas crée par moi</li>
-    <li>Que je peux copier une app</li>
-    <li>Que je peux modifier seulement mes apps qui ne sont pas "déployées"</li>
-    <li>Que je peux "déployer" une app</li>
-    <li>Que je peux "update" une app, c'est a dire faire une copie spéciale</li>
-    <li>Que "deployer" la copie "update" desinstalle l'app qui était la source de la copie</li>
-    <li>Que je peux utliser l'editeur de formulaire, selon les regles de modification d'app énnoncées ci dessus.</li>
-    <li>Que je peux creer un environment - par exemple pour faire des tests ou pour un client</li>
-    <li>Que je peux "switcher" d'environment</li>
-</ul>
-
-<h2>Securité</h2>
-<p>Je dois coller les URLs des pages auxquelles seul moi devrait pouvoir
-acceder. Ensuite tester qu'un formulaire de login apparait sur ces URLs lorsque
-je suis anonyme, ou authentifié en tant qu'utilisateur qui ne devrait pas avoir
-le droit<p>
-
-<p>Par exemple, je cliques sur "Configure" -> "Environment", j'ai une url a
-copier et a tester.</p>
-<p>Pareil si je cliques sur "Edit" d'une app qui m'appartient.</p>
-<p>Aussi, la session doit etre securisée: auto logout, et fermer le navigateur et le re-ouvrir doit demander le login.</p>
+Hello Publisher 0.2.0
 {% endblock %}
