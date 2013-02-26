@@ -63,7 +63,9 @@ yourlabs.Table.prototype.initialize = function() {
             opacity: 0.65,
             axis: 'x',
         });
-     
+    
+    this.createPlaceholders();
+    
     this.table.find('th, td')
         .droppable({
             greedy: true,
@@ -129,7 +131,6 @@ yourlabs.Table.prototype.dragHelper = function(e) {
 
 // On drag start, note the dragged column index and set dragColumnClass.
 yourlabs.Table.prototype.dragStart = function(e, ui) {
-    this.createPlaceholders();
     this.dragIndex = $(e.currentTarget).index() + 1;
     this.getColumn(this.dragIndex).addClass(this.dragColumnClass);
 }
@@ -164,6 +165,7 @@ yourlabs.Table.prototype.dragStop = function(e, ui) {
     this.removePlaceholders();
     // Trigger columnMoved while the table is clean from fake columns.
     this.table.trigger('columnMoved');
+    this.createPlaceholders();
 }
 
 // Return all cells of a particular column.
