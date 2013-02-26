@@ -26,6 +26,8 @@ class Record(models.Model):
     data = jsonfield.JSONField(db_type='json')
     text_data = models.TextField()
 
+    string_representation = models.CharField(max_length=100, blank=True)
+
     search_index = VectorField()
     objects = SearchManager(
         fields=('text_data',),
@@ -36,20 +38,7 @@ class Record(models.Model):
         return reverse('formapp_record_detail', args=(self.pk,))
 
     def __unicode__(self):
-        bits = []
-
-        i = 0
-        for key, value in self.data.items():
-            if not value:
-                continue
-
-            if isinstance(value, basestring):
-                bits.append(value)
-
-        if not bits:
-            return u'%s #%s' % (self.form.verbose_name, self.pk)
-
-        return u', '.join(bits[:3])
+        return self.string_representation
 
     @property
     def feature(self):
@@ -57,6 +46,39 @@ class Record(models.Model):
 
     class Meta:
         ordering = ('text_data',)
+
+def make_string_representation(instance):
+    out = []
+
+    for widget in Widget.objects.filter(tab__form=instance.form):
+        value = instance.data.get(widget.name, None)
+
+        if value is None:
+            continue
+
+        if isinstance(value, list):
+            continue
+
+        out.append(unicode(value))
+
+        if len(out) == 4:
+            break
+
+    print out
+
+    out = u' / '.join(out)
+
+    if out:
+        out = out[:99].strip()
+        if out[-1] == '/':
+            out = out[:-1]
+            out = out.strip()
+
+    return out
+
+def auto_string_representation(sender, instance, **kwargs):
+    instance.string_representation = make_string_representation(instance)[:98]
+pre_save.connect(auto_string_representation, sender=Record)
 
 
 def text_data(sender, instance, **kwargs):
