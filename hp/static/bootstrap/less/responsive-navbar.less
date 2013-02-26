@@ -14,14 +14,21 @@
     padding-top: 0;
   }
   .top-margin{
-  	margin:0;
+  	margin:10px;
   }
   // Unfix the navbars
   .navbar-fixed-top,
   .navbar-fixed-bottom, 
   .submit-row {
     position: static;
+	height:auto;
+	overflow:auto;
+	
   }
+  .submit-row .btn{
+		margin-bottom:5px;
+		float:none;
+	}
   .navbar-fixed-top {
     //margin-bottom: @baseLineHeight;
   }
@@ -91,23 +98,38 @@
     font-weight: bold;
     color: @navbarLinkColor;
     .border-radius(3px);
+	 
   }
+  .navbar .nav li.dropdown.open > .dropdown-toggle{
+  	color: @white;
+	background-color: @navbarBackground;
+	margin-bottom:0;
+	.border-radius(3px 3px 0 0);
+  }
+  .dropdown-menu a{text-shadow:none;}
   // Buttons
   .nav-collapse .btn {
     padding: 4px 10px 4px;
     font-weight: normal;
     .border-radius(4px);
   }
+  
   .nav-collapse .dropdown-menu li + li a {
     margin-bottom: 2px;
   }
   .nav-collapse .nav > li > a:hover,
   .nav-collapse .dropdown-menu a:hover {
     background-color: @navbarBackground;
+	color:@white;
   }
   .navbar-inverse .nav-collapse .nav > li > a:hover,
   .navbar-inverse .nav-collapse .dropdown-menu a:hover {
     background-color: @navbarInverseBackground;
+	
+  }
+  .nav-collapse .dropdown-menu > li > a:hover {
+    background-color: @hmblue1;
+	
   }
   // Buttons in the navbar
   .nav-collapse.in .btn-group {
@@ -120,13 +142,13 @@
     top: auto;
     left: auto;
     float: none;
-    display: block;
+    /*display: block;*/
     max-width: none;
-    margin: 0 15px;
-    padding: 0;
-    background-color: transparent;
+    margin: 0 0 5px 0 ;
+    padding: 0 15px 5px;
+    background-color: @navbarBackground;
     border: none;
-    .border-radius(0);
+    .border-radius(0 0 3px 3px );
     .box-shadow(none);
   }
   .nav-collapse .dropdown-menu:before,
@@ -141,6 +163,31 @@
     &:after {
       display: none;
     }
+  }
+  .nav-collapse .nav > li.res-li{
+  	width: 44%;
+	display:inline-block;
+	
+  }
+  .nav-collapse .nav > li.res-li.tex{
+  	width: 8%;
+	display:inline-block;
+	text-align:center;
+	
+  }
+  .nav-collapse.collapse .dropdown-box  {
+  	width:100%;
+  	ul{
+  		display:block;
+		width:100%;
+		float:none;
+  	}
+	ul > li{
+		
+	}
+  }
+  .dropdown-menu.dropdown-box ul li.subtitle{
+  	padding-left:0;
   }
   // Forms in navbar
   .nav-collapse .navbar-form,
@@ -167,12 +214,60 @@
   .nav-collapse.collapse {
     overflow: hidden;
     height: 0;
+	position:relative;
+	
   }
   // Navbar button
   .navbar .btn-navbar {
     display: block;
   }
-
+   .nav-collapse.collapse .search_container {
+  	
+	display:none;
+  }
+  .responsive-search{
+  	background:transparent;
+	overflow: hidden;
+    height: 0;
+	display:block;
+	form {
+		width: 100%;
+	}
+	input.search-query{
+		width: 100%;
+		line-height:15px;
+  	padding:4px 8px 4px 34px;
+  	margin-bottom: 0; // Remove the default margin on all inputs
+	color:#b2d0e3;
+	background-image:url(../img/sprite.png);
+    background-repeat:no-repeat;
+    background-position:-670px -89px;
+	background-color:transparent;
+  	border:1px solid #345a81;
+  	outline:0;
+  	text-shadow: 0px 1px 1px #274d75;  	  
+  	.border-radius(3px);
+	.box-shadow(0px 1px 1px 0px #5e86b0, inset 0px 1px 1px 0px #5e86b0);
+  	.transition(all, 0.3s, linear);
+  		&:hover{
+  			border:1px solid #49739d;
+			-webkit-box-shadow: 0px 1px 1px 0px #83a7cc, inset 0px 1px 1px 0px #83a7cc;
+			
+  		}
+		&:active{
+  			background-color:@white;
+  		}
+		&:focus{
+  			color:@white;
+			background-color:#8cb7e1;
+			background-position:-670px -89px;
+			text-shadow: 0px 0px 0px #ffffff;
+			
+  		}
+	}
+	
+  }
+  
   // STATIC NAVBAR
   // -------------
   .navbar-static .navbar-inner {
@@ -193,6 +288,7 @@
   .nav-collapse.collapse {
     height: auto !important;
     overflow: visible !important;
+	
   }
 
 }

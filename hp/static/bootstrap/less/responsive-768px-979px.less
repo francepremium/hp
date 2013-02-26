@@ -15,5 +15,18 @@
   #grid > .input(@gridColumnWidth768, @gridGutterWidth768);
 
   // No need to reset .thumbnails here since it's the same @gridGutterWidth
+[class*="span"],
+  .row-fluid [class*="span"] {
+    float: none;
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    .box-sizing(border-box);
+  }
+  .span12,
+  .row-fluid .span12 {
+    width: 100%;
+    .box-sizing(border-box);
+  }
 
 }

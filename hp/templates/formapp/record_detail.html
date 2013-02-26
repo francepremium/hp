@@ -18,7 +18,7 @@
         <h2>{{ tab.model.verbose_name }}</h2>
         <div class="bloc-content">
         {% for widget in tab.widgets %}
-            <p><span class="detail-label">{{ widget.model.verbose_name }}:</span> {{ widget.value|render_value }}</p>
+            <p><span class="detail-label">{{ widget.model.verbose_name }}:</span> <span class="detail-result">{{ widget.value|render_value }}</span></p>
         {% endfor %}
         </div>
     </div>

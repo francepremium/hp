@@ -10,7 +10,7 @@
 <h1>{{ object.feature|capfirst }}</h1>
 
 {% if widgets %}
-<div class="dropdown">
+<div class="dropdown btn-toolbar">
     <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">{% trans 'Add column' %}</a>
     <ul class="dropdown-menu add-column" role="menu" aria-labelledby="dLabel">
         {% for widget in widgets %}

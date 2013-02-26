@@ -94,7 +94,7 @@ msgstr "Mon compte"
 
 #: hp/templates/_navbar.html:74 hp/templates/account/base.html:7
 msgid "Account settings"
-msgstr "Configuration du compte"
+msgstr "Configuration"
 
 #: hp/templates/_navbar.html:78
 msgid "Logout"
@@ -432,4 +432,4 @@ msgstr "Ajouter colonne"
 
 #: hp/templates/fusion/list_detail.html:35
 msgid "Search"
-msgstr "Recherche"
+msgstr "Chercher"

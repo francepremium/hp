@@ -1,12 +1,19 @@
 {% extends 'site_base.html' %}
 
 {% block body %}
-<ul>
+<div class="row-fluid">
+    <div class="bloc-content">
+        <table class="table">
+        	<tbody>
     {% for record in object_list %}
-    <li>
-        <a href="{% url formapp_record_update record.pk %}">{{ record }}</a>
+    <tr>
+        <td><a href="{% url formapp_record_update record.pk %}">{{ record }}</a></td>
 
-    </li>
+    </tr>
     {% endfor %}
-</ul>
+	</tbody>
+</table>
+    </div>
+</div>
+
 {% endblock %}
