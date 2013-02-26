@@ -96,11 +96,11 @@ class ListDetailView(generic.DetailView):
 
             if isinstance(widget, RecordsWidget):
                 columns[widget.name] = LinkedColumn(
-                    verbose_name=widget.verbose_name,
+                    verbose_name=mark_safe(widget.verbose_name),
                     attrs=attrs)
             else:
                 columns[widget.name] = tables.Column(
-                    verbose_name=widget.verbose_name,
+                    verbose_name=mark_safe(widget.verbose_name),
                     attrs=attrs)
 
             widgets_qs = widgets_qs.exclude(name=widget.name)
