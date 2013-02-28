@@ -26,17 +26,23 @@ span.configuration{ background-position: -674px -295px;}
 span.help{ background-position: -674px -250px;}
 .remove{ background-position: -745px -178px;}
 span.remove{padding:1px;background-position: -747px -180px;}
-.remove:hover{ background-position: -745px -200px;}
+.remove:hover{ background-position: -747px -202px;}
 // Form tools : handle
 // -------------------------------------------------- 
 
 
 .handle{
 	margin:0;
-	background: url(../img/move.png) center left no-repeat;
+	background-image:url('../img/sprite.png');
+	background-repeat:no-repeat;
+	background-clip: content-box;
+	background-position: -674px -269px;	
 	cursor: move;
-	height:15px;
-	padding:0;
+	height:17px;
+	padding:1px;
+	&:hover{
+		background-position: -674px -471px;	
+	}
 }
 tr.ui-sortable-helper{background:@lightblue2}
 // -----

@@ -3,8 +3,10 @@
 {% load i18n %}
 {% if table.page %}
 <div class="table-container">
+	
 {% endif %}
 {% block table %}
+<div class="table-resp">
 <table{% if table.attrs %} {{ table.attrs.as_html }}{% endif %} class="table">
     {% nospaceless %}
     {% block table.thead %}
@@ -44,6 +46,7 @@
     {% endblock table.tfoot %}
     {% endnospaceless %}
 </table>
+</div>
 {% endblock table %}
 
 {% if table.page %}

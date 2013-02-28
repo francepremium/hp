@@ -2,7 +2,16 @@
 // Responsive: Tablet to desktop
 // --------------------------------------------------
 
-
+@media (max-width: 979px){
+    .table-resp {
+        border: 1px solid #e0edf5;
+        width: 100%;
+        overflow: auto;
+		border-radius:2px;
+		table{min-width:500px;}
+		table tr{border-left:0;}
+		}
+}
 @media (min-width: 768px) and (max-width: 979px) {
 
   // Fixed grid
@@ -28,5 +37,11 @@
     width: 100%;
     .box-sizing(border-box);
   }
+  .table-resp {
+       
+		table{min-width:700px;}
+		
+		}
 
 }
+

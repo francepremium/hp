@@ -47,13 +47,14 @@
     th._record_ .remove, th._record_ .handle { display: none; }
     th._record_ { width: 50px; }
 </style>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}responsive-tables.css" />
 {% endblock %}
 
 {% block extra_body %}
 {% block jquery_ui %}
     <script src="{{ STATIC_URL }}fusion/jquery-ui.js" type="text/javascript"></script>
 {% endblock %}
-
+<script type="text/javascript" src="{{ STATIC_URL }}responsive-tables.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}fusion/jquery.dragtable.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
