@@ -6,6 +6,7 @@ from django.views import generic
 from django.utils.translation import ugettext as _
 from django import http
 
+import rules_light
 import django_tables2 as tables
 
 from form_designer.models import Widget
@@ -33,18 +34,26 @@ class RecordTable(tables.Table):
     pass
 
 
-class ListDetailView(generic.DetailView):
-    model = List
-    template_name = 'fusion/list_detail.html'
 
-    def get_object(self):
+class FeatureListDetailRedirectView(generic.RedirectView):
+    def get_redirect_url(self, **kwargs):
         obj, c = List.objects.get_or_create(
             feature_id=self.kwargs['feature_pk'],
             environment=self.request.session['appstore_environment'])
 
-        return obj
+        return obj.get_absolute_url()
+
+
+class ListDetailView(generic.DetailView):
+    model = List
+    template_name = 'fusion/list_detail.html'
 
     def get_context_data(self, **kwargs):
+        rules_light.require(self.request.user, 'fusion.list.detail',
+                self.object)
+
+        self.request.session['appstore_environment'] = self.object.environment
+
         q = self.request.GET.get('q', None)
         if q:
             if '*' in q:
@@ -57,7 +66,7 @@ class ListDetailView(generic.DetailView):
 
         records = records.filter(
             environment=self.request.session['appstore_environment'],
-            form__appform__app__provides_id=self.kwargs['feature_pk'])
+            form__appform__app__provides_id=self.object.feature.pk)
 
         table_data = []
         for record in records:
