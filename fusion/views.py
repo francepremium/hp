@@ -6,6 +6,7 @@ from django.views import generic
 from django.utils.translation import ugettext as _
 from django import http
 
+import rules_light
 import django_tables2 as tables
 
 from form_designer.models import Widget
@@ -48,6 +49,9 @@ class ListDetailView(generic.DetailView):
     template_name = 'fusion/list_detail.html'
 
     def get_context_data(self, **kwargs):
+        rules_light.require(self.request.user, 'fusion.list.detail',
+                self.object)
+
         self.request.session['appstore_environment'] = self.object.environment
 
         q = self.request.GET.get('q', None)
