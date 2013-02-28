@@ -12,7 +12,7 @@ class List(models.Model):
     columns = models.ManyToManyField('form_designer.Widget', through='ListColumn')
 
     def get_absolute_url(self):
-        return reverse('fusion_list_detail', args=(self.feature.pk,))
+        return reverse('fusion_list_detail', args=(self.pk,))
 
 
 class ListColumn(models.Model):
