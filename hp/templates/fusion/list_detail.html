@@ -77,7 +77,7 @@
             })
 
         $('.bloc-content table th')
-            .append('<span class="remove">&times;</span>')
+            .prepend('<span class="remove"></span>')
             .on('click', '.remove', function(e) {
                 $.ajax('{% url 'fusion_list_update' object.pk %}', {
                     'type': 'POST',
